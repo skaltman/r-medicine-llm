@@ -1,4 +1,4 @@
-# Getting Started with LLM APIs in R
+# LLMs for Data Analysis in R
 
 ### R/Medicine 2026
 

@@ -1,6 +1,6 @@
 ---
 title: Welcome!
-subtitle: Getting Started with LLM APIs in R
+subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
 footer: skaltman.github.io/r-medicine-llm
@@ -9,7 +9,7 @@ editor:
   render-on-save: true
 ---
 
-## Welcome to [Getting Started with LLM APIs in R]{.dark-blue}! 
+## Welcome to [LLMs for Data Analysis in R]{.dark-blue}! 
 
 ![](../assets/icons/github.svg){width="32px" style="vertical-align: middle"} **Workshop repo:** <https://github.com/skaltman/r-medicine-llm>
 

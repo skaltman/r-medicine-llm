@@ -1,5 +1,5 @@
 ---
-title: Getting Started with LLM APIs in R
+title: LLMs for Data Analysis in R
 subtitle: R/Medicine 2026
 
 sidebar: false

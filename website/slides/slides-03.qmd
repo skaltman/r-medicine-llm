@@ -1,6 +1,6 @@
 ---
 title: Programming with LLMs
-subtitle: Getting Started with LLM APIs in R
+subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
 editor:
