@@ -1,0 +1,76 @@
+project:
+  type: website
+  preview:
+    port: 7567
+  render:
+    - "./*.qmd"
+    - "slides/*.qmd"
+    - "about/index.qmd"
+  resources:
+    - slides
+
+website:
+  site-url: https://skaltman.github.io/r-medicine-llm
+
+  favicon: assets/icons/logo-rmedicine.png
+
+  repo-url: https://github.com/skaltman/r-medicine-llm
+  repo-subdir: website
+  repo-actions: [edit, issue]
+
+  navbar:
+    background: "#297075"
+    foreground: white
+    left:
+      - href: index.qmd
+        text: Home
+      - href: workshop.qmd
+        text: Workshop
+      - href: setup.qmd
+        text: Setup
+    tools:
+      - icon: github
+        href: https://github.com/skaltman/r-medicine-llm
+        aria-label: Workshop materials
+
+  page-navigation: true
+
+  sidebar:
+    - id: workshop
+      style: docked
+      type: light
+      background: light
+      foreground: dark
+      contents:
+        - workshop.qmd
+        - workshop-01.qmd
+        - workshop-02.qmd
+        - workshop-03.qmd
+        - workshop-04.qmd
+        - workshop-05.qmd
+
+format:
+  html:
+    theme: [zephyr, styles.scss, styles-page-transition.scss]
+    toc: true
+    lightbox: true
+    include-in-header:
+      - text: '<meta name="theme-color" content="black">'
+    include-before-body:
+      - text: <script>document.querySelector('.navbar').dataset.bsTheme = 'dark';</script>
+      - text: |
+          <script>
+            const icons = document.querySelectorAll(".quarto-navigation-tool")
+            icons.forEach(icon => {
+              icon.dataset.bsToggle = "tooltip"
+              icon.dataset.bsPlacement = "bottom"
+              icon.dataset.bsTitle = icon.getAttribute("aria-label")
+              new bootstrap.Tooltip(icon)
+            })
+          </script>
+
+filters:
+  - auto-dark
+
+editor:
+  render-on-save: true
