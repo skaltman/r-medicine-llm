@@ -317,6 +317,22 @@ Now practice - add a tool to the quiz game that plays sounds. This reinforces th
 Follow up question: why send a string back to the LLM that says the sound was played?
 :::
 
+## Built-in web search tools
+
+::: notes
+ellmer also comes with built-in tools for popular providers. These solve the exact problem we saw earlier - the model couldn't look up current information. With a web search tool, it can.
+:::
+
+```{.r}
+chat <- chat_anthropic()
+chat$register_tool(claude_tool_web_search())
+chat$chat("Who are the keynote speakers at R/Medicine 2026?")
+```
+
+::: fragment
+Also available: `openai_tool_web_search()`, `google_tool_web_search()`
+:::
+
 ## Tools in Shiny
 
 ::: notes
@@ -354,6 +370,10 @@ These are the Posit packages for working with AI. We've focused on ellmer and sh
 **Databot**: <https://positron.posit.co/databot.html>
 
 * EDA assistant for Positron.
+
+**vitals**: <https://github.com/posit-dev/vitals>
+
+* Evaluate LLM performance with systematic benchmarks.
 
 **Posit AI newsletter**: <https://posit.co/blog/?post_tag=ai-newsletter>
 

@@ -22,7 +22,7 @@ First, let's see how well LLMs can interpret real data visualizations. Create a 
 
 1. ellmer lets you show the model your plots!
 
-2. Create a basic `mtcars` scatter plot and ask Claude Sonnet 4.5 to interpret it.
+2. Create a basic `mtcars` scatter plot and ask Claude Sonnet 4.6 to interpret it.
 
 3. How does it do? Experiment with other plots!
 
@@ -40,7 +40,7 @@ Now let's explore hallucination. Show the model random noise and see if you can 
 
 1. Replace the scatter plot with random noise.
 
-2. Show this new plot to Claude Sonnet 4.5 and ask it to interpret it. How does it do this time?
+2. Show this new plot to Claude Sonnet 4.6 and ask it to interpret it. How does it do this time?
 
 3. Experiment to see if you can improve the prompt to get a better answer.
 
@@ -85,7 +85,7 @@ chat <-
 :::
 
 ::: notes
-> There's going to be 3 questions we're usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude Sonnet 4.5, or GPT 4.1?
+> There's going to be 3 questions we're usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude Sonnet 4.6, or GPT-5.4?
 >
 > so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?
 >

@@ -10,7 +10,7 @@ age_free_text <- list(
 )
 
 chat <- chat(
-  "openai/gpt-5-nano",
+  "openai/gpt-5.4-nano",
   system_prompt = "Extract the name and age."
 )
 
@@ -24,14 +24,14 @@ type_person <- type_object(
 chat$chat_structured(age_free_text[[1]], type = type_person)
 
 
-chat <- chat("openai/gpt-5-nano")
+chat <- chat("openai/gpt-5.4-nano")
 chat$chat_structured(age_free_text, type = type_person)
 chat
 
 
 parallel_chat_structured(chat, as.list(age_free_text), type = type_person)
 
-chat <- chat("anthropic/claude-3-5-haiku-20241022")
+chat <- chat("anthropic/claude-haiku-4-5-20251001")
 batch_chat_structured(
   chat,
   age_free_text,

@@ -21,4 +21,4 @@ chat <- chat_openai(model = "gpt-4.1-nano")
 
 # Register the tool with the chatbot
 
-chat$chat("What should I wear to posit::conf(2025) in Atlanta?")
+chat$chat("What should I wear to R/Medicine 2026?")

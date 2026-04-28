@@ -20,7 +20,7 @@ ggplot() +
   ) +
   theme_bw()
 
-chat <- chat("anthropic/claude-sonnet-4-20250514", echo = "output")
+chat <- chat("anthropic/claude-sonnet-4-6", echo = "output")
 chat$chat(
   "Interpret this plot of mtcars.",
   content_image_plot()

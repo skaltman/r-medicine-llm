@@ -98,7 +98,7 @@ I'll monitor it and also consolidate questions to answer when we regroup
 
 ::: notes
 here's a rough schedule of what we're going to be covering today
-this is only a two hour workshop, so there's a lot more to discover afterwards
+this is only a three hour workshop, so there's a lot more to discover afterwards
 
 my goal is to show you what's possible with llm apis from r and give you a good strating point
 so you'll walk away understanding the basics of how to call llm apis from R,

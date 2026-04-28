@@ -47,7 +47,7 @@ ui <- page_fillable(
 
 server <- function(input, output, session) {
   client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+    "anthropic/claude-sonnet-4-6",
     system_prompt = interpolate_file(
       here::here("_exercises/10_quiz-game-2/prompt.md")
     )

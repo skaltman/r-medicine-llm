@@ -223,8 +223,8 @@ Here's a comparison table if you want to see the specific numbers for different 
 
 Generally: just start with a recent frontier model.
 
-* GPT-5
-* Claude Sonnet 4.5
+* GPT-5.4
+* Claude Sonnet 4.6
 * Gemini 2.5 Pro
 
 ::: notes
@@ -249,7 +249,7 @@ Now let's see how to actually use different providers and models in ellmer. Ellm
 ::: incremental
 * `chat_openai()`
 
-* `chat_anthropic()`
+* `chat_anthropic()` / `chat_claude()`
 
 * `chat_google_gemini()`
 :::
@@ -291,7 +291,7 @@ chat <- chat("anthropic")
 ## Chat in Easy Mode {transition="fade"}
 
 ::: notes
-See? It tells you which model it chose - Claude Sonnet 4.5.
+See? It tells you which model it chose - Claude Sonnet 4.6.
 :::
 
 ::: {style="--code-font-size: 0.9em"}
@@ -300,7 +300,7 @@ See? It tells you which model it chose - Claude Sonnet 4.5.
 library(ellmer)
 
 chat <- chat("anthropic")
-#> Using model = "claude-sonnet-4-5-20250929".
+#> Using model = "claude-sonnet-4-6".
 ```
 :::
 
@@ -352,16 +352,16 @@ Try using different models and see how they compare. This activity helps you get
 ## Favorite models for today
 
 ::: notes
-These are the models I recommend using today. Nano and Haiku are fast, GPT-5 and Sonnet 4.5 are smarter. Pick based on what you're doing.
+These are the models I recommend using today. Nano and Haiku are fast, GPT-5.4 and Sonnet 4.6 are smarter. Pick based on what you're doing.
 :::
 
 * OpenAI
     * `gpt-4.1-nano`
-    * `gpt-5`
+    * `gpt-5.4`
 
 * Anthropic
-    * `claude-sonnet-4-5-20250929`
-    * `claude-3-5-haiku-20241022`
+    * `claude-sonnet-4-6`
+    * `claude-haiku-4-5-20251001`
 
 ## How to choose a model
 
@@ -625,7 +625,7 @@ But with an LLM, you can just ask it to extract the name and age. Much simpler!
 library(ellmer)
 
 chat <- chat(
-  "openai/gpt-5-nano",
+  "openai/gpt-5.4-nano",
   system_prompt = "Extract the name and age."
 )
 
@@ -646,7 +646,7 @@ And it works! The LLM correctly extracts names and ages. But the output is still
 library(ellmer)
 
 chat <- chat(
-  "openai/gpt-5-nano",
+  "openai/gpt-5.4-nano",
   system_prompt = "Extract the name and age."
 )
 

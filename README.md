@@ -35,11 +35,13 @@ The Posit Cloud workspace includes all files, API keys, and packages you'll need
 
 | Time          |   | Activity                       |
 | ------------- |---| ------------------------------ |
-| 01:00 - 01:15 | 👋 | Intro                          |
-| 01:15 - 01:55 | 💬 | Anatomy of a conversation      |
-| 01:55 - 02:25 | 💻 | Programming with LLMs          |
-| 02:25 - 02:40 | ✍️  | Prompt engineering             |
-| 02:40 - 03:00 | 🛠️  | Tool calling                   |
+| 11:00 - 11:15 | 👋 | Intro                          |
+| 11:15 - 12:00 | 💬 | Anatomy of a conversation      |
+| 12:00 - 12:40 | 💻 | Programming with LLMs          |
+| 12:40 - 12:50 | ☕ | Break                          |
+| 12:50 - 13:15 | ✍️  | Prompt engineering             |
+| 13:15 - 13:50 | 🛠️  | Tool calling                   |
+| 13:50 - 14:00 | 🎁 | Wrap-up and resources          |
 
 -----
 

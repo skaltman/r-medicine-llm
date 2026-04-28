@@ -13,7 +13,7 @@ ui <- page_fillable(
 
 server <- function(input, output, session) {
   client <- chat(
-    "anthropic/claude-3-7-sonnet-20250219",
+    "anthropic/claude-sonnet-4-6",
     system_prompt = readr::read_file(
       here::here("_solutions/09_quiz-game-1/prompt.md")
     )
