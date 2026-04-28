@@ -1,0 +1,18 @@
+---
+title: Set up Posit Cloud
+---
+
+{{< include partials/links.qmd >}}
+
+::: lead
+Join the Posit Cloud workspace at [{{< meta workshop.links.cloud_short.text >}}]({{< meta workshop.links.cloud_short.href >}}).
+:::
+
+I've prepared a Posit Cloud workspace for workshop participants with a project for you to use during our time together. **The project contains all of the files, API keys, and packages pre-installed and ready to go.** All you need to do is log in and start coding!
+
+1. If you don't already have a Posit Cloud account, first [sign up for a free account](https://posit.cloud/plans). You can create an account with your email or login with Google, GitHub or Clever.
+
+2. Then, join the workspace on Posit Cloud: [{{< meta workshop.links.cloud_short.href >}}]({{< meta workshop.links.cloud_short.href >}}).
+
+3. Once you're part of the workspace, navigate to _Content_, then select the `r-medicine-llm` project to create and launch a new project just for you. 
+
