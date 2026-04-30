@@ -34,109 +34,46 @@ how is this happening?
 The entire conversation happens via HTTP requests and responses
 :::
 
-## What's an HTTP request?
-
-::: notes
-HTTP requests power the internet.
-
-When you visit a website, your browser sends an HTTP request to the server hosting that website.
-The server responds to the request by sending back the HTML of the webpage.
-And then your browser makes a bunch more requests to get the images, stylesheets, and scripts that make up the page, etc.
-:::
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-google-.+[.]svg$",
-  template = r"(::: {{.mt6}}
-{{{{< include {path} >}}}}
-:::)",
-  collapse = "\n\n## What's an HTTP request?\n\n::: notes\nHTTP requests power the internet.\n\nWhen you visit a website, your browser sends an HTTP request to the server hosting that website.\nThe server responds to the request by sending back the HTML of the webpage.\nAnd then your browser makes a bunch more requests to get the images, stylesheets, and scripts that make up the page, etc.\n:::\n\n"
-)
-```
-
-## Talking with ChatGPT happens via HTTP
-
-::: notes
-Talking to an LLM like ChatGPT also happens via HTTP requests.
-When you send a message to ChatGPT, you're sending an HTTP request to OpenAI's servers, this time a `POST` request.
-
-OpenAI processes the request, runs the model, gets the answer and sends it back to you as the response to that POST request.
-:::
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-chat-.+[.]svg$",
-  template = r"(::: {{.mt6}}
-{{{{< include {path} >}}}}
-:::
-  )",
-  collapse = "\n\n## Talking with ChatGPT happens via HTTP\n\n::: notes\nTalking to an LLM like ChatGPT also happens via HTTP requests.\nWhen you send a message to ChatGPT, you're sending an HTTP request to OpenAI's servers, this time a `POST` request.\n\nOpenAI processes the request, runs the model, gets the answer and sends it back to you as the response to that POST request.\n:::\n\n"
-)
-```
-
-## Messages have roles
-
-::: notes
-Now let's talk about how these messages are structured.
-
-When you send a message to an LLM, you're not just sending text -
-you're sending text with a specific ROLE attached to it.
-
-There are three main roles that messages can have, and understanding
-these roles is key to working with LLMs programmatically.
-
-- Then USER role - marks what the person using your app types
-- And ASSISTANT role - marks what the LLM responds with
-
-This might seem like a small detail, but these roles are fundamental to
-how you control and guide LLM behavior.
-:::
-
-```{r}
-#| output: asis
-
-incremental_slides(
-  pattern = "intro-conversation-roles-.+[.]svg$",
-  template = r"(::: {{.tc}}
-{{{{< include {path} >}}}}
-:::)",
-  collapse = "\n\n## Messages have roles\n\n::: notes\nNow let's talk about how these messages are structured.\n\nWhen you send a message to an LLM, you're not just sending text -\nyou're sending text with a specific ROLE attached to it.\n\nThere are three main roles that messages can have, and understanding\nthese roles is key to working with LLMs programmatically.\n\n[As the diagrams appear]\n- USER messages - what the person using your app types\n- And ASSISTANT messages - what the LLM responds with\n\nThis might seem like a small detail, but these roles are fundamental to\nhow you control and guide LLM behavior.\n\n\n\nthere's also the SYSTEM PROMPT - This is your instruction manual for the LLM. It's where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across
-the entire conversation and shapes how the assistant responds to every
-user message.\n:::\n\n"
-)
-```
-
-## Message roles
-
-::: notes
-to recap
-:::
-
-| Role        | Description                                                       |
-|:-----------|:---------------------------------------------------------------|
-| `system_prompt` | Instructions from the developer (that's you!)<br>to set the behavior of the assistant |
-| `user`       | Messages from the person interacting<br>with the assistant        |
-| `assistant`  | The AI model's responses to the user                           |
-
-## {.center}
-
-::: notes
-So now that we understand how messages work and what roles they play,
-let's see how to actually DO this in R.
-
-ellmer is an open source R package from Posit that makes it easy to work with LLMs.
-It handles all the HTTP requests and API details for you,
-so you can focus on building with LLMs rather than wrestling with API documentation.
-
-
-Let's see what the code looks like.
-:::
+## We can do this from R!
 
 ![](../assets/logos/ellmer.png){style="max-width: 100%; max-height: 500px; display: block; margin-left: auto; margin-right: auto;"}
+
+::: footer
+<https://ellmer.tidyverse.org>
+:::
+
+##
+
+::: {style="--code-font-size: 0.9em"}
+```{.r}
+library(ellmer)
+
+chat <- chat("anthropic")
+
+chat$chat("Tell me a quick fact about sheep.")
+```
+:::
+
+##
+
+::: {style="--code-font-size: 0.9em"}
+```{.r}
+library(ellmer)
+
+chat <- chat("anthropic")
+
+chat$chat("Tell me a quick fact about sheep.")
+#> Sheep have rectangular pupils that give them 
+#> a nearly 360-degree field of vision, 
+#> allowing them to see predators approaching 
+#> from almost any direction without turning 
+#> their heads.
+```
+:::
+
+## How does this work?
+
+Most LLMs are accessible through HTTP APIs
 
 ## {transition="fade"}
 
@@ -161,7 +98,7 @@ The chat object is what we'll use to send messages and get responses.
 ```{.r code-line-numbers="3"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat("anthropic")
 ```
 :::
 
@@ -177,7 +114,7 @@ and pass in our message as a string.
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat("anthropic")
 
 chat$chat("Tell me a quick fact about sheep.")
 ```
@@ -197,20 +134,18 @@ The assistant role is the response we got back.
 :::
 
 ::: {style="--code-font-size: 0.9em"}
-```{.r code-line-numbers="5-8"}
+```{.r code-line-numbers="6-10"}
 library(ellmer)
 
-chat <- chat_openai()
+chat <- chat("anthropic")
 
 chat$chat("Tell me a quick fact about sheep.")
-#> Sheep have excellent memories—they can remember up
-#> to 50 individual sheep faces and even recognize
-#> human faces for years!
+#> Sheep have rectangular pupils that give them 
+#> a nearly 360-degree field of vision, 
+#> allowing them to see predators approaching 
+#> from almost any direction without turning 
+#> their heads.
 ```
-:::
-
-::: {.fragment .absolute top=30 right=30 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
-❓ What are the **user** and **assistant** roles in this example?
 :::
 
 ## {transition="fade"}
@@ -226,27 +161,70 @@ but what about the third role -- the system prompt? where is that?
 we didn't set up one, so the model just uses whatever behavior it defaults to
 :::
 
-::: {style="--code-font-size: 0.9em"}
+::: {style="--code-font-size: 0.7em"}
 ```r
 chat
 ```
-```{.markdown code-line-numbers=false}
-<Chat OpenAI/gpt-4.1 turns=2 tokens=15/23 $0.00>
-── user [15] ───────────────────────────────────────────────────────────────────────────────────
-tell me a quick fact about sheep
-── assistant [23] ──────────────────────────────────────────────────────────────────────────────
-Sheep have excellent memories—they can remember up to 50 individual sheep faces and even recognize human faces for years!
+```{.markdown code-line-numbers="|2|2,4"}
+<Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00>
+── user ─────────────────────────────────────────────────────────────────────────────────
+Tell me a quick fact about sheep.
+── assistant [input=15 output=37 cost=$0.00] ────────────────────────────────────────────
+Sheep have rectangular pupils that give them a nearly 360-degree field of vision, allowing them to see predators approaching from almost any direction without turning their heads.
 ```
 :::
 
-::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
-❓ What about the **system prompt?**
+::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-teal bg-washed-green dark-green pa3 br2 flex items-start tl"}
+Messages have **roles**.
 :::
+
+::: notes
+Now let's talk about how these messages are structured.
+
+When you send a message to an LLM, you're not just sending text -
+you're sending text with a specific ROLE attached to it.
+
+There are three main roles that messages can have, and understanding
+these roles is key to working with LLMs programmatically.
+
+- Then USER role - marks what the person using your app types
+- And ASSISTANT role - marks what the LLM responds with
+
+This might seem like a small detail, but these roles are fundamental to
+how you control and guide LLM behavior.
+:::
+
+## 
+
+```{r}
+#| output: asis
+incremental_slides(
+  pattern = "conversation-roles-.+[.]svg$",
+  template = r"(![]({path}){{style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}}
+)",
+  collapse = "\n\n## \n\n::: notes\nNow let's talk about how these messages are structured.\n\nWhen you send a message to an LLM, you're not just sending text -\nyou're sending text with a specific ROLE attached to it.\n\nThere are three main roles that messages can have, and understanding\nthese roles is key to working with LLMs programmatically.\n\n[As the diagrams appear]\n- USER messages - what the person using your app types\n- And ASSISTANT messages - what the LLM responds with\n\nThis might seem like a small detail, but these roles are fundamental to\nhow you control and guide LLM behavior.\n\n\n\nthere's also the SYSTEM PROMPT - This is your instruction manual for the LLM. It's where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across
+the entire conversation and shapes how the assistant responds to every
+user message.\n:::\n\n"
+)
+```
+
+## Message roles
+
+::: notes
+to recap
+:::
+
+| Role        | Description                                                       |
+|:-----------|:---------------------------------------------------------------|
+| `system_prompt` | Instructions from the developer (i.e., you)<br>to set the behavior of the assistant |
+| `user`       | Messages from the person interacting<br>with the assistant        |
+| `assistant`  | The AI model's responses to the user         
+
 
 ## {transition="fade"}
 
 ::: notes
-the chat_openai() function includes a system_prompt argument where you can set a system prompt
+the chat() functions includes a system_prompt argument where you can set a system prompt
 Let's try adding one
 
 This is a silly example - we're telling the model to always answer in haikus.
@@ -254,10 +232,11 @@ But it demonstrates how system prompts work and can control model behavior
 :::
 
 ::: {.smaller style="--code-font-size: 0.9em"}
-```{.r code-line-numbers="3-5"}
+```{.r code-line-numbers="3-6"}
 library(ellmer)
 
-chat <- chat_openai(
+chat <- chat(
+  "anthropic",
   system_prompt = "Always answer in haikus."
 )
 
@@ -276,10 +255,11 @@ this is really powerful because you can exert quite a bit of control over how th
 
 ::: {.smaller style="--code-font-size: 0.9em"}
 
-```{.r code-line-numbers="7"}
+```{.r code-line-numbers="8"}
 library(ellmer)
 
-chat <- chat_openai(
+chat <- chat(
+  "anthropic",
   system_prompt = "Always answer in haikus."
 )
 
@@ -288,9 +268,9 @@ chat$chat("What is chirality?")
 
 ::: fragment
 ```{.markdown code-line-numbers=false}
-Left and right differ—
-mirrored, yet not the same thing.
-Chirality's twist.
+Molecules can twist,
+Left hand, right hand—mirror forms,
+Same but different.
 ```
 :::
 :::
@@ -301,8 +281,7 @@ Chirality's twist.
 Now when we inspect the chat object, we can see all three roles - system, user, and assistant. The system prompt is there shaping the conversation.
 :::
 
-::: {.smaller style="--code-font-size: 0.9em"}
-[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+::: {.smaller style="--code-font-size: 0.7em"}
 
 ```{.r code-line-numbers="7"}
 chat
@@ -310,40 +289,36 @@ chat
 
 ::: fragment
 ```{.markdown code-line-numbers=false}
-<Chat OpenAI/gpt-4.1 turns=3 tokens=22/22 $0.00>
-── system [0] ───────────────────────────────────────────────────────────────────────────────────────────
+<Chat Anthropic/claude-sonnet-4-5 turns=3 input=17 output=23 cost=$0.00>
+── system ───────────────────────────────────────────────────────────────────────────────
 Always answer in haikus.
-── user [22] ────────────────────────────────────────────────────────────────────────────────────────────
-What is chirality?
-── assistant [22] ───────────────────────────────────────────────────────────────────────────────────────
-Left and right differ—  
-mirrored, yet not the same thing.  
-Chirality's twist.
+── user ─────────────────────────────────────────────────────────────────────────────────
+what is chirality
+── assistant [input=17 output=23 cost=$0.00] ────────────────────────────────────────────
+Molecules can twist,
+Left hand, right hand—mirror forms,
+Same but different.
 ```
 :::
 :::
 
 
-# Your Turn `02_word-game` {.slide-your-turn}
+# Your Turn `02_conversation` {.slide-your-turn}
 
-1. Set up a `chat` with a system prompt:
+1. Set up a `chat` with a system prompt instructing the model to answer briefly.
 
-   > You are playing a word guessing game. At each turn, guess the word and tell us what it is.
+2. **Ask:** _What ellmer function tells me what Anthropic models are available?_
 
-2. **Ask:** _In British English, guess the word for the person who lives next door._
+3. **Ask:** _What about OpenAI models?_
 
-3. **Ask:** _What helps a car move smoothly down the road?_
+4. Create a new `chat` with no system prompt and ask the second question again.
 
-4. Create a new, empty `chat` and ask the second question again.
-
-5. How do the answers to 3 and 4 differ? Why?
+5. How do the answers to 3 and 4 differ? Think about both the content and the style.
 
 {{< countdown 5:00 left=0 bottom="-2em" >}}
 
 ::: notes
- 1. Chat objects maintain conversation history - the original chat "remembers" the British English
-  context
-  2. New chat objects start with no history - creating a new chat means starting fresh
+Two takeaways: (1) the system prompt persists across chat() calls — the first chat answers briefly throughout, (2) a new chat object has no memory and no system prompt — it doesn't know you were asking about ellmer, and it gives a longer answer.
 :::
 
 
@@ -354,24 +329,6 @@ Demo showing what's really happening behind the scenes - the full conversation h
 :::
 
 👩‍💻 [_demos/03_clearbot/app.py]{.code .b .purple}
-
-**System prompt:**
-
-```{.markdown code-line-numbers=false}
-You are playing a word guessing game. At each turn, guess the word and tell us what it is.
-```
-
-**First question:**
-
-```{.markdown code-line-numbers=false}
-In British English, guess the word for the person who lives next door.
-```
-
-**Second question:**
-
-```{.markdown code-line-numbers=false}
-What helps a car move smoothly down the road?
-```
 
 ## {.center}
 
@@ -545,17 +502,17 @@ Some motivational words by Joe urging everyone to approach LLMs with curiosity a
 - Empirical testing reveals actual capabilities vs. theoretical limitations
 :::
 
-## LLMs are jagged {.center}
+## 
 
 ::: notes
 Don't expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones.
 :::
 
-![](assets/model-performance-smooth.png){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+![](assets/task-llm-smooth.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
 ## LLMs are jagged {.center}
 
-![](assets/model-performance-jagged.png){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
+![](assets/task-llm-jagged.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
 # [Embrace the Experimental Process]{.dib .bg-black .ph4 .white style="position: relative; top: 5em;"} {.no-invert-dark-mode background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" background-size="cover" background-position="center"}
 
@@ -629,205 +586,5 @@ This demo shows live_console() and live_browser() - easy ways to chat with an LL
 
 👩‍💻 [_demos/05_live/05_live.R]{.code .b .purple}
 
-
-# [shinychat]{.hidden} {.no-invert-dark-mode background-image="assets/shinychat.png" background-size="contain" background-position="center"}
-
-## {.center}
-
-::: notes
-shinychat and ellmer work together - ellmer handles the LLM API calls, shinychat provides the chat interface for Shiny apps.
-:::
-
-::: {.easy-columns .tc}
-![](../assets/logos/shinychat.png){style="max-width: 100%; max-height: 500px" alt="shinychat"}
-
-![](../assets/logos/ellmer.png){style="max-width: 100%; max-height: 500px" alt="ellmer"}
-:::
-
-## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
-
-::: notes
-We'll build up a shinychat app step by step. Start with a basic Shiny app structure.
-:::
-
-```{=html}
-<style>
-:root {
-  --shinychat-code-font-size: 0.66em;
-}
-</style>
-```
-
-Start with a basic shinyapp
-
-```{.r}
-library(shiny)
-library(bslib)
-
-ui <- page_fillable(
-
-)
-
-server <- function(input, output, session) {
-
-}
-
-shinyApp(ui, server)
-```
-
-## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
-
-::: notes
-Add the two key packages - shinychat for the UI and ellmer for LLM interactions.
-:::
-
-Load `{shinychat}` and `{ellmer}`
-
-```{.r code-line-numbers="3-4"}
-library(shiny)
-library(bslib)
-library(shinychat)
-library(ellmer)
-
-ui <- page_fillable(
-
-)
-
-server <- function(input, output, session) {
-
-}
-
-shinyApp(ui, server)
-```
-
-## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
-
-::: notes
-Use the shinychat module pattern - chat_mod_ui in the UI and chat_mod_server in the server. The "chat" ID connects them.
-:::
-
-Use the shinychat chat module
-
-```{.r code-line-numbers="7,11"}
-library(shiny)
-library(bslib)
-library(shinychat)
-library(ellmer)
-
-ui <- page_fillable(
-  chat_mod_ui("chat")
-)
-
-server <- function(input, output, session) {
-  chat_mod_server("chat")
-}
-
-shinyApp(ui, server)
-```
-
-## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
-
-::: notes
-Finally, create the chat client and pass it to chat_mod_server. Now you have a working chatbot in your Shiny app!
-:::
-
-Create and hook up a chat client to use in the app
-
-```{.r code-line-numbers="12-13"}
-library(shiny)
-library(bslib)
-library(shinychat)
-library(ellmer)
-
-
-ui <- page_fillable(
-  chat_mod_ui("chat")
-)
-
-server <- function(input, output, session) {
-  client <- chat_openai()
-  chat_mod_server("chat", client)
-}
-
-shinyApp(ui, server)
-```
-
-<!--
-## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
-
-Why is this not a great idea?
-
-```{.r code-line-numbers="6-14"}
-library(shiny)
-library(bslib)
-library(shinychat)
-library(ellmer)
-
-client <- chat_openai()
-
-ui <- page_fillable(
-  chat_mod_ui("chat")
-)
-
-server <- function(input, output, session) {
-  chat_mod_server("chat", client)
-}
-
-shinyApp(ui, server)
-```
-
-::: notes
-Copy and paste the app code into an R session and run it!
-:::
-
--->
-
-# Your Turn `03_word-games` {.slide-your-turn}
-
-::: notes
-Now participants will build their own shinychat app. The exercise file has the setup - they just need to add the shinychat and ellmer code to make it work.
-:::
-
-1. I've set up the basic Shiny app snippet and a system prompt.
-
-2. Your job: create a chatbot that plays the word guessing game with you.
-
-3. The twist: this time, you're guessing the word.
-
-{{< countdown 7:00 top="-1em" >}}
-
-<!--
-## Interpolation
-
-```{r}
-#| echo: true
-#| output-location: fragment
-#| code-line-numbers: "3|5-7"
-
-library(ellmer)
-
-words <- c("elephant", "bicycle", "sandwich")
-
-interpolate(
-  "The secret word is {{ sample(words, 1) }}."
-)
-```
-
-## Interpolation
-
-```{r}
-#| echo: true
-#| code-line-numbers: "5-7"
-
-library(ellmer)
-
-words <- c("elephant", "bicycle", "sandwich")
-
-interpolate(
-  "The secret word is {{ words }}."
-)
-```
-
--->
 
 
