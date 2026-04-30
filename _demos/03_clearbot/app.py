@@ -12,7 +12,7 @@ from shiny import App, Inputs, Outputs, Session, bookmark, reactive, render, req
 from starlette.requests import Request
 from tools import all_tools
 
-MyTurn: TypeAlias = chatlas.Turn[openai.types.chat.ChatCompletion]
+MyTurn: TypeAlias = chatlas.Turn
 
 load_dotenv()
 
@@ -20,18 +20,19 @@ model_options = {}
 
 if "OPENAI_API_KEY" in os.environ:
     model_options["OpenAI"] = {
-        "gpt-5": "GPT-5 (latest, slowest, smartest)",
+        "gpt-5": "GPT-5",
         "gpt-5-mini": "GPT-5 mini",
-        "gpt-5-nano": "GPT-5 nano (latest, fastest, cheapest)",
-        "gpt-4.1": "GPT-4.1 (slowest, smartest)",
+        "gpt-5-nano": "GPT-5 nano",
+        "gpt-4.1": "GPT-4.1",
         "gpt-4.1-mini": "GPT-4.1 mini",
-        "gpt-4.1-nano": "GPT-4.1 nano (fastest, cheapest)",
+        "gpt-4.1-nano": "GPT-4.1 nano",
     }
+
 if "ANTHROPIC_API_KEY" in os.environ:
     model_options["Anthropic"] = {
-        "claude-3-7-sonnet-latest": "Claude 3.7 Sonnet",
-        "claude-3-5-sonnet-latest": "Claude 3.5 Sonnet",
-        "claude-3-5-haiku-latest": "Claude 3.5 Haiku",
+        "claude-opus-4-7": "Claude Opus 4.7",
+        "claude-sonnet-4-6": "Claude Sonnet 4.6",
+        "claude-haiku-4-5-20251001": "Claude Haiku 4.5",
     }
 
 if len(model_options) == 0:
@@ -47,16 +48,10 @@ def app_ui(request: Request):
                 "model",
                 "Model",
                 model_options,
-                selected="gpt-4.1-nano",
+                selected="claude-sonnet-4-6",
             ),
             ui.input_text_area("system_prompt", "System prompt", rows=6),
             ui.help_text("Instructs the LLM how to behave"),
-            ui.input_slider(
-                "temperature", "Temperature", min=0, max=2, value=0.7, step=0.05
-            ),
-            ui.help_text(
-                "Lower for coherence, higher for randomness. (Ignored for Claude and GPT-5 models.)"
-            ),
             ui.input_checkbox_group(
                 "tools",
                 "Tools",
@@ -68,7 +63,7 @@ def app_ui(request: Request):
             ),
             width=325,
             title="Settings",
-            open="closed",
+            open="open",
         ),
         ui.tags.script(src="new-chat-button.js"),
         offcanvas_ui(
@@ -103,7 +98,6 @@ class RequestParams(BaseModel):
     model: str
     user_prompt: str
     system_prompt: str
-    temperature: float
     tools: list[str]
 
 
@@ -125,7 +119,6 @@ def server(input: Inputs, output: Outputs, session: Session):
             model=input.model(),
             user_prompt=user_prompt,
             system_prompt=input.system_prompt(),
-            temperature=input.temperature(),
             tools=input.tools(),
         )
 
@@ -140,9 +133,7 @@ def server(input: Inputs, output: Outputs, session: Session):
         #     turns=these_turns,
         # )
         if params.model.startswith("claude"):
-            chat_client = chatlas.ChatOpenAI(
-                base_url="https://api.anthropic.com/v1/",
-                api_key=os.environ["ANTHROPIC_API_KEY"],
+            chat_client = chatlas.ChatAnthropic(
                 model=params.model,
                 system_prompt=params.system_prompt,
             )
@@ -160,13 +151,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             for tool in all_tools[toolset]:
                 chat_client.register_tool(tool)
 
-        temperature = params.temperature
-        if params.model.startswith("gpt-5"):
-            temperature = 1
-
-        resp = await chat_client.stream_async(
-            params.user_prompt, kwargs=dict(temperature=temperature)
-        )
+        resp = await chat_client.stream_async(params.user_prompt)
 
         for tool in params.tools:
             # TODO: Implement tools
@@ -270,11 +255,23 @@ def reconstruct_request_traces(
 
     msgs = [t.model_dump_json() for t in turns]
     msgs = [json.loads(t) for t in msgs]
-    msgs = [{"role": t["role"], "contents": t["contents"][0]["text"]} for t in msgs]
-    msgs = [t for t in msgs if (t["role"] != "system" or len(t["contents"]) > 0)]
+    result_msgs = []
+    for t in msgs:
+        if t["role"] == "system" and not t.get("contents"):
+            continue
+        contents = t.get("contents", [])
+        text = ""
+        for c in contents:
+            if isinstance(c, str):
+                text = c
+                break
+            elif isinstance(c, dict) and "text" in c:
+                text = c["text"]
+                break
+        result_msgs.append({"role": t["role"], "contents": text})
+    msgs = result_msgs
     kw = dict(
         model=params.model,
-        temperature=params.temperature,
         tools=tools_schema,
         messages=msgs,
     )
