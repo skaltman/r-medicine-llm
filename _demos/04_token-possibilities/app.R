@@ -11,7 +11,7 @@ chat_with_completion_log_probs <- function(
   temperature = 0.5
 ) {
   chat <- ellmer::chat_openai(
-    model = "gpt-4.1-nano",
+    model = "gpt-5.4-nano",
     system_prompt = system_prompt %||%
       "You are a concise and helpful sentence finisher.",
     params = ellmer::params(
@@ -23,26 +23,28 @@ chat_with_completion_log_probs <- function(
 
   chat$chat(input, echo = "none")
 
-  chat$last_turn()@json$choices[[1]]$logprobs$content |>
-    purrr::map_dfr(
-      function(x) {
-        res <- purrr::map_dfr(x$top_logprobs, \(x) x[c("token", "logprob")])
-        if (!x$token %in% res$token) {
-          res <- dplyr::bind_rows(res, x[c("token", "logprob")])
-        }
-        res$chosen <- res$token == x$token
-        res
-      },
-      .id = "index"
-    ) |>
+  content <- chat$last_turn()@json$output[[1]]$content[[1]]$logprobs
+  purrr::imap_dfr(content, function(x, i) {
+    res <- dplyr::bind_rows(lapply(x$top_logprobs, \(lp) {
+      tibble::tibble(token = lp$token, logprob = lp$logprob)
+    }))
+    if (!x$token %in% res$token) {
+      res <- dplyr::bind_rows(
+        res,
+        tibble::tibble(token = x$token, logprob = x$logprob)
+      )
+    }
+    res$chosen <- res$token == x$token
+    res$index <- i
+    res
+  }) |>
     dplyr::mutate(
-      index = as.integer(index),
-      prob = exp(logprob),
+      prob = exp(.data$logprob),
       confidence = dplyr::case_when(
-        logprob < -5 ~ "very-low",
-        logprob < -2 ~ "low",
-        logprob < -1 ~ "medium",
-        logprob < -0.1 ~ "high",
+        .data$logprob < -5 ~ "very-low",
+        .data$logprob < -2 ~ "low",
+        .data$logprob < -1 ~ "medium",
+        .data$logprob < -0.1 ~ "high",
         .default = "very-high"
       )
     )
@@ -218,7 +220,7 @@ ui <- page_navbar(
     textAreaInput(
       "prompt",
       tagList(icon("pencil"), "Prompt"),
-      value = "Write a funny limerick about a cat.",
+      value = "Write a limerick.",
       rows = 4,
       autoresize = TRUE,
     ),
