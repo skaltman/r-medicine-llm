@@ -1,0 +1,165 @@
+---
+title: querychat
+subtitle: LLMs for Data Analysis in R
+author: R/Medicine 2026
+
+editor:
+  render-on-save: true
+---
+
+
+## What is querychat? {.center}
+
+::: notes
+querychat is a package from Posit that lets you explore tabular data using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.
+:::
+
+::: incremental
+* Explore data using **natural language**
+
+* Built on top of **ellmer** and **Shiny**
+
+* Works with data frames and database connections
+:::
+
+## How does querychat work?
+
+::: notes
+Here's the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly. This means results are reliable — no hallucinated numbers.
+:::
+
+::: incremental
+1. You ask a question in natural language
+
+2. The LLM writes a **SQL query**
+
+3. A **database** executes the query
+
+4. You get back real, filtered data
+:::
+
+## Benefits
+
+::: notes
+This architecture gives us several important properties, especially relevant for health data.
+:::
+
+::: incremental
+* **Reliable** — the database runs the queries, not the LLM. No hallucinated numbers.
+
+* **Safe** — limited to read-only queries. No data destruction.
+
+* **Reproducible** — SQL can be exported and re-run.
+
+* **Private** — the LLM doesn't see the raw data (but can see query results).
+:::
+
+## The simplest version
+
+::: notes
+You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.
+:::
+
+```{.r}
+library(querychat)
+
+querychat_app(georgia_mortality)
+```
+
+## Demo {.center}
+
+::: notes
+Let me show you what this looks like. I'll launch querychat_app with the Georgia mortality dataset and ask some questions.
+:::
+
+👩‍💻 [_demos/20_querychat/20_querychat-app.R]{.code .b .purple}
+
+# Your Turn `11_querychat` {.slide-your-turn}
+
+::: notes
+Now it's your turn. Open the exercise file, run it, and explore the Georgia cancer mortality data with natural language. Try asking questions about counties, cancer sites, demographics, and trends over time.
+:::
+
+1. Open `11_querychat-app.R` and run it.
+
+2. Explore the Georgia mortality dataset with natural language.
+
+3. Try questions like:
+   - "Which county had the most cancer deaths in 2023?"
+   - "Show me total deaths by cancer site for Fulton County"
+
+{{< countdown 4:00 left=0 bottom="-2em" >}}
+
+## Adding querychat to a Shiny app
+
+::: notes
+querychat_app is great for quick exploration, but you can also embed querychat into your own Shiny app. This gives you full control over the layout and lets you use the filtered data in your own outputs.
+:::
+
+## Step 1: Create a QueryChat object
+
+```{.r}
+library(querychat)
+
+qc <- QueryChat$new(georgia_mortality)
+```
+
+## Step 2: Add the sidebar and server
+
+::: notes
+QueryChat gives you UI components and a server function. The server returns reactive values — the filtered data frame, the SQL query, and a title describing the current filter.
+:::
+
+```{.r code-line-numbers="|3|10|12-13"}
+ui <- page_sidebar(
+  title = "Georgia Mortality Explorer",
+  sidebar = qc$sidebar(),
+  card(
+    reactableOutput("table")
+  )
+)
+
+server <- function(input, output, session) {
+  qc_vals <- qc$server()
+
+  output$table <- renderReactable({
+    reactable(qc_vals$df())
+  })
+}
+```
+
+## What you get back
+
+::: notes
+The server function returns a list of reactive expressions. The most important is df(), which gives you the filtered data frame. You can use this anywhere in your Shiny app — tables, plots, downloads, whatever you need.
+:::
+
+```{.r}
+qc_vals <- qc$server()
+
+qc_vals$df()     # The filtered data (reactive)
+qc_vals$sql()    # The SQL query (reactive)
+qc_vals$title()  # A title for the current filter (reactive)
+```
+
+## Demo {.center}
+
+::: notes
+Let me show you how this looks when embedded in a Shiny app with a table.
+:::
+
+👩‍💻 [_demos/20_querychat/20_querychat-shiny.R]{.code .b .purple}
+
+## Configuration
+
+::: notes
+querychat uses ellmer under the hood, so it uses the same model configuration. You can set these environment variables to control which model it uses.
+:::
+
+```{.bash}
+QUERYCHAT_CLIENT="anthropic/claude-sonnet-4-6"
+ANTHROPIC_API_KEY="sk-ant-..."
+```
+
+Uses **ellmer** under the hood — same model names and API keys.
+

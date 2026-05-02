@@ -8,7 +8,6 @@ editor:
 ---
 
 ```{r}
-# REMOVE
 source("_incremental_slides.R")
 ```
 
