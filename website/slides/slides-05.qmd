@@ -262,7 +262,7 @@ The LLM doesn't mind JSON though, so it reads the data and generates a response 
 :::
 
 
-## The LLM can't run code by itself!
+## The LLM cannot run code by itself!
 
 ::: notes
 This is crucial to understand - the LLM doesn't execute tools. It just asks you to run them.
@@ -298,6 +298,37 @@ But you're programmers! You can automate this. Let me show you how to define too
 :::
 
 👩‍💻 [_demos/19_tools/19_weather-tool.R]{.code .b .purple}
+
+## Helper function: `create_tool_def()`
+
+```{.r}
+create_tool_def(rnorm)
+```
+
+::: {.fragment}
+
+```{.markdown}
+Using model = "gpt-4.1".
+tool(
+  stats::rnorm,
+  "Generates random deviates from the normal distribution with specified mean and standard deviation.",
+  n = type_integer(
+    "Number of observations. If length(n) > 1, the length is taken to be the number required.",
+    required = TRUE
+  ),
+  mean = type_number(
+    "Mean(s) of the normal distribution. Defaults to 0.",
+    required = FALSE
+  ),
+  sd = type_number(
+    "Standard deviation(s) of the normal distribution. Defaults to 1.",
+    required = FALSE
+  )
+)
+```
+:::
+
+
 
 # Your Turn `08_tool-calling` {.slide-your-turn}
 
