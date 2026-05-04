@@ -1,16 +1,7 @@
-# ── Your Turn: querychat ──────────────────────────────────────────────
+# Load the Georgia mortality data and use querychat_app() to launch a querychat app
+# for the Georgia mortality data
 #
-# querychat lets you explore data using natural language.
-# The LLM writes SQL queries, and a database executes them —
-# so results are reliable (no hallucinations!).
-#
-# STEP 1: Run this script to launch querychat_app() and explore the
-#         Georgia mortality dataset with natural language.
-#
-# STEP 2: Try asking questions like:
-#         - "Which county had the most cancer deaths in 2023?"
-#         - "Show me total deaths by cancer site for Fulton County"
-#         - "Compare death counts between males and females"
+# then, experiment with the app: ask questions, run queries, etc.
 
 library(querychat)
 
@@ -19,4 +10,5 @@ georgia_mortality <- readr::read_csv(
   show_col_types = FALSE
 )
 
-querychat_app(georgia_mortality)
+# Launch querychat with the georgia_mortality data
+___
