@@ -331,7 +331,7 @@ Two takeaways: (1) the system prompt persists across chat() calls — the first 
 Demo showing what's really happening behind the scenes - the full conversation history being sent with each request. This reveals that LLMs are stateless.
 :::
 
-👩‍💻 [_demos/03_clearbot/app.py]{.code .b .purple}
+👩‍💻 [_demos/01_clearbot/app.py]{.code .b .purple}
 
 ## {.center}
 
@@ -479,7 +479,7 @@ The attention mechanism allows the model to:
 * Process sequences in parallel rather than sequentially
 :::
 
-👩‍💻 [_demos/04_token-possibilities/app.R]{.code .b .purple}
+👩‍💻 [_demos/02_token-possibilities/app.R]{.code .b .purple}
 
 # How to think about LLMs {.dark-blue background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
 
@@ -599,7 +599,7 @@ one or the other would start to feel unnatural to use.
 This demo shows live_console() and live_browser() - easy ways to chat with an LLM interactively from R.
 :::
 
-👩‍💻 [_demos/05_live/05_live.R]{.code .b .purple}
+👩‍💻 [_demos/03_live/03_live.R]{.code .b .purple}
 
 
 

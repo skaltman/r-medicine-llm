@@ -7,6 +7,34 @@ editor:
   render-on-save: true
 ---
 
+## Posit Assistant
+
+::: notes
+Posit Assistant is an AI coding assistant built into Positron. You can use it to help you write code — including Shiny apps. Let's use it to build on the querychat app we just explored.
+:::
+
+::: incremental
+* AI coding assistant built into **Positron**
+
+* Helps you write, explain, and debug code
+
+* Works with R and Python
+:::
+
+# Your Turn: Extend the querychat app {.slide-your-turn}
+
+::: notes
+Use Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don't need to know Shiny — the assistant will help you write the code.
+:::
+
+1. Open Posit Assistant in Positron (sidebar or `Cmd+Shift+P` > "Assistant").
+
+2. Ask it to help you build a Shiny app that embeds querychat with the Georgia mortality data and adds a plot or table.
+
+3. Run the app and explore!
+
+{{< countdown 6:00 left=0 bottom="-2em" >}}
+
 # [Privacy & Security]{.ph5 .pv3 style="background-color: rgba(255, 255, 255);"} {.no-invert-dark-mode background-image="assets/trust-fence.jpg" background-size="cover" background-position="center"}
 
 ::: notes
