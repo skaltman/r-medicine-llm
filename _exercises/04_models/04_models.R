@@ -6,13 +6,12 @@ library(ellmer)
 models_____
 models_____
 
-prompt <- "Write a  recipe for an easy weeknight dinner my kids would like."
+prompt <- "Write some code to generate a synthetic dataset in R."
 
 # Step 2: Compare responses from different models
 # Try sending the same prompt to different models to compare the responses.
 chat("openai/____")$chat(prompt)
 chat("anthropic/____")$chat(prompt)
-
 
 
 # Bonus: Repeat your OpenAI and Anthropic requests using direct provider
