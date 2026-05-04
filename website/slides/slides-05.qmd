@@ -330,7 +330,7 @@ tool(
 
 
 
-# Your Turn `08_tool-calling` {.slide-your-turn}
+# Your Turn `07_tool-calling` {.slide-your-turn}
 
 ::: notes
 Now practice the full pattern: write a function, wrap it as a tool, register it, and chat. The function filters Georgia mortality data for a given county.

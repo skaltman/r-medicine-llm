@@ -289,7 +289,7 @@ chat <- chat("anthropic/claude-opus-4-7")
 ```
 :::
 
-# Your Turn `04_models` {.slide-your-turn}
+# Your Turn `03_models` {.slide-your-turn}
 
 ::: notes
 Try using different models and see how they compare. This activity helps you get a feel for the differences between models.
@@ -382,7 +382,7 @@ chat$chat(
 ```
 :::
 
-## Your Turn `05_vision` {.slide-your-turn}
+## Your Turn `04_vision` {.slide-your-turn}
 
 ::: notes
 Now try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.
@@ -730,7 +730,7 @@ type_person <- type_object(
 ```
 :::
 
-# Your Turn `06_structured-output` {.slide-your-turn}
+# Your Turn `05_structured-output` {.slide-your-turn}
 
 ::: notes
 Now practice structured output - extract recipe data as proper R objects. This is a key skill for working with LLMs in real applications.

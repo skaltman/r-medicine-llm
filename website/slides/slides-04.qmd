@@ -37,7 +37,7 @@ chat <-
    )
 ```
 
-# Your Turn `07_prompt-engineering` {.slide-your-turn}
+# Your Turn `06_prompt-engineering` {.slide-your-turn}
 
 ::: notes
 Use system prompts to control how the model interprets a data visualization. Try tailoring for different audiences.

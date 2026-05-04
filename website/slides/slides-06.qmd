@@ -84,13 +84,13 @@ Let me show you what this looks like. This is a full Shiny dashboard with queryc
 
 ![](assets/querychat-02.excalidraw.svg)
 
-# Your Turn `11_querychat` {.slide-your-turn}
+# Your Turn `08_querychat` {.slide-your-turn}
 
 ::: notes
 Now it's your turn. Open the exercise file, run it, and explore the Georgia cancer mortality data with natural language. Try asking questions about counties, cancer sites, demographics, and trends over time.
 :::
 
-1. Open `11_querychat-app.R` and fill in the `querychat_app()` call.
+1. Open `08_querychat-app.R` and fill in the `querychat_app()` call.
 
 2. Run it and explore the Georgia mortality dataset with natural language.
 
