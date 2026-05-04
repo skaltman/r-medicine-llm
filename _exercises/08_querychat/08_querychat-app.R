@@ -1,14 +1,14 @@
-# Load the Georgia mortality data and use querychat_app() to launch a querychat app
-# for the Georgia mortality data
+# Load the health expenditure data and use querychat_app() to launch a querychat app
+# for the health expenditure data
 #
 # then, experiment with the app: ask questions, run queries, etc.
 
 library(querychat)
 
-georgia_mortality <- readr::read_csv(
-  here::here("data/georgia_mortality.csv"),
+health_exp <- readr::read_csv(
+  here::here("data/health-expenditure.csv"),
   show_col_types = FALSE
 )
 
-# Launch querychat with the georgia_mortality data
+# Launch querychat with the health expenditure data
 ___

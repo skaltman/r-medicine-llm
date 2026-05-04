@@ -1,8 +1,7 @@
 library(querychat)
 
-georgia_mortality <- readr::read_csv(
-  here::here("data/georgia_mortality.csv"),
-  show_col_types = FALSE
+health_exp <- readr::read_csv(
+  here::here("data/health-expenditure.csv")
 )
 
-querychat_app(georgia_mortality)
+querychat_app(health_exp)
