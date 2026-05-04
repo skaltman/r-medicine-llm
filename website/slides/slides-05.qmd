@@ -333,14 +333,14 @@ tool(
 # Your Turn `07_tool-calling` {.slide-your-turn}
 
 ::: notes
-Now practice the full pattern: write a function, wrap it as a tool, register it, and chat. The function filters Georgia mortality data for a given county.
+Now practice the full pattern: write a function, wrap it as a tool, register it, and chat. The function filters health expenditure data for a given country.
 :::
 
-1. Write a `get_county_mortality()` function that takes a county name and returns a summary of deaths by site with per-capita rates.
+1. Write a `get_country_spending()` function that takes a country name and year and returns health spending by purpose.
 
 1. Wrap it as a tool with `tool()` and register it.
 
-1. Ask the model about mortality in a specific county.
+1. Ask the model about spending for a specific country.
 
 {{< countdown 6:00 left=0 bottom="-2em" >}}
 

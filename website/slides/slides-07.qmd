@@ -1,11 +1,32 @@
 ---
-title: Privacy, Security & Wrap-up
+title: Coding agents for data tasks
 subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
 editor:
   render-on-save: true
 ---
+
+## What is an agent?
+
+::: {.incremental}
+* Can gather information from the environment
+  * e.g., what files are in a directory?
+* Can alter the environment 
+  * e.g., write a dataset to a file
+:::
+
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/coding-agents-01.excalidraw.svg)
+
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/coding-agents-02.excalidraw.svg)
+
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/coding-agents-03.excalidraw.svg)
 
 ## Posit Assistant
 
@@ -14,104 +35,71 @@ Posit Assistant is an AI coding assistant built into Positron. You can use it to
 :::
 
 ::: incremental
-* AI coding assistant built into **Positron**
-
-* Helps you write, explain, and debug code
+* Coding / data analysis agent in RStudio and Positron
 
 * Works with R and Python
+
+* Access to your R/Python session
+
+* Successor to Databot
 :::
 
-# Your Turn: Extend the querychat app {.slide-your-turn}
+## Demo {.center}
+
+::: notes
+Let me show you Posit Assistant in action — I'll use it to build a querychat Shiny app with a plot.
+:::
+
+
+## Add memory with `AGENTS.md`
+
+::: notes
+AGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.
+:::
+
+::: incremental
+* Markdown file that stores persistent context about your project
+
+* Loaded automatically at the start of every conversation
+
+* Include info like project structure, coding conventions, preferred libraries, etc.
+:::
+
+::: footer
+<https://posit-dev.github.io/assistant/docs/features/memory/>
+:::
+
+## Skills
+
+::: notes
+Skills are specialized knowledge modules that extend Posit Assistant. They load automatically when relevant — no manual activation needed.
+:::
+
+::: incremental
+* Specialized knowledge modules that load automatically when relevant
+
+* Built-in skills include `shiny-bslib`, `quarto-authoring`, and more
+
+* Create your own: project-level (`.positai/skills/`) or user-level (`~/.positai/skills/`)
+:::
+
+::: footer
+<https://posit-dev.github.io/assistant/docs/features/skills/>
+:::
+
+
+## Your Turn: Extend the querychat app {.slide-your-turn}
 
 ::: notes
 Use Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don't need to know Shiny — the assistant will help you write the code.
 :::
 
-1. Open Posit Assistant in Positron (sidebar or `Cmd+Shift+P` > "Assistant").
+1. Open `_exercises/09_posit-assistant/09_posit-assistant-app.R` and run it to confirm it works.
 
-2. Ask it to help you build a Shiny app that embeds querychat with the Georgia mortality data and adds a plot or table.
+2. Open Posit Assistant (sidebar or `Cmd+Shift+P` > "Assistant").
 
-3. Run the app and explore!
+3. Ask it to help you extend the app (for example, add a plot).
+
+4. Run the app continue iterating
 
 {{< countdown 6:00 left=0 bottom="-2em" >}}
-
-# [Privacy & Security]{.ph5 .pv3 style="background-color: rgba(255, 255, 255);"} {.no-invert-dark-mode background-image="assets/trust-fence.jpg" background-size="cover" background-position="center"}
-
-::: notes
-Before we wrap up, important to discuss privacy and security — especially relevant for those working with protected health data.
-:::
-
-## Model providers vs. LLMs
-
-::: incremental
-* **Provider:** The company that hosts the model (Anthropic, OpenAI, Google, etc.).
-
-* **LLM:** The actual model that generates responses to your queries.
-
-* LLMs are **stateless.** They have no memory of your prior requests.
-
-* However, the model provider may **log and store** your requests.
-:::
-
-::: notes
-The model doesn't remember you, but the provider's servers might.
-:::
-
-## Where does your data go?
-
-![](assets/trust-diagram-1.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
-
-## Where does your data go?
-
-![](assets/trust-diagram-2.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
-
-## Where does your data go?
-
-![](assets/trust-diagram.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
-
-## You need to trust your model provider
-
-* **Posit doesn't store your data**
-
-* But your provider might, depending on your agreement
-
-## The good news
-
-::: fragment
-Your organization can work out a zero data retention (ZDR), HIPAA-compliant agreement, or other arrangements with model providers. These arrangements are common.
-:::
-
-::: fragment
-**Learn more:** <https://posit.co/blog/trust-llm-tools/>
-:::
-
-## Learn more
-
-::: notes
-These are the Posit packages for working with AI. We've focused on ellmer and shinychat today, but there are others for different use cases.
-:::
-
-![](assets/posit-ai-packages.png)
-
-## Learn more
-
-**querychat**: <https://github.com/posit-dev/querychat>
-
-* Chat with your data using natural language queries.
-
-**ggbot2**: <https://github.com/tidyverse/ggbot2>
-
-* Talk out loud to create and iterate on plots.
-
-**Databot**: <https://positron.posit.co/databot.html>
-
-* EDA assistant for Positron.
-
-**vitals**: <https://github.com/posit-dev/vitals>
-
-* Evaluate LLM performance with systematic benchmarks.
-
-**Posit AI newsletter**: <https://posit.co/blog/?post_tag=ai-newsletter>
-
-
-# Thank you!

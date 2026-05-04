@@ -87,16 +87,16 @@ Let me show you what this looks like. This is a full Shiny dashboard with queryc
 # Your Turn `08_querychat` {.slide-your-turn}
 
 ::: notes
-Now it's your turn. Open the exercise file, run it, and explore the Georgia cancer mortality data with natural language. Try asking questions about counties, cancer sites, demographics, and trends over time.
+Now it's your turn. Open the exercise file, run it, and explore the health expenditure data with natural language. Try asking questions about countries, spending purposes, and trends over time.
 :::
 
 1. Open `08_querychat-app.R` and fill in the `querychat_app()` call.
 
-2. Run it and explore the Georgia mortality dataset with natural language.
+2. Run it and explore the health expenditure dataset with natural language.
 
 3. Try questions like:
-   - "Which county had the most cancer deaths in 2023?"
-   - "Show me total deaths by cancer site for Fulton County"
+   - "Which country spent the most on preventive care in 2020?"
+   - "Show me spending by purpose for Japan"
 
 {{< countdown 4:00 left=0 bottom="-2em" >}}
 
@@ -108,3 +108,17 @@ Now it's your turn. Open the exercise file, run it, and explore the Georgia canc
   <https://posit-dev.github.io/querychat/r/articles/build.html>           
 :::     
 
+## shinychat {.center style="text-align: center"}
+
+::: columns
+::: {.column width="30%"}
+![](assets/shinychat.png)
+:::
+::: {.column width="70%"}
+![](assets/shinychat-conversation.png)
+:::
+:::
+
+::: footer
+<https://posit-dev.github.io/shinychat/>
+:::
