@@ -13,6 +13,10 @@ source("_incremental_slides.R")
 
 # [Anatomy of a Conversation]{.white} {.title-push-down .no-invert-dark-mode background-image="assets/jaroslaw-glogowski-oAYKzeP0qF4-unsplash.jpg" background-size="cover" background-position="left 30%"}
 
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@jglogowski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Jaroslaw Glogowski</a> on <a href="https://unsplash.com/photos/oAYKzeP0qF4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
+
 ::: notes
 first, let's talk about how talking to llms works
 :::
@@ -345,6 +349,10 @@ But as clearbot showed, something interesting is happening behind the scenes.
 
 ## [Is this actually a conversation?]{.dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/marija-zaric-wFWXRDilwKo-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Marija Zaric</a> on <a href="https://unsplash.com/photos/wFWXRDilwKo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
+
 ::: notes
 It IS a conversation, but it works differently than you might think.
 :::
@@ -370,6 +378,10 @@ This isn't a limitation of transformers specifically - it's how the HTTP API is 
 
 
 # [How LLMs work (briefly)]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: {.footer style="color: rgba(255,255,255,0.5);"}
+Photo by <a href="https://unsplash.com/@askkell?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Andy Kelly</a> on <a href="https://unsplash.com/photos/0E_vhMVqL9g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a>
+:::
 
 ::: notes
 Now that you understand how conversations work with LLMs - the statelessness, sending full history - let's talk briefly about how LLMs themselves actually work. How do they understand what you're asking? And how do they construct their responses?
@@ -514,6 +526,10 @@ Don't expect smooth, predictable performance across tasks. LLMs can surprise you
 ![](assets/task-llm-jagged.excalidraw.svg){style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}
 
 # [Embrace the Experimental Process]{.dib .bg-black .ph4 .white style="position: relative; top: 5em;"} {.no-invert-dark-mode background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: footer
+Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">National Cancer Institute</a> on <a href="https://unsplash.com/photos/Okk-eID2Z9k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
 
 ## Embrace the Experimental Process {.center .text-center}
 

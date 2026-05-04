@@ -9,8 +9,12 @@ editor:
 
 # [Prompt writing]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
 
+::: footer
+Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/tk9RQCq5eQo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
+
 ::: notes
-Prompt engineering is the art of getting LLMs to do what you want. 
+Prompt engineering is the art of getting LLMs to do what you want.
 :::
 
 ## Reminder: the `system_prompt` arg

@@ -14,6 +14,10 @@ source("_incremental_slides.R")
 
 # [Providers and Models]{.white .ph4 style="background-color: #4ea8a7e6;"} {.no-invert-dark-mode background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: footer
+Photo by <a href="https://unsplash.com/@suniramoses?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sunira Moses</a> on <a href="https://unsplash.com/photos/Naj9-n5apvs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
+
 ::: notes
 Now that you know how to use ellmer, let's talk about choosing which model to use. There are many providers and many models to choose from.
 :::
@@ -320,6 +324,10 @@ Try using different models and see how they compare. This activity helps you get
 
 # [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: footer
+Photo by <a href="https://unsplash.com/@budhelisson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bud Helisson</a> on <a href="https://unsplash.com/photos/kqguzgvYrtM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
+
 ::: notes
 Modern LLMs aren't just text - they can handle images and PDFs too. This is called multi-modal input.
 :::
@@ -422,6 +430,10 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 -->
 
 # [Structured output]{.title-push-down .dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: footer
+Photo by <a href="https://unsplash.com/@vitrfrgl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vitaly Taranov</a> on <a href="https://unsplash.com/photos/J6hE2DTWSEw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
 
 ::: notes
 Now let's talk about structured output - getting LLMs to return data in a predictable format instead of free text.
