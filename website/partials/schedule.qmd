@@ -7,5 +7,5 @@
 | ☕ | Break                          |
 | 🛠️  | Tool calling                   |
 | 🔍 | querychat                      |
-| 🤖 | Coding agents & Posit Assistant |
+| 🤖 | Coding agents                  |
 | 🌳 | Privacy, security, & wrap-up   |

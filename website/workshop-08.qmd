@@ -1,0 +1,5 @@
+---
+title: "Privacy, security, & wrap-up"
+---
+
+{{< revealjs "slides/slides-08.html" class="ratio ratio-16x9" >}}
