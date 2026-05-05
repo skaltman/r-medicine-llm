@@ -1,7 +1,11 @@
-| Time          |   | Activity                       |
-| ------------- |---| ------------------------------ |
-| 01:00 - 01:15 | 👋 | Intro                          |
-| 01:15 - 01:55 | 💬 | Anatomy of a conversation      |
-| 01:55 - 02:25 | 💻 | Programming with LLMs          |
-| 02:25 - 02:40 | ✍️  | Prompt engineering             |
-| 02:40 - 03:00 | 🛠️  | Tool calling                   |
+|   | Activity                       |
+|---| ------------------------------ |
+| 👋 | Intro                          |
+| 💬 | Anatomy of a conversation      |
+| 💻 | Programming with LLMs          |
+| ✍️  | Prompt engineering             |
+| ☕ | Break                          |
+| 🛠️  | Tool calling                   |
+| 🔍 | querychat                      |
+| 🤖 | Coding agents                  |
+| 🌳 | Privacy, security, & wrap-up   |

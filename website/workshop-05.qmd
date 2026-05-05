@@ -1,38 +1,5 @@
 ---
-title: Tool Calling
-description: Giving LLMs the ability to interact with the world through tools.
-description-short: Help LLMs interact with the world
-duration: 30min
+title: Tool calling
 ---
 
-## Slides
-
 {{< revealjs "slides/slides-05.html" class="ratio ratio-16x9" >}}
-
-## Outline
-
-**Why tools?**
-
-- LLMs can't access real-time data or interact with the world
-- Examples: R/Medicine speakers, weather, current date
-
-**How tool calling works**
-
-- Step-by-step walkthrough of the tool calling pattern
-- LLM requests tools, you execute them, send results back
-- **Demo:** `18_manual-tools` - Manual tool approval
-- **Demo:** `19_weather-tool` - Automated tools
-
-**Practice with tools**
-
-- **Activity:** `10_quiz-game-2` - Add sound tool to quiz game (6 min)
-
-**Tools in Shiny apps**
-
-- Define tools inside server function
-- Tools can update and read reactive values
-
-**Resources**
-
-- querychat, ggbot2, Databot, Posit AI newsletter
-

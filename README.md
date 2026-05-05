@@ -10,10 +10,6 @@ Adapted from: <https://github.com/posit-conf-2025/llm>
 📘 <strong>Workshop website:</strong> <a href="https://skaltman.github.io/r-medicine-llm">https://skaltman.github.io/r-medicine-llm</a>
 </p>
 
-<p style="font-size: 1.2em;">
-☁️ <strong>Posit Cloud workspace:</strong> <a href="https://bit.ly/llm-cloud">https://bit.ly/llm-cloud</a>
-</p>
-
 ## Overview
 
 LLMs are transforming how we write code, build tools, and analyze data, but getting started with directly working with LLM APIs can feel daunting. This workshop will introduce participants to programming with LLM APIs in R using ellmer, an open-source package that makes it easy to work with LLMs from R. We'll cover the basics of calling LLMs from R, as well as system prompt design, tool calling, and building basic chatbots.
@@ -23,23 +19,24 @@ No AI or machine learning background is required—just basic R familiarity. Att
 
 ## Setup
 
-I've set up a Posit Cloud project for you to work in today. Follow these steps to get set up:
-
-1. [Sign up for a free Posit Cloud account](https://posit.cloud/plans) if you don't already have one. 
-2. Join the workspace: <https://bit.ly/llm-cloud>.
-3. Navigate to _Content_ and select the `r-medicine-llm` project.
-
-The Posit Cloud workspace includes all files, API keys, and packages you'll need. 
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start*
+1. It will take a few minutes to start up. When it's ready, click the green *Start* button.
+1. Click *Open external Window*
+1. Open RStudio or Positron
 
 ## Schedule
 
 | Time          |   | Activity                       |
 | ------------- |---| ------------------------------ |
-| 01:00 - 01:15 | 👋 | Intro                          |
-| 01:15 - 01:55 | 💬 | Anatomy of a conversation      |
-| 01:55 - 02:25 | 💻 | Programming with LLMs          |
-| 02:25 - 02:40 | ✍️  | Prompt engineering             |
-| 02:40 - 03:00 | 🛠️  | Tool calling                   |
+| 11:00 - 11:15 | 👋 | Intro                          |
+| 11:15 - 12:00 | 💬 | Anatomy of a conversation      |
+| 12:00 - 12:40 | 💻 | Programming with LLMs          |
+| 12:40 - 12:50 | ☕ | Break                          |
+| 12:50 - 13:15 | ✍️  | Prompt engineering             |
+| 13:15 - 13:35 | 🛠️  | Tool calling                   |
+| 13:35 - 13:55 | 💬 | querychat                      |
+| 13:55 - 14:00 | 🎁 | Wrap-up and resources          |
 
 -----
 

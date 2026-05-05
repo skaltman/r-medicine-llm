@@ -15,11 +15,13 @@ editor:
 
 <br>
 
-☁️ **Set up Posit Cloud:**
+☁️ **Launch Instruqt environment:**
 
-1. Sign up for a free Posit Cloud account: <https://posit.cloud/plans>. 
-2. Join our workspace on Posit Cloud: <https://bit.ly/llm-cloud>.
-3. Go to _Content_, then select the `r-medicine-llm` project. 
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start* 
+1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
+1. Click *Open external Window*
+1. Open RStudio or Positron
 
 ```{=html}
 <style>
@@ -33,24 +35,28 @@ editor:
 # 👋
 
 ::: columns
-::: {.column width="60%"}
-::: {style="font-size: 1.5em; font-weight: 300; margin-top: 1em;"}
+::: {.column width="50%"}
+![](assets/headshot-sara-crop.png){style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"}
+
+::: {style="text-align: center;"}
+::: {style="font-size: 1.3em; font-weight: 300;"}
 Sara Altman
 :::
 
-**Senior Developer Advocate, AI Core**
-
-Posit
-
-::: {style="margin-top: 1.5em; font-size: 0.9em;"}
-![](../assets/icons/github.svg){width="24px" style="vertical-align: middle"} [\@skaltman](https://github.com/skaltman)
-
-![](../assets/icons/bluesky.svg){width="24px" style="vertical-align: middle"}  [\@sara-altman.bsky.social](https://bsky.app/profile/sara-altman.bsky.social)
+**AI Core Team**, Posit
 :::
 :::
 
-::: {.column width="40%"}
-![](assets/headshot-sara-crop.png){style="border-radius: 40%; max-width: 95%; display: block; margin: 1em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"}
+::: {.column width="50%"}
+![](assets/garrett.png){style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"}
+
+::: {style="text-align: center;"}
+::: {style="font-size: 1.3em; font-weight: 300;"}
+Garrett Grolemund
+:::
+
+**Director of Learning**, Posit
+:::
 :::
 :::
 
@@ -62,8 +68,7 @@ All slides and info lives here!
 
 ::: notes
 You can follow along with the slides here
-also includes set up instructions for posit cloud, but i'll give you 
-some time to set up soon
+has set up instructions but I'll also give you some time in a minute
 :::
 
 ## Workshop format
@@ -73,7 +78,7 @@ some time to set up soon
 
 💻 Demos
 
-✏️ Exercises on Posit Cloud
+✏️ Exercises in Instruqt environment
 :::
 
 ::: fragment
@@ -84,13 +89,26 @@ Ask questions at any point in the chat
 we'll have lecture components with slides
 demos where I'll show demo something and we'll discuss how it works
 and interactive exercises where you'll do some coding
-for these, I've set up a posit cloud project for you with everything you'll need
+for these, I've set up a project for you in workbench via instruqt for you with everything you'll need
 including api keys
 
 if you have questions, you can put them in the chat at any time
 I can't promise that I'll see them while I'm talking, but during the exercise portions
-I'll monitor it and also consolidate questions to answer when we regroup 
+garrett and I will monitor it and also consolidate questions to answer when we regroup 
 ::: 
+
+## Your Turn {.slide-your-turn}
+
+::: {style="font-size: 1.1em;"}
+**Set up Instruqt:** 
+:::
+
+
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start* 
+1. It will take a few minutes to start up. When it's ready, you'll click the green *Start* button. (don't worry if you don't get to this)
+
+{{< countdown 1:00 right=0 top="-0.5em" >}}
 
 ## Schedule
 
@@ -98,7 +116,7 @@ I'll monitor it and also consolidate questions to answer when we regroup
 
 ::: notes
 here's a rough schedule of what we're going to be covering today
-this is only a two hour workshop, so there's a lot more to discover afterwards
+this is only a three hour workshop, so there's a lot more to discover afterwards
 
 my goal is to show you what's possible with llm apis from r and give you a good strating point
 so you'll walk away understanding the basics of how to call llm apis from R,
@@ -127,7 +145,7 @@ build basic chatbots, hook LLMs up to external tools, and do some system prompt 
 ## How to get an API key, beyond this workshop {.center}
 
 ::: {.incremental .mt4}
-1. 🆙 Sign up for an account with [OpenAI](https://platform.openai.com/), [Anthropic](https://www.anthropic.com/), etc.
+1. 🆙 Sign up for an account with [OpenAI](https://platform.openai.com/), [Anthropic](https://www.anthropic.com/), etc. 
 
 2. 💳 Add a payment method
 
@@ -143,9 +161,9 @@ this is likely what you'll want to do if you want to run the exercises locally a
 ## But we'll give you API keys to use today! {.center}
 
 ::: incremental
-1. Use these keys for all of our activities today -- *they are already set up in Posit Cloud!*
+1. Use these keys for all of our activities today
 
-2. Play and explore! But please be considerate :)
+2. Explore! But please be considerate :)
 
 3. We'll turn them off at the end of the workshop
 :::
@@ -159,14 +177,20 @@ already set up in posit cloud
 ::: {style="--li-margin: 0.66em;"}
 
 ::: {style="font-size: 1.1em;"}
-**☁️ Set up Posit Cloud:** 
+**☁️ Set up Instruqt:** 
 :::
 
-1. Sign up for a free Posit Cloud account: <https://posit.cloud/plans>. 
 
-2. Join our workspace on Posit Cloud: <https://bit.ly/llm-cloud>.
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start* 
+1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
+1. Click *Open external Window*
+1. Open RStudio or Positron 
 
-3. Go to _Content_, then select the `r-medicine-llm` project. 
+::: {style="font-size: 1.1em;"}
+**☁️ Set up keys:** 
+:::
+
 
 ::: {style="font-size: 1.1em;"}
 **🤖 Check that everything's working:**

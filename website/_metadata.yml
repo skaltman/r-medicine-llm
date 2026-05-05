@@ -3,8 +3,8 @@ workshop:
   conference:
     name: "R/Medicine 2026"
     link: "https://rconsortium.github.io/RMedicine_website/"
-  date: TBD
-  time: TBD
+  date: May 6, 2026
+  time: 11:00 - 14:00 PT
   links:
     repo: https://github.com/skaltman/r-medicine-llm
     website: https://skaltman.github.io/r-medicine-llm

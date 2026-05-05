@@ -70,7 +70,7 @@ if (file.exists(path_zip_codes_recode)) {
 } else {
   zip_codes <- listings |> count(zip_code, sort = TRUE)
   zip_codes_recode <- parallel_chat_structured(
-    chat("openai/gpt-5-nano"),
+    chat("openai/gpt-5.4-nano"),
     interpolate(
       paste(
         "You are a helpful assistant that provides neighborhood names for Asheville, NC",

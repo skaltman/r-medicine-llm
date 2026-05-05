@@ -1,0 +1,5 @@
+---
+title: querychat
+---
+
+{{< revealjs "slides/slides-06.html" class="ratio ratio-16x9" >}}
