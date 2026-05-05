@@ -7,7 +7,7 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6ffd7c464ffa9a390341775f58bc5333.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
@@ -16,7 +16,7 @@
   <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="R/Medicine 2026">
-  <title>Prompt Engineering</title>
+  <title>Prompt Writing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -200,7 +200,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Prompt Engineering</h1>
+  <h1 class="title">Prompt Writing</h1>
   <p class="subtitle">LLMs for Data Analysis in R</p>
 
 <div class="quarto-title-authors">
@@ -213,8 +213,11 @@ R/Medicine 2026
 
 </section>
 <section>
-<section id="prompt-engineering" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
+<section id="prompt-writing" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
+<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt writing</span></h1>
+<div class="footer">
+<p>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/tk9RQCq5eQo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</div>
 <aside class="notes">
 <p>Prompt engineering is the art of getting LLMs to do what you want.</p>
 <style type="text/css">
@@ -228,46 +231,6 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<!--
-# Your Turn `07_plot-image-1` {.slide-your-turn}
-
-::: notes
-First, let's see how well LLMs can interpret real data visualizations. Create a scatter plot and see what the model says.
-:::
-
-1. ellmer lets you show the model your plots!
-
-2. Create a basic `mtcars` scatter plot and ask Claude Sonnet 4.6 to interpret it.
-
-3. How does it do? Experiment with other plots!
-
-
-
-::: notes
-it does pretty well
-:::
-
-# Your Turn `08_plot-image-2` {.slide-your-turn}
-
-::: notes
-Now let's explore hallucination. Show the model random noise and see if you can get it to admit there's no pattern - this demonstrates the importance of good prompting.
-:::
-
-1. Replace the scatter plot with random noise.
-
-2. Show this new plot to Claude Sonnet 4.6 and ask it to interpret it. How does it do this time?
-
-3. Experiment to see if you can improve the prompt to get a better answer.
-
-
-
-# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
-
-::: notes
-After those exercises, let's talk about prompt engineering best practices. When things don't work, ask yourself these three questions.
-:::
-
--->
 </section>
 <section id="reminder-the-system_prompt-arg" class="slide level2">
 <h2>Reminder: the <code>system_prompt</code> arg</h2>
@@ -284,6 +247,35 @@ After those exercises, let's talk about prompt engineering best practices. When 
 <span id="cb2-3"><a></a>      <span class="st">"anthropic"</span>, </span>
 <span id="cb2-4"><a></a>      <span class="at">system_prompt =</span> readr<span class="sc">::</span><span class="fu">read_file</span>(<span class="st">"prompt.md"</span>)</span>
 <span id="cb2-5"><a></a>   )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section>
+<section id="your-turn-06_prompt-engineering" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>06_prompt-engineering</code></h1>
+<aside class="notes">
+<p>Use system prompts to control how the model interprets a data visualization. Try tailoring for different audiences.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol type="1">
+<li><p>Ask the model to interpret a Georgia cancer mortality plot with no special prompting.</p></li>
+<li><p>Edit <code>prompt.md</code> to write a system prompt that tailors the interpretation for a specific audience: screen reader alt text, data analyst, non-technical stakeholder, etc.</p></li>
+<li><p>How does the output change? Try different audiences!</p></li>
+</ol>
+<div id="timer_d5990e81c7e2629633eff8d6c9bdb5e820ae361a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 <section id="three-questions-to-ask-yourself" class="slide level2">
 <h2>Three questions to ask yourself</h2>
@@ -507,41 +499,9 @@ After those exercises, let's talk about prompt engineering best practices. When 
       }</style></aside>
 <p>See Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
 <p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
+
+
 </section></section>
-<section id="your-turn-09_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>09_quiz-game-1</code></h1>
-<aside class="notes">
-<p>Now put it all together - write a system prompt for a quiz game. This is a complex task that requires clear instructions and structure.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div style="width: 90%;">
-<ol type="1">
-<li><p>Your job: teach the model to play a quiz game with you:</p></li>
-<li><p>The user picks a theme from a short list provided by the model.</p></li>
-<li><p>They then answer multiple choice questions on that theme.</p></li>
-<li><p>After each question, tell the user if they were right or wrong and why. Then go to the next question.</p></li>
-<li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
-</ol>
-</div>
-<div id="timer_f93dc3e98b7f71009361a49117819ddc351991d8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-
-
-</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

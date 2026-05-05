@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.">
 
 <title>Programming with LLMs</title>
 <style>
@@ -151,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome and getting started</span></a>
+ <span class="menu-text">Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -169,13 +168,31 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prompt Engineering</span></a>
+ <span class="menu-text">Prompt engineering</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool Calling</span></a>
+ <span class="menu-text">Tool calling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">querychat</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding agents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Privacy, security, &amp; wrap-up</span></a>
   </div>
 </li>
     </ul>
@@ -183,15 +200,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-03.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -211,11 +221,6 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Programming with LLMs</h1>
 </div>
 
-<div>
-  <div class="description">
-    A deeper dive into the things you can do with LLMs when you’re programming with them that are harder to do in a chat interface.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -230,37 +235,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
     <p><a href="slides/slides-03.html" target="_blank">View slides in full screen</a></p>
        <div class="ratio ratio-16x9">
       <iframe class="slide-deck" src="slides/slides-03.html" height="475px"></iframe>
     </div>
   
-</section>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<p><strong>Choosing a model</strong></p>
-<ul>
-<li>Model sizes: small/fast/cheap, medium/balanced, large/smart/expensive</li>
-<li>Major providers: OpenAI, Anthropic, Google</li>
-<li><strong>Activity:</strong> <code>04_models</code> - Try different models (4 min)</li>
-</ul>
-<p><strong>Multi-modal input</strong></p>
-<ul>
-<li>Vision: <code>content_image_file()</code> and <code>content_image_url()</code></li>
-<li>PDFs: <code>content_pdf_file()</code> and <code>content_pdf_url()</code></li>
-<li><strong>Activity:</strong> <code>05_vision</code> - Show food images to LLM (5 min)</li>
-</ul>
-<p><strong>Structured output</strong></p>
-<ul>
-<li>Using <code>ellmer::type_*()</code> to get structured data instead of text</li>
-<li>Define schemas with <code>type_object()</code>, <code>type_string()</code>, <code>type_integer()</code>, etc.</li>
-<li><strong>Activity:</strong> <code>06_structured-output</code> - Extract structured recipe data (7 min)</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -670,8 +651,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workshop-04.html" class="pagination-link" aria-label="Prompt Engineering">
-        <span class="nav-page-text">Prompt Engineering</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-04.html" class="pagination-link" aria-label="Prompt engineering">
+        <span class="nav-page-text">Prompt engineering</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -680,4 +661,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-03.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-03.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Getting LLMs to do what you want through effective prompting.">
 
-<title>Prompt Engineering</title>
+<title>Prompt engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-04.html">Prompt Engineering</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./workshop-04.html">Prompt engineering</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -151,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome and getting started</span></a>
+ <span class="menu-text">Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -169,13 +168,31 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-04.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Prompt Engineering</span></a>
+ <span class="menu-text">Prompt engineering</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./workshop-05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tool Calling</span></a>
+ <span class="menu-text">Tool calling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">querychat</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding agents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./workshop-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Privacy, security, &amp; wrap-up</span></a>
   </div>
 </li>
     </ul>
@@ -183,15 +200,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -208,14 +218,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prompt Engineering</h1>
+<h1 class="title">Prompt engineering</h1>
 </div>
 
-<div>
-  <div class="description">
-    Getting LLMs to do what you want through effective prompting.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -230,34 +235,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
     <p><a href="slides/slides-04.html" target="_blank">View slides in full screen</a></p>
        <div class="ratio ratio-16x9">
       <iframe class="slide-deck" src="slides/slides-04.html" height="475px"></iframe>
     </div>
   
-</section>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<p><strong>LLMs and plots</strong></p>
-<ul>
-<li><strong>Activity:</strong> <code>07_plot-image-1</code> - Interpret a real scatter plot (3 min)</li>
-<li><strong>Activity:</strong> <code>08_plot-image-2</code> - Handle random noise and improve prompting (7 min)</li>
-</ul>
-<p><strong>Prompt engineering best practices</strong></p>
-<ul>
-<li>Three key questions: best models? clear system prompt? examples?</li>
-<li>System prompt vs user prompt</li>
-<li>Tips: use LLMs to write prompts, add structure, separate files, think out loud</li>
-</ul>
-<p><strong>Apply your skills</strong></p>
-<ul>
-<li><strong>Activity:</strong> <code>09_quiz-game-1</code> - Write system prompt for quiz game (8 min)</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -667,8 +651,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./workshop-05.html" class="pagination-link" aria-label="Tool Calling">
-        <span class="nav-page-text">Tool Calling</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./workshop-05.html" class="pagination-link" aria-label="Tool calling">
+        <span class="nav-page-text">Tool calling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -677,4 +661,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/skaltman/r-medicine-llm/edit/main/website/workshop-04.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/skaltman/r-medicine-llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

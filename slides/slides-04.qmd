@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering
+title: Prompt Writing
 subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
@@ -7,52 +7,15 @@ editor:
   render-on-save: true
 ---
 
-# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
+# [Prompt writing]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
 
-::: notes
-Prompt engineering is the art of getting LLMs to do what you want. 
+::: footer
+Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/tk9RQCq5eQo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 :::
 
-<!--
-# Your Turn `07_plot-image-1` {.slide-your-turn}
-
 ::: notes
-First, let's see how well LLMs can interpret real data visualizations. Create a scatter plot and see what the model says.
+Prompt engineering is the art of getting LLMs to do what you want.
 :::
-
-1. ellmer lets you show the model your plots!
-
-2. Create a basic `mtcars` scatter plot and ask Claude Sonnet 4.6 to interpret it.
-
-3. How does it do? Experiment with other plots!
-
-{{< countdown 3:00 left=0 bottom="-2em" >}}
-
-::: notes
-it does pretty well
-:::
-
-# Your Turn `08_plot-image-2` {.slide-your-turn}
-
-::: notes
-Now let's explore hallucination. Show the model random noise and see if you can get it to admit there's no pattern - this demonstrates the importance of good prompting.
-:::
-
-1. Replace the scatter plot with random noise.
-
-2. Show this new plot to Claude Sonnet 4.6 and ask it to interpret it. How does it do this time?
-
-3. Experiment to see if you can improve the prompt to get a better answer.
-
-{{< countdown 7:00 left=0 bottom="-2em" >}}
-
-# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
-
-::: notes
-After those exercises, let's talk about prompt engineering best practices. When things don't work, ask yourself these three questions.
-:::
-
--->
 
 ## Reminder: the `system_prompt` arg
 
@@ -73,6 +36,20 @@ chat <-
       system_prompt = readr::read_file("prompt.md")
    )
 ```
+
+# Your Turn `06_prompt-engineering` {.slide-your-turn}
+
+::: notes
+Use system prompts to control how the model interprets a data visualization. Try tailoring for different audiences.
+:::
+
+1. Ask the model to interpret a Georgia cancer mortality plot with no special prompting.
+
+2. Edit `prompt.md` to write a system prompt that tailors the interpretation for a specific audience: screen reader alt text, data analyst, non-technical stakeholder, etc.
+
+3. How does the output change? Try different audiences!
+
+{{< countdown 5:00 left=0 bottom="-2em" >}}
 
 ## Three questions to ask yourself
 
@@ -242,25 +219,3 @@ Finally, all the major providers have excellent documentation on prompt engineer
 See Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
 
 Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
-
-# Your Turn `09_quiz-game-1` {.slide-your-turn}
-
-::: notes
-Now put it all together - write a system prompt for a quiz game. This is a complex task that requires clear instructions and structure.
-:::
-
-::: {style="width: 90%;"}
-1. Your job: teach the model to play a quiz game with you:
-
-1. The user picks a theme from a short list provided by the model.
-
-1. They then answer multiple choice questions on that theme.
-
-1. After each question, tell the user if they were right or wrong and why.
-   Then go to the next question.
-
-1. After 5 questions, end the round and tell the user they won, regardless of their score.
-   Then, start a new round.
-:::
-
-{{< countdown 8:00 left=0 bottom="-1em" >}}

@@ -7,7 +7,16 @@ editor:
   render-on-save: true
 ---
 
+```{r}
+# REMOVE
+source("_incremental_slides.R")
+```
+
 # [Providers and Models]{.white .ph4 style="background-color: #4ea8a7e6;"} {.no-invert-dark-mode background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: footer
+Photo by <a href="https://unsplash.com/@suniramoses?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sunira Moses</a> on <a href="https://unsplash.com/photos/Naj9-n5apvs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
 
 ::: notes
 Now that you know how to use ellmer, let's talk about choosing which model to use. There are many providers and many models to choose from.
@@ -47,38 +56,6 @@ dd:before {
 </style>
 ```
 
-<!--
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-01.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-02.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-03.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-04.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-05.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-06.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-07.excalidraw.svg)
-
--->
-
 ## How are models different?
 
 ::: notes
@@ -102,7 +79,7 @@ Models differ across several dimensions. Let's look at the main factors you'll c
 
 ## {transition="fade"}
 
-![](assets/model-sizes-01.excalidraw.svg)
+![](assets/model-comparison-anthropic-01.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
 We'll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.
@@ -110,7 +87,7 @@ We'll start with Anthropic, a company that builds LLMs, in particular a family o
 
 ## {transition="fade"}
 
-![](assets/model-sizes-02.excalidraw.svg)
+![](assets/model-comparison-anthropic-02.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
 Claude comes in different sizes, with different levels of intelligence.
@@ -118,13 +95,7 @@ Claude comes in different sizes, with different levels of intelligence.
 They have a small model that's fast and cheap,
 a large model that's intelligent but expensive,
 and a just-right sized model that balances speed, cost, and intelligence.
-:::
 
-## {transition="fade"}
-
-![](assets/model-sizes-03.excalidraw.svg)
-
-::: notes
 In line with Anthropic's branding, these models are named after different types of poetry.
 
 * Haiku is small, fast, and cheap
@@ -133,69 +104,22 @@ In line with Anthropic's branding, these models are named after different types 
 
 Anthropic's poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry.
 (Yes, that's says a lot.)
-:::
 
-## {transition="fade"}
-
-![](assets/model-sizes-04.excalidraw.svg)
-
-::: notes
-But there isn't just one Claude model at different sizes.
-Anthropic keeps training new models which they generally release with a new version number.
-
-Multiple versions are still active and available.
-:::
-
-## {transition="fade"}
-
-![](assets/model-sizes-04a.excalidraw.svg)
-
-::: notes
 When you're choosing a model, you can get higher quality responses by moving up a size tier.
-:::
 
-## {transition="fade"}
-
-![](assets/model-sizes-04b.excalidraw.svg)
-
-::: notes
 And when new releases come out, you can often get similar quality improvements by moving up a version number.
 (This move tends to be cheaper than moving up a size tier.)
 :::
 
 ## {transition="fade"}
 
-![](assets/model-sizes-04c.excalidraw.svg)
-
 ::: notes
-Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for some Claude versions, but not all.
 
-It remains to be seen if this will be an enduring pattern.
-:::
-
-## {transition="fade"}
-
-::: notes
 All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models.
-:::
-
-![](assets/model-sizes-07.excalidraw.svg)
-
-## {transition="fade"}
-
-::: notes
-OpenAI has GPT models in different sizes, Google has Gemini in different sizes - same pattern everywhere.
-:::
-
-![](assets/model-sizes-06.excalidraw.svg)
-
-## {transition="fade"}
-
-::: notes
 So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.
 :::
 
-![](assets/model-sizes-05.excalidraw.svg)
+![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
 
 ## {#model-comparison .smaller}
 
@@ -206,26 +130,51 @@ Here's a comparison table if you want to see the specific numbers for different 
 <!--
 {{< include ../partials/model-comparison.qmd >}} -->
 
-## Model Naming Philosophies {.smaller visibility="hidden"}
+## Local/open weights models
 
-| Company | Theme | Logic | Clarity |
-|---------|-------|-------|---------|
-| **OpenAI** | _nano_, mini, (regular), pro | Inconsistent across series | Confusing |
-| **Anthropic** | haiku, sonnet, opus | Size/capability hierarchy | Makes you think about it |
-| **Google** | flash, pro, ultra | Clear tier system | Very clear |
+* Models that you (or your organization) can run on your own. 
+* Naming schemes can be even more confusing 
+* Use via HuggingFace, LM Studio, Ollama
 
-: {tbl-colwidths="[10,35,25,20]"}
+## Local/open weights models
+
+![](assets/qwen-gemma-options.excalidraw.svg){style="display: block; margin: auto;"}
+
+## Local/open weights models
+
+![](assets/local-model-naming-01.excalidraw.svg){style="display: block; margin: auto;"}
+
+## Local/open weights models
+
+![](assets/local-model-naming-02.excalidraw.svg){style="display: block; margin: auto;"}
+
+## Local/open weights models
+
+![](assets/local-model-naming-03.excalidraw.svg){style="display: block; margin: auto;"}
+
+##
+
+```{r}
+#| output: asis
+incremental_slides(
+  pattern = "local-model-naming-.+[.]svg$",
+  template = r"(![]({path}){{style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}}
+)",
+  collapse = "\n\n## \n\n"
+)
+```
+
+## For example
+
+* **gemma-4**-*31B*
+* **qwen-3.6**-*27B*                                                               
+* **gemma-4**-*35B*-**A3B** 
 
 
 ## How to choose a model 
 
+* If you have your pick: pick a recent frontier model, then move to a cheaper one if needed 
 
-
-Generally: just start with a recent frontier model.
-
-* GPT-5.4
-* Claude Sonnet 4.6
-* Gemini 2.5 Pro
 
 ::: notes
 you're probably not doing anything where you need to worry about cost effectiveness right away. 
@@ -256,15 +205,20 @@ Now let's see how to actually use different providers and models in ellmer. Ellm
 ::::
 
 :::: fragment
-**Local models**
+**Open weights/local models**
 
 * `chat_ollama()`
+* `chat_huggingface()`
 ::::
 
 :::: fragment
 **Enterprise**
 
 * `chat_aws_bedrock()`
+::::
+
+:::: fragment
+and more!
 ::::
 :::::
 ::::::
@@ -273,7 +227,7 @@ Now let's see how to actually use different providers and models in ellmer. Ellm
 <https://ellmer.tidyverse.org/>
 :::
 
-## Chat in Easy Mode {transition="fade"}
+## Shortcut - `chat()` {transition="fade"}
 
 ::: notes
 Ellmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.
@@ -288,7 +242,7 @@ chat <- chat("anthropic")
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
+## Shortcut - `chat()` {transition="fade"}
 
 ::: notes
 See? It tells you which model it chose - Claude Sonnet 4.6.
@@ -300,11 +254,11 @@ See? It tells you which model it chose - Claude Sonnet 4.6.
 library(ellmer)
 
 chat <- chat("anthropic")
-#> Using model = "claude-sonnet-4-6".
+#> Using model = "claude-sonnet-4-5-20250929".
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
+## Shortcut - `chat()` {transition="fade"}
 
 ::: notes
 Works the same way with OpenAI - it picks GPT-4.1 as the default.
@@ -312,7 +266,7 @@ Works the same way with OpenAI - it picks GPT-4.1 as the default.
 
 ::: {style="--code-font-size: 0.9em"}
 
-```{.r code-line-numbers="3"}
+```{.r code-line-numbers="3-4"}
 library(ellmer)
 
 chat <- chat("openai")
@@ -320,7 +274,7 @@ chat <- chat("openai")
 ```
 :::
 
-## Chat in Easy Mode {transition="fade"}
+## Shortcut - `chat()` {transition="fade"}
 
 ::: notes
 Or if you want a specific model, use "provider/model-name" format.
@@ -331,11 +285,11 @@ Or if you want a specific model, use "provider/model-name" format.
 ```{.r code-line-numbers="3"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("anthropic/claude-opus-4-7")
 ```
 :::
 
-# Your Turn `04_models` {.slide-your-turn}
+# Your Turn `03_models` {.slide-your-turn}
 
 ::: notes
 Try using different models and see how they compare. This activity helps you get a feel for the differences between models.
@@ -348,20 +302,6 @@ Try using different models and see how they compare. This activity helps you get
 2. Send the same prompt to different models and compare the responses.
 
 3. Feel free to change the prompt!
-
-## Favorite models for today
-
-::: notes
-These are the models I recommend using today. Nano and Haiku are fast, GPT-5.4 and Sonnet 4.6 are smarter. Pick based on what you're doing.
-:::
-
-* OpenAI
-    * `gpt-4.1-nano`
-    * `gpt-5.4`
-
-* Anthropic
-    * `claude-sonnet-4-6`
-    * `claude-haiku-4-5-20251001`
 
 ## How to choose a model
 
@@ -383,6 +323,10 @@ These are the models I recommend using today. Nano and Haiku are fast, GPT-5.4 a
 ![](assets/eval-costs.png)
 
 # [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
+
+::: footer
+Photo by <a href="https://unsplash.com/@budhelisson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Bud Helisson</a> on <a href="https://unsplash.com/photos/kqguzgvYrtM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
 
 ::: notes
 Modern LLMs aren't just text - they can handle images and PDFs too. This is called multi-modal input.
@@ -411,7 +355,7 @@ Use content_image_file() to pass an image from your local filesystem. Just provi
 ```{.r code-line-numbers="4-7"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("anthropic/claude-haiku-4-5-20251001")
 chat$chat(
   content_image_file("cats.jpg"),
   "What do you see in this image?"
@@ -430,7 +374,7 @@ Or use content_image_url() to pass an image from a URL. Same pattern, different 
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("anthropic/claude-haiku-4-5-20251001")
 chat$chat(
   content_image_url("https://placecats.com/bella/400/400"),
   "What do you see in this image?"
@@ -438,13 +382,13 @@ chat$chat(
 ```
 :::
 
-## Your Turn `05_vision` {.slide-your-turn}
+## Your Turn `04_vision` {.slide-your-turn}
 
 ::: notes
 Now try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.
 :::
 
-1. I've put some images of food in the `data/recipes/images` folder.
+1. There are some images of food in the `data/recipes/images` folder.
 
 2. Your job: show the food to the LLM and ask it to write a corresponding recipe. 
 
@@ -461,7 +405,7 @@ LLMs can also read PDFs. Use content_pdf_file() to pass a PDF from your filesyst
 ```{.r code-line-numbers="5"}
 library(ellmer)
 
-chat <- chat("openai/gpt-4.1-nano")
+chat <- chat("anthropic/claude-haiku-4-5-20251001")
 chat$chat(
    content_pdf_file("prescribing-information.pdf"),
   "List the contraindications and serious adverse reactions."
@@ -487,6 +431,10 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 
 # [Structured output]{.title-push-down .dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center"}
 
+::: footer
+Photo by <a href="https://unsplash.com/@vitrfrgl?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vitaly Taranov</a> on <a href="https://unsplash.com/photos/J6hE2DTWSEw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+:::
+
 ::: notes
 Now let's talk about structured output - getting LLMs to return data in a predictable format instead of free text.
 :::
@@ -499,14 +447,13 @@ Here's a common problem - you have messy text data and need to extract specific 
 
 ```{r}
 #| echo: true
-
 age_free_text <- list(
-    "I go by Alex. 42 years on this planet and counting.",
-    "Pleased to meet you! I'm Jamal, age 27.",
-    "They call me Li Wei. Nineteen years young.",
-    "Fatima here. Just celebrated my 35th birthday last week.",
-    "The name's Robert - 51 years old and proud of it.",
-    "Kwame here - just hit the big 5-0 this year."
+  "I go by Alex. 42 years on this planet and counting.",
+  "Pleased to meet you! I'm Jamal, age 27.",
+  "They call me Li Wei. Nineteen years young.",
+  "Fatima here. Just celebrated my 35th birthday last week.",
+  "The name's Robert - 51 years old and proud of it.",
+  "Kwame here - just hit the big 5-0 this year."
 )
 ```
 
@@ -518,77 +465,121 @@ If you tried to solve this with traditional R code, you'd need complex regex pat
 
 ```{r}
 #| echo: true
-
 word_to_num <- function(x) {
-    # normalize
-    x <- tolower(x)
-    # direct numbers
-    if (grepl("\\b\\d+\\b", x)) return(as.integer(regmatches(x, regexpr("\\b\\d+\\b", x))))
-    # hyphenated like "5-0"
-    if (grepl("\\b\\d+\\s*-\\s*\\d+\\b", x)) {
-        parts <- as.integer(unlist(strsplit(regmatches(x, regexpr("\\b\\d+\\s*-\\s*\\d+\\b", x)), "\\s*-\\s*")))
-        return(10 * parts[1] + parts[2])
-    }
-    # simple word numbers
-    ones <- c(
-        zero=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9,
-        ten=10, eleven=11, twelve=12, thirteen=13, fourteen=14, fifteen=15, sixteen=16,
-        seventeen=17, eighteen=18, nineteen=19
-    )
-    tens <- c(twenty=20, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)
-    # e.g., "nineteen"
-    if (x %in% names(ones)) return(ones[[x]])
-    # e.g., "thirty five" or "thirty-five"
-    x2 <- gsub("-", " ", x)
-    parts <- strsplit(x2, "\\s+")[[1]]
-    if (length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)) {
-        return(tens[[parts[1]]] + ones[[parts[2]]])
-    }
-    if (length(parts) == 1 && parts[1] %in% names(tens)) return(tens[[parts[1]]])
-    return(NA_integer_)
+  # normalize
+  x <- tolower(x)
+  # direct numbers
+  if (grepl("\\b\\d+\\b", x)) {
+    return(as.integer(regmatches(x, regexpr("\\b\\d+\\b", x))))
+  }
+  # hyphenated like "5-0"
+  if (grepl("\\b\\d+\\s*-\\s*\\d+\\b", x)) {
+    parts <- as.integer(unlist(strsplit(
+      regmatches(x, regexpr("\\b\\d+\\s*-\\s*\\d+\\b", x)),
+      "\\s*-\\s*"
+    )))
+    return(10 * parts[1] + parts[2])
+  }
+  # simple word numbers
+  ones <- c(
+    zero = 0,
+    one = 1,
+    two = 2,
+    three = 3,
+    four = 4,
+    five = 5,
+    six = 6,
+    seven = 7,
+    eight = 8,
+    nine = 9,
+    ten = 10,
+    eleven = 11,
+    twelve = 12,
+    thirteen = 13,
+    fourteen = 14,
+    fifteen = 15,
+    sixteen = 16,
+    seventeen = 17,
+    eighteen = 18,
+    nineteen = 19
+  )
+  tens <- c(
+    twenty = 20,
+    thirty = 30,
+    forty = 40,
+    fifty = 50,
+    sixty = 60,
+    seventy = 70,
+    eighty = 80,
+    ninety = 90
+  )
+  # e.g., "nineteen"
+  if (x %in% names(ones)) {
+    return(ones[[x]])
+  }
+  # e.g., "thirty five" or "thirty-five"
+  x2 <- gsub("-", " ", x)
+  parts <- strsplit(x2, "\\s+")[[1]]
+  if (
+    length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)
+  ) {
+    return(tens[[parts[1]]] + ones[[parts[2]]])
+  }
+  if (length(parts) == 1 && parts[1] %in% names(tens)) {
+    return(tens[[parts[1]]])
+  }
+  return(NA_integer_)
 }
 
 # Extract name candidates
 extract_name <- function(s) {
-    # patterns that introduce a name
-    pats <- c(
-        "I go by\\s+([A-Z][a-z]+)",
-        "I'm\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
-        "They call me\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
-        "^([A-Z][a-z]+) here",
-        "The name's\\s+([A-Z][a-z]+)",
-        "^([A-Z][a-z]+)\\s" # fallback: leading capital word
-    )
-    for (p in pats) {
-        m <- regexpr(p, s, perl = TRUE)
-        if (m[1] != -1) {
-            return(sub(p, "\\1", regmatches(s, m)))
-        }
+  # patterns that introduce a name
+  pats <- c(
+    "I go by\\s+([A-Z][a-z]+)",
+    "I'm\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+    "They call me\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+    "^([A-Z][a-z]+) here",
+    "The name's\\s+([A-Z][a-z]+)",
+    "^([A-Z][a-z]+)\\s" # fallback: leading capital word
+  )
+  for (p in pats) {
+    m <- regexpr(p, s, perl = TRUE)
+    if (m[1] != -1) {
+      return(sub(p, "\\1", regmatches(s, m)))
     }
-    NA_character_
+  }
+  NA_character_
 }
 
 # Extract age phrases and convert to number
 extract_age <- function(s) {
-    # capture common age phrases around a number
-    m <- regexpr("(\\b\\d+\\b|\\b\\d+\\s*-\\s*\\d+\\b|\\b[Nn][a-z-]+\\b)\\s*(years|year|birthday|young|this)", s, perl = TRUE)
-    if (m[1] != -1) {
-        token <- sub("(years|year|birthday|young|this)$", "", trimws(substring(s, m, m + attr(m, "match.length") - 1)))
-        return(word_to_num(token))
-    }
-    # handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)
-    m2 <- regexpr("\\b([A-Z][a-z]+)\\b\\s+years", s, perl = TRUE)
-    if (m2[1] != -1) {
-        token <- tolower(sub("\\s+years.*", "", regmatches(s, m2)))
-        return(word_to_num(token))
-    }
-    # handle hyphenated "big 5-0"
-    m3 <- regexpr("big\\s+(\\d+\\s*-\\s*\\d+)", s, perl = TRUE)
-    if (m3[1] != -1) {
-        token <- sub("big\\s+", "", regmatches(s, m3))
-        return(word_to_num(token))
-    }
-    NA_integer_
+  # capture common age phrases around a number
+  m <- regexpr(
+    "(\\b\\d+\\b|\\b\\d+\\s*-\\s*\\d+\\b|\\b[Nn][a-z-]+\\b)\\s*(years|year|birthday|young|this)",
+    s,
+    perl = TRUE
+  )
+  if (m[1] != -1) {
+    token <- sub(
+      "(years|year|birthday|young|this)$",
+      "",
+      trimws(substring(s, m, m + attr(m, "match.length") - 1))
+    )
+    return(word_to_num(token))
+  }
+  # handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)
+  m2 <- regexpr("\\b([A-Z][a-z]+)\\b\\s+years", s, perl = TRUE)
+  if (m2[1] != -1) {
+    token <- tolower(sub("\\s+years.*", "", regmatches(s, m2)))
+    return(word_to_num(token))
+  }
+  # handle hyphenated "big 5-0"
+  m3 <- regexpr("big\\s+(\\d+\\s*-\\s*\\d+)", s, perl = TRUE)
+  if (m3[1] != -1) {
+    token <- sub("big\\s+", "", regmatches(s, m3))
+    return(word_to_num(token))
+  }
+  NA_integer_
 }
 ```
 
@@ -601,7 +592,6 @@ And here's what running that code looks like. It works, but look at all the code
 ::: {.easy-columns .gap-2}
 ```{r}
 #| echo: true
-
 dplyr::tibble(
   name = purrr::map_chr(age_free_text, extract_name),
   age = purrr::map_int(age_free_text, extract_age)
@@ -610,7 +600,6 @@ dplyr::tibble(
 
 ```{r}
 #| echo: true
-
 age_free_text
 ```
 :::
@@ -625,7 +614,7 @@ But with an LLM, you can just ask it to extract the name and age. Much simpler!
 library(ellmer)
 
 chat <- chat(
-  "openai/gpt-5.4-nano",
+  "anthropic/claude-sonnet-4-6",
   system_prompt = "Extract the name and age."
 )
 
@@ -646,7 +635,7 @@ And it works! The LLM correctly extracts names and ages. But the output is still
 library(ellmer)
 
 chat <- chat(
-  "openai/gpt-5.4-nano",
+  "anthropic/claude-sonnet-4-6",
   system_prompt = "Extract the name and age."
 )
 
@@ -741,7 +730,7 @@ type_person <- type_object(
 ```
 :::
 
-# Your Turn `06_structured-output` {.slide-your-turn}
+# Your Turn `05_structured-output` {.slide-your-turn}
 
 ::: notes
 Now practice structured output - extract recipe data as proper R objects. This is a key skill for working with LLMs in real applications.

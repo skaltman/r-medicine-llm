@@ -7,7 +7,7 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6ffd7c464ffa9a390341775f58bc5333.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
@@ -215,6 +215,9 @@ R/Medicine 2026
 <section>
 <section id="providers-and-models" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="white ph4" style="background-color: #4ea8a7e6;">Providers and Models</span></h1>
+<div class="footer">
+<p>Photo by <a href="https://unsplash.com/@suniramoses?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sunira Moses</a> on <a href="https://unsplash.com/photos/Naj9-n5apvs?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</div>
 <aside class="notes">
 <p>Now that you know how to use ellmer, let’s talk about choosing which model to use. There are many providers and many models to choose from.</p>
 <style type="text/css">
@@ -273,37 +276,6 @@ dd:before {
   opacity: 0.66;
 }
 </style>
-<!--
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-01.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-02.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-03.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-04.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-05.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-06.excalidraw.svg)
-
-## {.text-center transition="fade"}
-
-![](assets/providers-models-07.excalidraw.svg)
-
--->
 </section>
 <section id="how-are-models-different" class="slide level2">
 <h2>How are models different?</h2>
@@ -349,7 +321,7 @@ dd:before {
 <section id="section-1" class="slide level2" data-transition="fade">
 <h2></h2>
 
-<img data-src="assets/model-sizes-01.excalidraw.svg" class="r-stretch"><aside class="notes">
+<img data-src="assets/model-comparison-anthropic-01.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
 <p>We’ll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -366,9 +338,18 @@ dd:before {
 <section id="section-2" class="slide level2" data-transition="fade">
 <h2></h2>
 
-<img data-src="assets/model-sizes-02.excalidraw.svg" class="r-stretch"><aside class="notes">
+<img data-src="assets/model-comparison-anthropic-02.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
 <p>Claude comes in different sizes, with different levels of intelligence.</p>
 <p>They have a small model that’s fast and cheap, a large model that’s intelligent but expensive, and a just-right sized model that balances speed, cost, and intelligence.</p>
+<p>In line with Anthropic’s branding, these models are named after different types of poetry.</p>
+<ul>
+<li>Haiku is small, fast, and cheap</li>
+<li>Sonnet is larger, more expensive, and more intelligent</li>
+<li>Opus is the largest, most expensive, and most intelligent</li>
+</ul>
+<p>Anthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)</p>
+<p>When you’re choosing a model, you can get higher quality responses by moving up a size tier.</p>
+<p>And when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -383,101 +364,8 @@ dd:before {
 </section>
 <section id="section-3" class="slide level2" data-transition="fade">
 <h2></h2>
-
-<img data-src="assets/model-sizes-03.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>In line with Anthropic’s branding, these models are named after different types of poetry.</p>
-<ul>
-<li>Haiku is small, fast, and cheap</li>
-<li>Sonnet is larger, more expensive, and more intelligent</li>
-<li>Opus is the largest, most expensive, and most intelligent</li>
-</ul>
-<p>Anthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-4" class="slide level2" data-transition="fade">
-<h2></h2>
-
-<img data-src="assets/model-sizes-04.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>But there isn’t just one Claude model at different sizes. Anthropic keeps training new models which they generally release with a new version number.</p>
-<p>Multiple versions are still active and available.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-5" class="slide level2" data-transition="fade">
-<h2></h2>
-
-<img data-src="assets/model-sizes-04a.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>When you’re choosing a model, you can get higher quality responses by moving up a size tier.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-6" class="slide level2" data-transition="fade">
-<h2></h2>
-
-<img data-src="assets/model-sizes-04b.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>And when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-7" class="slide level2" data-transition="fade">
-<h2></h2>
-
-<img data-src="assets/model-sizes-04c.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for some Claude versions, but not all.</p>
-<p>It remains to be seen if this will be an enduring pattern.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-8" class="slide level2" data-transition="fade">
-<h2></h2>
 <aside class="notes">
-<p>All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models.</p>
+<p>All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models. So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -490,41 +378,7 @@ dd:before {
           display:block!important;
       }</style></aside>
 
-<img data-src="assets/model-sizes-07.excalidraw.svg" class="r-stretch"></section>
-<section id="section-9" class="slide level2" data-transition="fade">
-<h2></h2>
-<aside class="notes">
-<p>OpenAI has GPT models in different sizes, Google has Gemini in different sizes - same pattern everywhere.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-
-<img data-src="assets/model-sizes-06.excalidraw.svg" class="r-stretch"></section>
-<section id="section-10" class="slide level2" data-transition="fade">
-<h2></h2>
-<aside class="notes">
-<p>So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-
-<img data-src="assets/model-sizes-05.excalidraw.svg" class="r-stretch"></section>
+<img data-src="assets/model-comparison-openai.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
 <section id="model-comparison" class="slide level2 smaller">
 <h2></h2>
 <aside class="notes">
@@ -543,14 +397,55 @@ dd:before {
 <!--
 {{< include ../partials/model-comparison.qmd >}} -->
 </section>
+<section id="localopen-weights-models" class="slide level2">
+<h2>Local/open weights models</h2>
+<ul>
+<li>Models that you (or your organization) can run on your own.</li>
+<li>Naming schemes can be even more confusing</li>
+<li>Use via HuggingFace, LM Studio, Ollama</li>
+</ul>
+</section>
+<section id="localopen-weights-models-1" class="slide level2">
+<h2>Local/open weights models</h2>
 
+<img data-src="assets/qwen-gemma-options.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="localopen-weights-models-2" class="slide level2">
+<h2>Local/open weights models</h2>
+
+<img data-src="assets/local-model-naming-01.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="localopen-weights-models-3" class="slide level2">
+<h2>Local/open weights models</h2>
+
+<img data-src="assets/local-model-naming-02.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="localopen-weights-models-4" class="slide level2">
+<h2>Local/open weights models</h2>
+
+<img data-src="assets/local-model-naming-03.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p><img data-src="assets/local-model-naming-01.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p><img data-src="assets/local-model-naming-02.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p><img data-src="assets/local-model-naming-03.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For example</h2>
+<ul>
+<li><strong>gemma-4</strong>-<em>31B</em></li>
+<li><strong>qwen-3.6</strong>-<em>27B</em><br>
+</li>
+<li><strong>gemma-4</strong>-<em>35B</em>-<strong>A3B</strong></li>
+</ul>
+</section>
 <section id="how-to-choose-a-model" class="slide level2">
 <h2>How to choose a model</h2>
-<p>Generally: just start with a recent frontier model.</p>
 <ul>
-<li>GPT-5.4</li>
-<li>Claude Sonnet 4.6</li>
-<li>Gemini 2.5 Pro</li>
+<li>If you have your pick: pick a recent frontier model, then move to a cheaper one if needed</li>
 </ul>
 <aside class="notes">
 <p>you’re probably not doing anything where you need to worry about cost effectiveness right away.</p>
@@ -594,9 +489,10 @@ dd:before {
 </ul>
 </div>
 <div class="fragment">
-<p><strong>Local models</strong></p>
+<p><strong>Open weights/local models</strong></p>
 <ul>
 <li><code>chat_ollama()</code></li>
+<li><code>chat_huggingface()</code></li>
 </ul>
 </div>
 <div class="fragment">
@@ -605,13 +501,16 @@ dd:before {
 <li><code>chat_aws_bedrock()</code></li>
 </ul>
 </div>
+<div class="fragment">
+<p>and more!</p>
+</div>
 </div></div>
 <div class="footer">
 <p><a href="https://ellmer.tidyverse.org/" class="uri">https://ellmer.tidyverse.org/</a></p>
 </div>
 </section>
-<section id="chat-in-easy-mode" class="slide level2" data-transition="fade">
-<h2>Chat in Easy Mode</h2>
+<section id="shortcut---chat" class="slide level2" data-transition="fade">
+<h2>Shortcut - <code>chat()</code></h2>
 <aside class="notes">
 <p>Ellmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.</p>
 <style type="text/css">
@@ -631,8 +530,8 @@ dd:before {
 <span id="cb1-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="chat-in-easy-mode-1" class="slide level2" data-transition="fade">
-<h2>Chat in Easy Mode</h2>
+<section id="shortcut---chat-1" class="slide level2" data-transition="fade">
+<h2>Shortcut - <code>chat()</code></h2>
 <aside class="notes">
 <p>See? It tells you which model it chose - Claude Sonnet 4.6.</p>
 <style type="text/css">
@@ -650,11 +549,11 @@ dd:before {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic"</span>)</span>
-<span id="cb2-4"><a></a><span class="co">#&gt; Using model = "claude-sonnet-4-6".</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-4"><a></a><span class="co">#&gt; Using model = "claude-sonnet-4-5-20250929".</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="chat-in-easy-mode-2" class="slide level2" data-transition="fade">
-<h2>Chat in Easy Mode</h2>
+<section id="shortcut---chat-2" class="slide level2" data-transition="fade">
+<h2>Shortcut - <code>chat()</code></h2>
 <aside class="notes">
 <p>Works the same way with OpenAI - it picks GPT-4.1 as the default.</p>
 <style type="text/css">
@@ -669,14 +568,14 @@ dd:before {
           display:block!important;
       }</style></aside>
 <div style="--code-font-size: 0.9em">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai"</span>)</span>
 <span id="cb3-4"><a></a><span class="co">#&gt; Using model = "gpt-4.1".</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="chat-in-easy-mode-3" class="slide level2" data-transition="fade">
-<h2>Chat in Easy Mode</h2>
+<section id="shortcut---chat-3" class="slide level2" data-transition="fade">
+<h2>Shortcut - <code>chat()</code></h2>
 <aside class="notes">
 <p>Or if you want a specific model, use “provider/model-name” format.</p>
 <style type="text/css">
@@ -693,12 +592,12 @@ dd:before {
 <div style="--code-font-size: 0.9em">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-opus-4-7"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
-<section id="your-turn-04_models" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>04_models</code></h1>
+<section id="your-turn-03_models" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>03_models</code></h1>
 <aside class="notes">
 <p>Try using different models and see how they compare. This activity helps you get a feel for the differences between models.</p>
 <style type="text/css">
@@ -712,7 +611,7 @@ dd:before {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="timer_f93dc3e98b7f71009361a49117819ddc351991d8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -724,34 +623,6 @@ dd:before {
 <li><p>Send the same prompt to different models and compare the responses.</p></li>
 <li><p>Feel free to change the prompt!</p></li>
 </ol>
-</section>
-<section id="favorite-models-for-today" class="slide level2">
-<h2>Favorite models for today</h2>
-<aside class="notes">
-<p>These are the models I recommend using today. Nano and Haiku are fast, GPT-5.4 and Sonnet 4.6 are smarter. Pick based on what you’re doing.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li>OpenAI
-<ul>
-<li><code>gpt-4.1-nano</code></li>
-<li><code>gpt-5.4</code></li>
-</ul></li>
-<li>Anthropic
-<ul>
-<li><code>claude-sonnet-4-6</code></li>
-<li><code>claude-haiku-4-5-20251001</code></li>
-</ul></li>
-</ul>
 </section>
 <section id="how-to-choose-a-model-1" class="slide level2">
 <h2>How to choose a model</h2>
@@ -769,6 +640,9 @@ dd:before {
 <section>
 <section id="multi-modal-input" class="title-slide slide level1 center" data-background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="hidden">Multi-modal input</span></h1>
+<div class="footer">
+<p>Photo by <a href="https://unsplash.com/@budhelisson?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Bud Helisson</a> on <a href="https://unsplash.com/photos/kqguzgvYrtM?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</div>
 <aside class="notes">
 <p>Modern LLMs aren’t just text - they can handle images and PDFs too. This is called multi-modal input.</p>
 <style type="text/css">
@@ -821,7 +695,7 @@ dd:before {
 <div style="--code-font-size: 0.9em">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="4-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb5-2"><a></a></span>
-<span id="cb5-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb5-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-haiku-4-5-20251001"</span>)</span>
 <span id="cb5-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb5-5"><a></a>  <span class="fu">content_image_file</span>(<span class="st">"cats.jpg"</span>),</span>
 <span id="cb5-6"><a></a>  <span class="st">"What do you see in this image?"</span></span>
@@ -846,15 +720,15 @@ dd:before {
 <div style="--code-font-size: 0.9em">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb6-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-haiku-4-5-20251001"</span>)</span>
 <span id="cb6-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb6-5"><a></a>  <span class="fu">content_image_url</span>(<span class="st">"https://placecats.com/bella/400/400"</span>),</span>
 <span id="cb6-6"><a></a>  <span class="st">"What do you see in this image?"</span></span>
 <span id="cb6-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="your-turn-05_vision" class="slide level2 slide-your-turn">
-<h2>Your Turn <code>05_vision</code></h2>
+<section id="your-turn-04_vision" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>04_vision</code></h2>
 <aside class="notes">
 <p>Now try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.</p>
 <style type="text/css">
@@ -869,10 +743,10 @@ dd:before {
           display:block!important;
       }</style></aside>
 <ol type="1">
-<li><p>I’ve put some images of food in the <code>data/recipes/images</code> folder.</p></li>
+<li><p>There are some images of food in the <code>data/recipes/images</code> folder.</p></li>
 <li><p>Your job: show the food to the LLM and ask it to write a corresponding recipe.</p></li>
 </ol>
-<div id="timer_f93dc3e98b7f71009361a49117819ddc351991d8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -898,7 +772,7 @@ dd:before {
 <div style="--code-font-size: 0.9em">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb7-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"anthropic/claude-haiku-4-5-20251001"</span>)</span>
 <span id="cb7-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
 <span id="cb7-5"><a></a>   <span class="fu">content_pdf_file</span>(<span class="st">"prescribing-information.pdf"</span>),</span>
 <span id="cb7-6"><a></a>  <span class="st">"List the contraindications and serious adverse reactions."</span></span>
@@ -922,6 +796,9 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <section>
 <section id="structured-output" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="title-push-down dib bg-black ph4 white">Structured output</span></h1>
+<div class="footer">
+<p>Photo by <a href="https://unsplash.com/@vitrfrgl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Vitaly Taranov</a> on <a href="https://unsplash.com/photos/J6hE2DTWSEw?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</div>
 <aside class="notes">
 <p>Now let’s talk about structured output - getting LLMs to return data in a predictable format instead of free text.</p>
 <style type="text/css">
@@ -953,12 +830,12 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
       }</style></aside>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>age_free_text <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb8-2"><a></a>    <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
-<span id="cb8-3"><a></a>    <span class="st">"Pleased to meet you! I'm Jamal, age 27."</span>,</span>
-<span id="cb8-4"><a></a>    <span class="st">"They call me Li Wei. Nineteen years young."</span>,</span>
-<span id="cb8-5"><a></a>    <span class="st">"Fatima here. Just celebrated my 35th birthday last week."</span>,</span>
-<span id="cb8-6"><a></a>    <span class="st">"The name's Robert - 51 years old and proud of it."</span>,</span>
-<span id="cb8-7"><a></a>    <span class="st">"Kwame here - just hit the big 5-0 this year."</span></span>
+<span id="cb8-2"><a></a>  <span class="st">"I go by Alex. 42 years on this planet and counting."</span>,</span>
+<span id="cb8-3"><a></a>  <span class="st">"Pleased to meet you! I'm Jamal, age 27."</span>,</span>
+<span id="cb8-4"><a></a>  <span class="st">"They call me Li Wei. Nineteen years young."</span>,</span>
+<span id="cb8-5"><a></a>  <span class="st">"Fatima here. Just celebrated my 35th birthday last week."</span>,</span>
+<span id="cb8-6"><a></a>  <span class="st">"The name's Robert - 51 years old and proud of it."</span>,</span>
+<span id="cb8-7"><a></a>  <span class="st">"Kwame here - just hit the big 5-0 this year."</span></span>
 <span id="cb8-8"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -979,76 +856,121 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
       }</style></aside>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>word_to_num <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb9-2"><a></a>    <span class="co"># normalize</span></span>
-<span id="cb9-3"><a></a>    x <span class="ot">&lt;-</span> <span class="fu">tolower</span>(x)</span>
-<span id="cb9-4"><a></a>    <span class="co"># direct numbers</span></span>
-<span id="cb9-5"><a></a>    <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)) <span class="fu">return</span>(<span class="fu">as.integer</span>(<span class="fu">regmatches</span>(x, <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x))))</span>
-<span id="cb9-6"><a></a>    <span class="co"># hyphenated like "5-0"</span></span>
-<span id="cb9-7"><a></a>    <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)) {</span>
-<span id="cb9-8"><a></a>        parts <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(<span class="fu">regmatches</span>(x, <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)), <span class="st">"</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*"</span>)))</span>
-<span id="cb9-9"><a></a>        <span class="fu">return</span>(<span class="dv">10</span> <span class="sc">*</span> parts[<span class="dv">1</span>] <span class="sc">+</span> parts[<span class="dv">2</span>])</span>
-<span id="cb9-10"><a></a>    }</span>
-<span id="cb9-11"><a></a>    <span class="co"># simple word numbers</span></span>
-<span id="cb9-12"><a></a>    ones <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-13"><a></a>        <span class="at">zero=</span><span class="dv">0</span>, <span class="at">one=</span><span class="dv">1</span>, <span class="at">two=</span><span class="dv">2</span>, <span class="at">three=</span><span class="dv">3</span>, <span class="at">four=</span><span class="dv">4</span>, <span class="at">five=</span><span class="dv">5</span>, <span class="at">six=</span><span class="dv">6</span>, <span class="at">seven=</span><span class="dv">7</span>, <span class="at">eight=</span><span class="dv">8</span>, <span class="at">nine=</span><span class="dv">9</span>,</span>
-<span id="cb9-14"><a></a>        <span class="at">ten=</span><span class="dv">10</span>, <span class="at">eleven=</span><span class="dv">11</span>, <span class="at">twelve=</span><span class="dv">12</span>, <span class="at">thirteen=</span><span class="dv">13</span>, <span class="at">fourteen=</span><span class="dv">14</span>, <span class="at">fifteen=</span><span class="dv">15</span>, <span class="at">sixteen=</span><span class="dv">16</span>,</span>
-<span id="cb9-15"><a></a>        <span class="at">seventeen=</span><span class="dv">17</span>, <span class="at">eighteen=</span><span class="dv">18</span>, <span class="at">nineteen=</span><span class="dv">19</span></span>
-<span id="cb9-16"><a></a>    )</span>
-<span id="cb9-17"><a></a>    tens <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">twenty=</span><span class="dv">20</span>, <span class="at">thirty=</span><span class="dv">30</span>, <span class="at">forty=</span><span class="dv">40</span>, <span class="at">fifty=</span><span class="dv">50</span>, <span class="at">sixty=</span><span class="dv">60</span>, <span class="at">seventy=</span><span class="dv">70</span>, <span class="at">eighty=</span><span class="dv">80</span>, <span class="at">ninety=</span><span class="dv">90</span>)</span>
-<span id="cb9-18"><a></a>    <span class="co"># e.g., "nineteen"</span></span>
-<span id="cb9-19"><a></a>    <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">names</span>(ones)) <span class="fu">return</span>(ones[[x]])</span>
-<span id="cb9-20"><a></a>    <span class="co"># e.g., "thirty five" or "thirty-five"</span></span>
-<span id="cb9-21"><a></a>    x2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"-"</span>, <span class="st">" "</span>, x)</span>
-<span id="cb9-22"><a></a>    parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x2, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb9-23"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(parts) <span class="sc">==</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> parts[<span class="dv">1</span>] <span class="sc">%in%</span> <span class="fu">names</span>(tens) <span class="sc">&amp;&amp;</span> parts[<span class="dv">2</span>] <span class="sc">%in%</span> <span class="fu">names</span>(ones)) {</span>
-<span id="cb9-24"><a></a>        <span class="fu">return</span>(tens[[parts[<span class="dv">1</span>]]] <span class="sc">+</span> ones[[parts[<span class="dv">2</span>]]])</span>
-<span id="cb9-25"><a></a>    }</span>
-<span id="cb9-26"><a></a>    <span class="cf">if</span> (<span class="fu">length</span>(parts) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> parts[<span class="dv">1</span>] <span class="sc">%in%</span> <span class="fu">names</span>(tens)) <span class="fu">return</span>(tens[[parts[<span class="dv">1</span>]]])</span>
-<span id="cb9-27"><a></a>    <span class="fu">return</span>(<span class="cn">NA_integer_</span>)</span>
-<span id="cb9-28"><a></a>}</span>
-<span id="cb9-29"><a></a></span>
-<span id="cb9-30"><a></a><span class="co"># Extract name candidates</span></span>
-<span id="cb9-31"><a></a>extract_name <span class="ot">&lt;-</span> <span class="cf">function</span>(s) {</span>
-<span id="cb9-32"><a></a>    <span class="co"># patterns that introduce a name</span></span>
-<span id="cb9-33"><a></a>    pats <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-34"><a></a>        <span class="st">"I go by</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+)"</span>,</span>
-<span id="cb9-35"><a></a>        <span class="st">"I'm</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+(?:</span><span class="sc">\\</span><span class="st">s+[A-Z][a-z]+)?)"</span>,</span>
-<span id="cb9-36"><a></a>        <span class="st">"They call me</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+(?:</span><span class="sc">\\</span><span class="st">s+[A-Z][a-z]+)?)"</span>,</span>
-<span id="cb9-37"><a></a>        <span class="st">"^([A-Z][a-z]+) here"</span>,</span>
-<span id="cb9-38"><a></a>        <span class="st">"The name's</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+)"</span>,</span>
-<span id="cb9-39"><a></a>        <span class="st">"^([A-Z][a-z]+)</span><span class="sc">\\</span><span class="st">s"</span> <span class="co"># fallback: leading capital word</span></span>
-<span id="cb9-40"><a></a>    )</span>
-<span id="cb9-41"><a></a>    <span class="cf">for</span> (p <span class="cf">in</span> pats) {</span>
-<span id="cb9-42"><a></a>        m <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(p, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-43"><a></a>        <span class="cf">if</span> (m[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-44"><a></a>            <span class="fu">return</span>(<span class="fu">sub</span>(p, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, <span class="fu">regmatches</span>(s, m)))</span>
-<span id="cb9-45"><a></a>        }</span>
-<span id="cb9-46"><a></a>    }</span>
-<span id="cb9-47"><a></a>    <span class="cn">NA_character_</span></span>
-<span id="cb9-48"><a></a>}</span>
-<span id="cb9-49"><a></a></span>
-<span id="cb9-50"><a></a><span class="co"># Extract age phrases and convert to number</span></span>
-<span id="cb9-51"><a></a>extract_age <span class="ot">&lt;-</span> <span class="cf">function</span>(s) {</span>
-<span id="cb9-52"><a></a>    <span class="co"># capture common age phrases around a number</span></span>
-<span id="cb9-53"><a></a>    m <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b|</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b|</span><span class="sc">\\</span><span class="st">b[Nn][a-z-]+</span><span class="sc">\\</span><span class="st">b)</span><span class="sc">\\</span><span class="st">s*(years|year|birthday|young|this)"</span>, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-54"><a></a>    <span class="cf">if</span> (m[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-55"><a></a>        token <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"(years|year|birthday|young|this)$"</span>, <span class="st">""</span>, <span class="fu">trimws</span>(<span class="fu">substring</span>(s, m, m <span class="sc">+</span> <span class="fu">attr</span>(m, <span class="st">"match.length"</span>) <span class="sc">-</span> <span class="dv">1</span>)))</span>
-<span id="cb9-56"><a></a>        <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
-<span id="cb9-57"><a></a>    }</span>
-<span id="cb9-58"><a></a>    <span class="co"># handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)</span></span>
-<span id="cb9-59"><a></a>    m2 <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b([A-Z][a-z]+)</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">s+years"</span>, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-60"><a></a>    <span class="cf">if</span> (m2[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-61"><a></a>        token <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+years.*"</span>, <span class="st">""</span>, <span class="fu">regmatches</span>(s, m2)))</span>
-<span id="cb9-62"><a></a>        <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
-<span id="cb9-63"><a></a>    }</span>
-<span id="cb9-64"><a></a>    <span class="co"># handle hyphenated "big 5-0"</span></span>
-<span id="cb9-65"><a></a>    m3 <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="st">"big</span><span class="sc">\\</span><span class="st">s+(</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+)"</span>, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-66"><a></a>    <span class="cf">if</span> (m3[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-67"><a></a>        token <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"big</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">""</span>, <span class="fu">regmatches</span>(s, m3))</span>
-<span id="cb9-68"><a></a>        <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
-<span id="cb9-69"><a></a>    }</span>
-<span id="cb9-70"><a></a>    <span class="cn">NA_integer_</span></span>
-<span id="cb9-71"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a></a>  <span class="co"># normalize</span></span>
+<span id="cb9-3"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">tolower</span>(x)</span>
+<span id="cb9-4"><a></a>  <span class="co"># direct numbers</span></span>
+<span id="cb9-5"><a></a>  <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)) {</span>
+<span id="cb9-6"><a></a>    <span class="fu">return</span>(<span class="fu">as.integer</span>(<span class="fu">regmatches</span>(x, <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x))))</span>
+<span id="cb9-7"><a></a>  }</span>
+<span id="cb9-8"><a></a>  <span class="co"># hyphenated like "5-0"</span></span>
+<span id="cb9-9"><a></a>  <span class="cf">if</span> (<span class="fu">grepl</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)) {</span>
+<span id="cb9-10"><a></a>    parts <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(</span>
+<span id="cb9-11"><a></a>      <span class="fu">regmatches</span>(x, <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b"</span>, x)),</span>
+<span id="cb9-12"><a></a>      <span class="st">"</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*"</span></span>
+<span id="cb9-13"><a></a>    )))</span>
+<span id="cb9-14"><a></a>    <span class="fu">return</span>(<span class="dv">10</span> <span class="sc">*</span> parts[<span class="dv">1</span>] <span class="sc">+</span> parts[<span class="dv">2</span>])</span>
+<span id="cb9-15"><a></a>  }</span>
+<span id="cb9-16"><a></a>  <span class="co"># simple word numbers</span></span>
+<span id="cb9-17"><a></a>  ones <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-18"><a></a>    <span class="at">zero =</span> <span class="dv">0</span>,</span>
+<span id="cb9-19"><a></a>    <span class="at">one =</span> <span class="dv">1</span>,</span>
+<span id="cb9-20"><a></a>    <span class="at">two =</span> <span class="dv">2</span>,</span>
+<span id="cb9-21"><a></a>    <span class="at">three =</span> <span class="dv">3</span>,</span>
+<span id="cb9-22"><a></a>    <span class="at">four =</span> <span class="dv">4</span>,</span>
+<span id="cb9-23"><a></a>    <span class="at">five =</span> <span class="dv">5</span>,</span>
+<span id="cb9-24"><a></a>    <span class="at">six =</span> <span class="dv">6</span>,</span>
+<span id="cb9-25"><a></a>    <span class="at">seven =</span> <span class="dv">7</span>,</span>
+<span id="cb9-26"><a></a>    <span class="at">eight =</span> <span class="dv">8</span>,</span>
+<span id="cb9-27"><a></a>    <span class="at">nine =</span> <span class="dv">9</span>,</span>
+<span id="cb9-28"><a></a>    <span class="at">ten =</span> <span class="dv">10</span>,</span>
+<span id="cb9-29"><a></a>    <span class="at">eleven =</span> <span class="dv">11</span>,</span>
+<span id="cb9-30"><a></a>    <span class="at">twelve =</span> <span class="dv">12</span>,</span>
+<span id="cb9-31"><a></a>    <span class="at">thirteen =</span> <span class="dv">13</span>,</span>
+<span id="cb9-32"><a></a>    <span class="at">fourteen =</span> <span class="dv">14</span>,</span>
+<span id="cb9-33"><a></a>    <span class="at">fifteen =</span> <span class="dv">15</span>,</span>
+<span id="cb9-34"><a></a>    <span class="at">sixteen =</span> <span class="dv">16</span>,</span>
+<span id="cb9-35"><a></a>    <span class="at">seventeen =</span> <span class="dv">17</span>,</span>
+<span id="cb9-36"><a></a>    <span class="at">eighteen =</span> <span class="dv">18</span>,</span>
+<span id="cb9-37"><a></a>    <span class="at">nineteen =</span> <span class="dv">19</span></span>
+<span id="cb9-38"><a></a>  )</span>
+<span id="cb9-39"><a></a>  tens <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-40"><a></a>    <span class="at">twenty =</span> <span class="dv">20</span>,</span>
+<span id="cb9-41"><a></a>    <span class="at">thirty =</span> <span class="dv">30</span>,</span>
+<span id="cb9-42"><a></a>    <span class="at">forty =</span> <span class="dv">40</span>,</span>
+<span id="cb9-43"><a></a>    <span class="at">fifty =</span> <span class="dv">50</span>,</span>
+<span id="cb9-44"><a></a>    <span class="at">sixty =</span> <span class="dv">60</span>,</span>
+<span id="cb9-45"><a></a>    <span class="at">seventy =</span> <span class="dv">70</span>,</span>
+<span id="cb9-46"><a></a>    <span class="at">eighty =</span> <span class="dv">80</span>,</span>
+<span id="cb9-47"><a></a>    <span class="at">ninety =</span> <span class="dv">90</span></span>
+<span id="cb9-48"><a></a>  )</span>
+<span id="cb9-49"><a></a>  <span class="co"># e.g., "nineteen"</span></span>
+<span id="cb9-50"><a></a>  <span class="cf">if</span> (x <span class="sc">%in%</span> <span class="fu">names</span>(ones)) {</span>
+<span id="cb9-51"><a></a>    <span class="fu">return</span>(ones[[x]])</span>
+<span id="cb9-52"><a></a>  }</span>
+<span id="cb9-53"><a></a>  <span class="co"># e.g., "thirty five" or "thirty-five"</span></span>
+<span id="cb9-54"><a></a>  x2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"-"</span>, <span class="st">" "</span>, x)</span>
+<span id="cb9-55"><a></a>  parts <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x2, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb9-56"><a></a>  <span class="cf">if</span> (</span>
+<span id="cb9-57"><a></a>    <span class="fu">length</span>(parts) <span class="sc">==</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> parts[<span class="dv">1</span>] <span class="sc">%in%</span> <span class="fu">names</span>(tens) <span class="sc">&amp;&amp;</span> parts[<span class="dv">2</span>] <span class="sc">%in%</span> <span class="fu">names</span>(ones)</span>
+<span id="cb9-58"><a></a>  ) {</span>
+<span id="cb9-59"><a></a>    <span class="fu">return</span>(tens[[parts[<span class="dv">1</span>]]] <span class="sc">+</span> ones[[parts[<span class="dv">2</span>]]])</span>
+<span id="cb9-60"><a></a>  }</span>
+<span id="cb9-61"><a></a>  <span class="cf">if</span> (<span class="fu">length</span>(parts) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> parts[<span class="dv">1</span>] <span class="sc">%in%</span> <span class="fu">names</span>(tens)) {</span>
+<span id="cb9-62"><a></a>    <span class="fu">return</span>(tens[[parts[<span class="dv">1</span>]]])</span>
+<span id="cb9-63"><a></a>  }</span>
+<span id="cb9-64"><a></a>  <span class="fu">return</span>(<span class="cn">NA_integer_</span>)</span>
+<span id="cb9-65"><a></a>}</span>
+<span id="cb9-66"><a></a></span>
+<span id="cb9-67"><a></a><span class="co"># Extract name candidates</span></span>
+<span id="cb9-68"><a></a>extract_name <span class="ot">&lt;-</span> <span class="cf">function</span>(s) {</span>
+<span id="cb9-69"><a></a>  <span class="co"># patterns that introduce a name</span></span>
+<span id="cb9-70"><a></a>  pats <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-71"><a></a>    <span class="st">"I go by</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+)"</span>,</span>
+<span id="cb9-72"><a></a>    <span class="st">"I'm</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+(?:</span><span class="sc">\\</span><span class="st">s+[A-Z][a-z]+)?)"</span>,</span>
+<span id="cb9-73"><a></a>    <span class="st">"They call me</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+(?:</span><span class="sc">\\</span><span class="st">s+[A-Z][a-z]+)?)"</span>,</span>
+<span id="cb9-74"><a></a>    <span class="st">"^([A-Z][a-z]+) here"</span>,</span>
+<span id="cb9-75"><a></a>    <span class="st">"The name's</span><span class="sc">\\</span><span class="st">s+([A-Z][a-z]+)"</span>,</span>
+<span id="cb9-76"><a></a>    <span class="st">"^([A-Z][a-z]+)</span><span class="sc">\\</span><span class="st">s"</span> <span class="co"># fallback: leading capital word</span></span>
+<span id="cb9-77"><a></a>  )</span>
+<span id="cb9-78"><a></a>  <span class="cf">for</span> (p <span class="cf">in</span> pats) {</span>
+<span id="cb9-79"><a></a>    m <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(p, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-80"><a></a>    <span class="cf">if</span> (m[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
+<span id="cb9-81"><a></a>      <span class="fu">return</span>(<span class="fu">sub</span>(p, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, <span class="fu">regmatches</span>(s, m)))</span>
+<span id="cb9-82"><a></a>    }</span>
+<span id="cb9-83"><a></a>  }</span>
+<span id="cb9-84"><a></a>  <span class="cn">NA_character_</span></span>
+<span id="cb9-85"><a></a>}</span>
+<span id="cb9-86"><a></a></span>
+<span id="cb9-87"><a></a><span class="co"># Extract age phrases and convert to number</span></span>
+<span id="cb9-88"><a></a>extract_age <span class="ot">&lt;-</span> <span class="cf">function</span>(s) {</span>
+<span id="cb9-89"><a></a>  <span class="co"># capture common age phrases around a number</span></span>
+<span id="cb9-90"><a></a>  m <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(</span>
+<span id="cb9-91"><a></a>    <span class="st">"(</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b|</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">b|</span><span class="sc">\\</span><span class="st">b[Nn][a-z-]+</span><span class="sc">\\</span><span class="st">b)</span><span class="sc">\\</span><span class="st">s*(years|year|birthday|young|this)"</span>,</span>
+<span id="cb9-92"><a></a>    s,</span>
+<span id="cb9-93"><a></a>    <span class="at">perl =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-94"><a></a>  )</span>
+<span id="cb9-95"><a></a>  <span class="cf">if</span> (m[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
+<span id="cb9-96"><a></a>    token <span class="ot">&lt;-</span> <span class="fu">sub</span>(</span>
+<span id="cb9-97"><a></a>      <span class="st">"(years|year|birthday|young|this)$"</span>,</span>
+<span id="cb9-98"><a></a>      <span class="st">""</span>,</span>
+<span id="cb9-99"><a></a>      <span class="fu">trimws</span>(<span class="fu">substring</span>(s, m, m <span class="sc">+</span> <span class="fu">attr</span>(m, <span class="st">"match.length"</span>) <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb9-100"><a></a>    )</span>
+<span id="cb9-101"><a></a>    <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
+<span id="cb9-102"><a></a>  }</span>
+<span id="cb9-103"><a></a>  <span class="co"># handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)</span></span>
+<span id="cb9-104"><a></a>  m2 <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b([A-Z][a-z]+)</span><span class="sc">\\</span><span class="st">b</span><span class="sc">\\</span><span class="st">s+years"</span>, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-105"><a></a>  <span class="cf">if</span> (m2[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
+<span id="cb9-106"><a></a>    token <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">s+years.*"</span>, <span class="st">""</span>, <span class="fu">regmatches</span>(s, m2)))</span>
+<span id="cb9-107"><a></a>    <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
+<span id="cb9-108"><a></a>  }</span>
+<span id="cb9-109"><a></a>  <span class="co"># handle hyphenated "big 5-0"</span></span>
+<span id="cb9-110"><a></a>  m3 <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="st">"big</span><span class="sc">\\</span><span class="st">s+(</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">s*-</span><span class="sc">\\</span><span class="st">s*</span><span class="sc">\\</span><span class="st">d+)"</span>, s, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-111"><a></a>  <span class="cf">if</span> (m3[<span class="dv">1</span>] <span class="sc">!=</span> <span class="sc">-</span><span class="dv">1</span>) {</span>
+<span id="cb9-112"><a></a>    token <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"big</span><span class="sc">\\</span><span class="st">s+"</span>, <span class="st">""</span>, <span class="fu">regmatches</span>(s, m3))</span>
+<span id="cb9-113"><a></a>    <span class="fu">return</span>(<span class="fu">word_to_num</span>(token))</span>
+<span id="cb9-114"><a></a>  }</span>
+<span id="cb9-115"><a></a>  <span class="cn">NA_integer_</span></span>
+<span id="cb9-116"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="if-you-wrote-r-code-it-might-look-like-this-1" class="slide level2 scrollable">
@@ -1126,7 +1048,7 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-code-line-numbers="4-5|8,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb14-2"><a></a></span>
 <span id="cb14-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(</span>
-<span id="cb14-4"><a></a>  <span class="st">"openai/gpt-5.4-nano"</span>,</span>
+<span id="cb14-4"><a></a>  <span class="st">"anthropic/claude-sonnet-4-6"</span>,</span>
 <span id="cb14-5"><a></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
 <span id="cb14-6"><a></a>)</span>
 <span id="cb14-7"><a></a></span>
@@ -1154,7 +1076,7 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-code-line-numbers="8-12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb15-2"><a></a></span>
 <span id="cb15-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(</span>
-<span id="cb15-4"><a></a>  <span class="st">"openai/gpt-5.4-nano"</span>,</span>
+<span id="cb15-4"><a></a>  <span class="st">"anthropic/claude-sonnet-4-6"</span>,</span>
 <span id="cb15-5"><a></a>  <span class="at">system_prompt =</span> <span class="st">"Extract the name and age."</span></span>
 <span id="cb15-6"><a></a>)</span>
 <span id="cb15-7"><a></a></span>
@@ -1282,8 +1204,8 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <span id="cb20-4"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
-<section id="your-turn-06_structured-output" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>06_structured-output</code></h1>
+<section id="your-turn-05_structured-output" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>05_structured-output</code></h1>
 <aside class="notes">
 <p>Now practice structured output - extract recipe data as proper R objects. This is a key skill for working with LLMs in real applications.</p>
 <style type="text/css">
@@ -1303,7 +1225,7 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <li><p>I’ve given you the expected structure, you just need to implement it.</p></li>
 <li><p>If you have extra time, try it with other recipes in the folder.</p></li>
 </ol>
-<div id="timer_f93dc3e98b7f71009361a49117819ddc351991d8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

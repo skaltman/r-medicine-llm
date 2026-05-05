@@ -7,7 +7,7 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6ffd7c464ffa9a390341775f58bc5333.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
@@ -150,11 +150,13 @@ R/Medicine 2026
 <h2>Welcome to <span class="dark-blue">LLMs for Data Analysis in R</span>!</h2>
 <p><img data-src="../assets/icons/github.svg" style="vertical-align: middle" width="32"> <strong>Workshop repo:</strong> <a href="https://github.com/skaltman/r-medicine-llm" class="uri">https://github.com/skaltman/r-medicine-llm</a></p>
 <p><br></p>
-<p>☁️ <strong>Set up Posit Cloud:</strong></p>
+<p>☁️ <strong>Launch Instruqt environment:</strong></p>
 <ol type="1">
-<li>Sign up for a free Posit Cloud account: <a href="https://posit.cloud/plans" class="uri">https://posit.cloud/plans</a>.</li>
-<li>Join our workspace on Posit Cloud: <a href="https://bit.ly/llm-cloud" class="uri">https://bit.ly/llm-cloud</a>.</li>
-<li>Go to <em>Content</em>, then select the <code>r-medicine-llm</code> project.</li>
+<li>Go to <a href="https://play.instruqt.com/posit/invite/omatxsihs3we" class="uri">https://play.instruqt.com/posit/invite/omatxsihs3we</a></li>
+<li>Click <em>Start</em></li>
+<li>It will take a few minutes to start up. When it’s ready, click the green <em>Start</em> button.</li>
+<li>Click <em>Open external Window</em></li>
+<li>Open RStudio or Positron</li>
 </ol>
 <style>
 .reveal .footer {
@@ -166,18 +168,22 @@ R/Medicine 2026
 <section id="section" class="title-slide slide level1 center">
 <h1>👋</h1>
 <div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 1.5em; font-weight: 300; margin-top: 1em;">
+<div class="column" style="width:50%;">
+<p><img data-src="assets/headshot-sara-crop.png" style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></p>
+<div style="text-align: center;">
+<div style="font-size: 1.3em; font-weight: 300;">
 <p>Sara Altman</p>
 </div>
-<p><strong>Senior Developer Advocate, AI Core</strong></p>
-<p>Posit</p>
-<div style="margin-top: 1.5em; font-size: 0.9em;">
-<p><img data-src="../assets/icons/github.svg" style="vertical-align: middle" width="24"> <a href="https://github.com/skaltman">@skaltman</a></p>
-<p><img data-src="../assets/icons/bluesky.svg" style="vertical-align: middle" width="24"> <a href="https://bsky.app/profile/sara-altman.bsky.social">@sara-altman.bsky.social</a></p>
+<p><strong>AI Core Team</strong>, Posit</p>
 </div>
-</div><div class="column" style="width:40%;">
-<p><img data-src="assets/headshot-sara-crop.png" style="border-radius: 40%; max-width: 95%; display: block; margin: 1em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/garrett.png" style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></p>
+<div style="text-align: center;">
+<div style="font-size: 1.3em; font-weight: 300;">
+<p>Garrett Grolemund</p>
+</div>
+<p><strong>Director of Learning</strong>, Posit</p>
+</div>
 </div></div>
 </section>
 
@@ -190,7 +196,7 @@ R/Medicine 2026
 <h2>🏡 <span class="code">skaltman.github.io/r-medicine-llm</span></h2>
 <p>All slides and info lives here!</p>
 <aside class="notes">
-<p>You can follow along with the slides here also includes set up instructions for posit cloud, but i’ll give you some time to set up soon</p>
+<p>You can follow along with the slides here has set up instructions but I’ll also give you some time in a minute</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -208,14 +214,14 @@ R/Medicine 2026
 <div style="font-size: 1.5em;">
 <p>📊 Slides</p>
 <p>💻 Demos</p>
-<p>✏️ Exercises on Posit Cloud</p>
+<p>✏️ Exercises in Instruqt environment</p>
 </div>
 <div class="fragment">
 <p>Ask questions at any point in the chat</p>
 </div>
 <aside class="notes">
-<p>we’ll have lecture components with slides demos where I’ll show demo something and we’ll discuss how it works and interactive exercises where you’ll do some coding for these, I’ve set up a posit cloud project for you with everything you’ll need including api keys</p>
-<p>if you have questions, you can put them in the chat at any time I can’t promise that I’ll see them while I’m talking, but during the exercise portions I’ll monitor it and also consolidate questions to answer when we regroup</p>
+<p>we’ll have lecture components with slides demos where I’ll show demo something and we’ll discuss how it works and interactive exercises where you’ll do some coding for these, I’ve set up a project for you in workbench via instruqt for you with everything you’ll need including api keys</p>
+<p>if you have questions, you can put them in the chat at any time I can’t promise that I’ll see them while I’m talking, but during the exercise portions garrett and I will monitor it and also consolidate questions to answer when we regroup</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -228,51 +234,69 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
+<section id="your-turn" class="slide level2 slide-your-turn">
+<h2>Your Turn</h2>
+<div style="font-size: 1.1em;">
+<p><strong>Set up Instruqt:</strong></p>
+</div>
+<ol type="1">
+<li>Go to <a href="https://play.instruqt.com/posit/invite/omatxsihs3we" class="uri">https://play.instruqt.com/posit/invite/omatxsihs3we</a></li>
+<li>Click <em>Start</em></li>
+<li>It will take a few minutes to start up. When it’s ready, you’ll click the green <em>Start</em> button. (don’t worry if you don’t get to this)</li>
+</ol>
+<div id="timer_27356e7aa72099c2e1b99f9825d98d4c76989b40" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -0.5em;right: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
 <section id="schedule" class="slide level2">
 <h2>Schedule</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Time</th>
 <th></th>
 <th>Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>11:00 - 11:15</td>
 <td>👋</td>
 <td>Intro</td>
 </tr>
 <tr class="even">
-<td>11:15 - 12:00</td>
 <td>💬</td>
 <td>Anatomy of a conversation</td>
 </tr>
 <tr class="odd">
-<td>12:00 - 12:40</td>
 <td>💻</td>
 <td>Programming with LLMs</td>
 </tr>
 <tr class="even">
-<td>12:40 - 12:50</td>
-<td>☕</td>
-<td>Break</td>
-</tr>
-<tr class="odd">
-<td>12:50 - 13:15</td>
 <td>✍️</td>
 <td>Prompt engineering</td>
 </tr>
+<tr class="odd">
+<td>☕</td>
+<td>Break</td>
+</tr>
 <tr class="even">
-<td>13:15 - 13:50</td>
 <td>🛠️</td>
 <td>Tool calling</td>
 </tr>
 <tr class="odd">
-<td>13:50 - 14:00</td>
-<td>🎁</td>
-<td>Wrap-up and resources</td>
+<td>🔍</td>
+<td>querychat</td>
+</tr>
+<tr class="even">
+<td>🤖</td>
+<td>Coding agents</td>
+</tr>
+<tr class="odd">
+<td>🌳</td>
+<td>Privacy, security, &amp; wrap-up</td>
 </tr>
 </tbody>
 </table>
@@ -350,8 +374,8 @@ R/Medicine 2026
 <section id="but-well-give-you-api-keys-to-use-today" class="slide level2 center">
 <h2>But we’ll give you API keys to use today!</h2>
 <ol type="1">
-<li class="fragment"><p>Use these keys for all of our activities today – <em>they are already set up in Posit Cloud!</em></p></li>
-<li class="fragment"><p>Play and explore! But please be considerate :)</p></li>
+<li class="fragment"><p>Use these keys for all of our activities today</p></li>
+<li class="fragment"><p>Explore! But please be considerate :)</p></li>
 <li class="fragment"><p>We’ll turn them off at the end of the workshop</p></li>
 </ol>
 <aside class="notes">
@@ -368,17 +392,22 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="your-turn" class="slide level2 slide-your-turn">
+<section id="your-turn-1" class="slide level2 slide-your-turn">
 <h2>Your Turn</h2>
 <div style="--li-margin: 0.66em;">
 <div style="font-size: 1.1em;">
-<p><strong>☁️ Set up Posit Cloud:</strong></p>
+<p><strong>☁️ Set up Instruqt:</strong></p>
 </div>
 <ol type="1">
-<li><p>Sign up for a free Posit Cloud account: <a href="https://posit.cloud/plans" class="uri">https://posit.cloud/plans</a>.</p></li>
-<li><p>Join our workspace on Posit Cloud: <a href="https://bit.ly/llm-cloud" class="uri">https://bit.ly/llm-cloud</a>.</p></li>
-<li><p>Go to <em>Content</em>, then select the <code>r-medicine-llm</code> project.</p></li>
+<li>Go to <a href="https://play.instruqt.com/posit/invite/omatxsihs3we" class="uri">https://play.instruqt.com/posit/invite/omatxsihs3we</a></li>
+<li>Click <em>Start</em></li>
+<li>It will take a few minutes to start up. When it’s ready, click the green <em>Start</em> button.</li>
+<li>Click <em>Open external Window</em></li>
+<li>Open RStudio or Positron</li>
 </ol>
+<div style="font-size: 1.1em;">
+<p><strong>☁️ Set up keys:</strong></p>
+</div>
 <div style="font-size: 1.1em;">
 <p><strong>🤖 Check that everything’s working:</strong></p>
 </div>
@@ -386,7 +415,7 @@ R/Medicine 2026
 <li>Run the code in <span class="b">_exercises/01_hello-llm</span></li>
 </ul>
 </div>
-<div id="timer_235ef1b1cf84aff8481683f65420631a5fb09553" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -0.5em;right: 0;">
+<div id="timer_27356e7aa72099c2e1b99f9825d98d4c76989b40" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -0.5em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
