@@ -44,6 +44,12 @@ Posit Assistant is an AI coding assistant built into Positron. You can use it to
 * Successor to Databot
 :::
 
+
+::: footer
+<https://posit-dev.github.io/assistant/docs/>
+:::
+
+
 ## Demo {.center}
 
 ::: notes
