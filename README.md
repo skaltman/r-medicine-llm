@@ -27,16 +27,18 @@ No AI or machine learning background is required—just basic R familiarity. Att
 
 ## Schedule
 
-| Time          |   | Activity                       |
-| ------------- |---| ------------------------------ |
-| 11:00 - 11:15 | 👋 | Intro                          |
-| 11:15 - 12:00 | 💬 | Anatomy of a conversation      |
-| 12:00 - 12:40 | 💻 | Programming with LLMs          |
-| 12:40 - 12:50 | ☕ | Break                          |
-| 12:50 - 13:15 | ✍️  | Prompt engineering             |
-| 13:15 - 13:35 | 🛠️  | Tool calling                   |
-| 13:35 - 13:55 | 💬 | querychat                      |
-| 13:55 - 14:00 | 🎁 | Wrap-up and resources          |
+|   | Activity                       |
+|---| ------------------------------ |
+| 👋 | Intro                          |
+| 💬 | Anatomy of a conversation      |
+| 💻 | Programming with LLMs          |
+| ✍️  | Prompt engineering             |
+| ☕ | Break                          |
+| 🛠️  | Tool calling                   |
+| 🔍 | querychat                      |
+| 🤖 | Coding agents                  |
+| 🌳 | Privacy, security, & wrap-up   |
+
 
 -----
 
