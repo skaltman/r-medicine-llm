@@ -172,31 +172,29 @@ this is likely what you'll want to do if you want to run the exercises locally a
 already set up in posit cloud 
 :::
 
-## Your Turn {.slide-your-turn}
+## Our Turn {.slide-your-turn}
 
 ::: {style="--li-margin: 0.66em;"}
 
-::: {style="font-size: 1.1em;"}
-**☁️ Set up Instruqt:** 
-:::
+Instruqt should now be ready to open.
 
-
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
-1. Click *Start* 
-1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
-1. Click *Open external Window*
-1. Open RStudio or Positron 
+1. Click the green *Start* button, then *Open external window*.  
+1. Click *New Session* and select either RStudio Pro or Positron Pro.
+1. Click *Launch*.
+1. Open the `r-medicine-llm-exercises` project (RStudio) or folder (Positron).
 
 ::: {style="font-size: 1.1em;"}
-**☁️ Set up keys:** 
-:::
+**🔑 Set up keys:** 
 
+1. Copy the code in the provided Google Doc.
+1. Paste it into the R console and run. 
+:::
 
 ::: {style="font-size: 1.1em;"}
 **🤖 Check that everything's working:**
 :::
 
-* Run the code in [_exercises/01_hello-llm]{.b}
+* Run the code in [_exercises/01_hello-llm/01_hello-llm.R]{.b}
 :::
 
 {{< countdown 6:00 right=0 top="-0.5em" >}}
