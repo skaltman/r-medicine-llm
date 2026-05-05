@@ -1,5 +1,5 @@
 ---
-title: Privacy, Security & Wrap-up
+title: Privacy & security
 subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
@@ -29,23 +29,41 @@ Before we wrap up, important to discuss privacy and security — especially rele
 The model doesn't remember you, but the provider's servers might.
 :::
 
-## Where does your data go?
+## {.center style="text-align: center" transition="fade"}
 
-![](assets/trust-diagram-1.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+![](assets/trust-01.excalidraw.svg)
 
-## Where does your data go?
+## {.center style="text-align: center" transition="fade"}
 
-![](assets/trust-diagram-2.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+![](assets/trust-02.excalidraw.svg)
 
-## Where does your data go?
+## {.center style="text-align: center" transition="fade"}
 
-![](assets/trust-diagram.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+![](assets/trust-03.excalidraw.svg)
 
-## You need to trust your model provider
+## {.center style="text-align: center" transition="fade"}
 
-* **Posit doesn't store your data**
+![](assets/trust-04.excalidraw.svg)
 
-* But your provider might, depending on your agreement
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/trust-05.excalidraw.svg)
+
+## You* need to trust your model provider
+
+\* or more likely, your organization
+
+::: {.fragment}
+* Know what your model provider does with your data
+:::
+
+::: {.fragment}
+* ellmer, querychat, shinychat, etc. will never store your data anywhere. They pass the request directly to your specified model provider. 
+:::
+
+::: {.fragment}
+* Posit Assistant will only store your data if a) you use Posit as your model provider and b) you opt-in. 
+:::
 
 ## The good news
 
@@ -64,26 +82,5 @@ These are the Posit packages for working with AI. We've focused on ellmer and sh
 :::
 
 ![](assets/posit-ai-packages.png)
-
-## Learn more
-
-**querychat**: <https://github.com/posit-dev/querychat>
-
-* Chat with your data using natural language queries.
-
-**ggbot2**: <https://github.com/tidyverse/ggbot2>
-
-* Talk out loud to create and iterate on plots.
-
-**Databot**: <https://positron.posit.co/databot.html>
-
-* EDA assistant for Positron.
-
-**vitals**: <https://github.com/posit-dev/vitals>
-
-* Evaluate LLM performance with systematic benchmarks.
-
-**Posit AI newsletter**: <https://posit.co/blog/?post_tag=ai-newsletter>
-
 
 # Thank you!
