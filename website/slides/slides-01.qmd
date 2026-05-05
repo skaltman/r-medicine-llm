@@ -21,6 +21,7 @@ editor:
 1. Click *Start* 
 1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
 1. Click *Open external Window*
+1. Open RStudio or Positron
 
 ```{=html}
 <style>
@@ -77,7 +78,7 @@ has set up instructions but I'll also give you some time in a minute
 
 💻 Demos
 
-✏️ Exercises in Instruqt environmentok
+✏️ Exercises in Instruqt environment
 :::
 
 ::: fragment
@@ -95,6 +96,19 @@ if you have questions, you can put them in the chat at any time
 I can't promise that I'll see them while I'm talking, but during the exercise portions
 garrett and I will monitor it and also consolidate questions to answer when we regroup 
 ::: 
+
+## Your Turn {.slide-your-turn}
+
+::: {style="font-size: 1.1em;"}
+**Set up Instruqt:** 
+:::
+
+
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start* 
+1. It will take a few minutes to start up. When it's ready, you'll click the green *Start* button. (don't worry if you don't get to this)
+
+{{< countdown 1:00 right=0 top="-0.5em" >}}
 
 ## Schedule
 
@@ -147,7 +161,7 @@ this is likely what you'll want to do if you want to run the exercises locally a
 ## But we'll give you API keys to use today! {.center}
 
 ::: incremental
-1. Use these keys for all of our activities today -- *they are already set up for you!*
+1. Use these keys for all of our activities today
 
 2. Explore! But please be considerate :)
 
@@ -163,14 +177,20 @@ already set up in posit cloud
 ::: {style="--li-margin: 0.66em;"}
 
 ::: {style="font-size: 1.1em;"}
-**☁️ Set up Posit Cloud:** 
+**☁️ Set up Instruqt:** 
 :::
 
-1. Sign up for a free Posit Cloud account: <https://posit.cloud/plans>. 
 
-2. Join our workspace on Posit Cloud: <https://bit.ly/llm-cloud>.
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Click *Start* 
+1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
+1. Click *Open external Window*
+1. Open RStudio or Positron 
 
-3. Go to _Content_, then select the `r-medicine-llm` project. 
+::: {style="font-size: 1.1em;"}
+**☁️ Set up keys:** 
+:::
+
 
 ::: {style="font-size: 1.1em;"}
 **🤖 Check that everything's working:**
