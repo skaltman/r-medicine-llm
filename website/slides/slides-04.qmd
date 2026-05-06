@@ -53,14 +53,14 @@ prompts are just text, and you can at least start by writing a prompt basically 
 # Your Turn `06_prompt-engineering` {.slide-your-turn}
 
 ::: notes
-Use system prompts to control how the model interprets a data visualization. Try tailoring for different audiences.
+Use system prompts to enforce consistent formatting. Participants have 4 messy note files and need to write a system prompt that makes them all come out in the same format.
 :::
 
-1. Ask the model to interpret a plot with no special prompting.
+1. Send one of the messy note files to the model with no system prompt.
 
-2. Edit `prompt.md` to write a system prompt that tailors the interpretation for a specific audience: screen reader alt text, data analyst, non-technical stakeholder, etc.
+2. Edit `prompt.md` to instruct the model to organize notes in a certain way each time. 
 
-3. How does the output change? Try different audiences!
+3. Run all 4 notes through with your system prompt. Do they come out consistent?
 
 {{< countdown 5:00 left=0 bottom="-2em" >}}
 
