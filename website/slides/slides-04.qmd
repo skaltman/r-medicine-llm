@@ -227,6 +227,8 @@ E.g., "Use no more than three rounds of tool calls" => "Before answering, note h
 
 ::: notes
 ellmer vignette on prompt design
+
+break time - 5 minutes
 :::
 
 <https://ellmer.tidyverse.org/articles/prompt-design.html>
