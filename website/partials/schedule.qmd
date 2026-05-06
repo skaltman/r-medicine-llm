@@ -1,11 +1,8 @@
 |   | Activity                       |
 |---| ------------------------------ |
 | 👋 | Intro                          |
-| 💬 | Anatomy of a conversation      |
-| 💻 | Programming with LLMs          |
-| ✍️  | Prompt engineering             |
-| ☕ | Break                          |
-| 🛠️  | Tool calling                   |
-| 🔍 | querychat                      |
-| 🤖 | Coding agents                  |
-| 🌳 | Privacy, security, & wrap-up   |
+| 💬 | LLM APIs from R                |
+| ☕ | Break                           |
+| 🛠️  | Tool calling                  |
+| 🤖 | Apps and coding agents         |
+| 🌳 | Privacy and security           |

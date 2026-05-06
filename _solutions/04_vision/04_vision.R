@@ -1,17 +1,17 @@
 library(ellmer)
 
-recipe_images <- here::here("data/recipes/images")
-img_pancakes <- file.path(recipe_images, "EasyBasicPancakes.jpg")
-img_pad_thai <- file.path(recipe_images, "PadThai.jpg")
-
-chat <- chat_openai(model = "gpt-4.1-nano")
+chat <- chat("anthropic/claude-haiku-4-5")
 chat$chat(
-  "Give the food in this image a creative recipe title and description.",
-  content_image_file(img_pancakes)
+  "Describe what this plot shows.",
+  content_image_file(
+    here::here("_exercises/04_vision/health-expenditure-preventive.png")
+  )
 )
 
-chat <- chat_openai(model = "gpt-4.1-nano")
-chat$chat(
-  "Write a recipe to make the food in this image.",
-  content_image_file(img_pad_thai)
+chat2 <- chat("anthropic/claude-haiku-4-5")
+chat2$chat(
+  "What trends do you notice in this visualization?",
+  content_image_file(
+    here::here("_exercises/04_vision/health-expenditure-curative-comparison.png")
+  )
 )

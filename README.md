@@ -19,24 +19,28 @@ No AI or machine learning background is required—just basic R familiarity. Att
 
 ## Setup
 
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
-1. Click *Start*
+1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>.
+1. Click *Start*.
 1. It will take a few minutes to start up. When it's ready, click the green *Start* button.
-1. Click *Open external Window*
-1. Open RStudio or Positron
+1. Click *Open external window*
+1. Click *New Session* and select either RStudio Pro or Positron Pro.
+1. Click *Launch*.
+1. Open the `r-medicine-llm-exercises` project (RStudio) or folder (Positron).
 
 ## Schedule
 
-| Time          |   | Activity                       |
-| ------------- |---| ------------------------------ |
-| 11:00 - 11:15 | 👋 | Intro                          |
-| 11:15 - 12:00 | 💬 | Anatomy of a conversation      |
-| 12:00 - 12:40 | 💻 | Programming with LLMs          |
-| 12:40 - 12:50 | ☕ | Break                          |
-| 12:50 - 13:15 | ✍️  | Prompt engineering             |
-| 13:15 - 13:35 | 🛠️  | Tool calling                   |
-| 13:35 - 13:55 | 💬 | querychat                      |
-| 13:55 - 14:00 | 🎁 | Wrap-up and resources          |
+|   | Activity                       |
+|---| ------------------------------ |
+| 👋 | Intro                          |
+| 💬 | Anatomy of a conversation      |
+| 💻 | Programming with LLMs          |
+| ✍️  | Prompt engineering             |
+| ☕ | Break                          |
+| 🛠️  | Tool calling                   |
+| 🔍 | querychat                      |
+| 🤖 | Coding agents                  |
+| 🌳 | Privacy, security, & wrap-up   |
+
 
 -----
 

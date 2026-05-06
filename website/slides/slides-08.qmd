@@ -1,5 +1,5 @@
 ---
-title: Privacy, Security & Wrap-up
+title: Privacy & security
 subtitle: LLMs for Data Analysis in R
 author: R/Medicine 2026
 
@@ -29,23 +29,69 @@ Before we wrap up, important to discuss privacy and security — especially rele
 The model doesn't remember you, but the provider's servers might.
 :::
 
-## Where does your data go?
+## {.center style="text-align: center" transition="fade"}
 
-![](assets/trust-diagram-1.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+::: notes
+lets walk through the flow of data
+when you have a convo, you really only see this
+it looks liek you send a message to anthropic or whoever, and you get back a response
+:::
 
-## Where does your data go?
+![](assets/trust-01.excalidraw.svg)
 
-![](assets/trust-diagram-2.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+## {.center style="text-align: center" transition="fade"}
 
-## Where does your data go?
+![](assets/trust-02.excalidraw.svg)
 
-![](assets/trust-diagram.svg){style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;"}
+::: notes
+the model provider is responsible for routing your message to the actual model
+:::
 
-## You need to trust your model provider
+## {.center style="text-align: center" transition="fade"}
 
-* **Posit doesn't store your data**
+![](assets/trust-03.excalidraw.svg)
 
-* But your provider might, depending on your agreement
+::: notes
+remember, LLMs are stateless. so the llm doesn't store your request or any data. it just takes in your request and gives a response
+the model provider handles giving that response back to you
+:::
+
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/trust-04.excalidraw.svg)
+
+::: notes
+the nuance is that the model provider might do something with your data, and this can vary by rpovider and by agreement you have with the provider.
+
+model training, third party, storage
+:::
+
+## {.center style="text-align: center" transition="fade"}
+
+![](assets/trust-05.excalidraw.svg)
+
+::: notes
+when you use something like posit assistant, this diagram doesn't change much 
+again, teh llm itself isn't going to retain any of your data. it doesn't automatcaly "learn" or anything. 
+
+and posit doesn't store your data unless two things are true
+:::
+
+## You* need to trust your model provider
+
+\* or more likely, your organization
+
+::: {.fragment}
+* Know what your model provider does with your data
+:::
+
+::: {.fragment}
+* ellmer, querychat, shinychat, etc. will never store your data anywhere. They pass the request directly to your specified model provider. 
+:::
+
+::: {.fragment}
+* Posit Assistant will only store your data if a) you use Posit as your model provider and b) you opt-in. 
+:::
 
 ## The good news
 
@@ -64,26 +110,5 @@ These are the Posit packages for working with AI. We've focused on ellmer and sh
 :::
 
 ![](assets/posit-ai-packages.png)
-
-## Learn more
-
-**querychat**: <https://github.com/posit-dev/querychat>
-
-* Chat with your data using natural language queries.
-
-**ggbot2**: <https://github.com/tidyverse/ggbot2>
-
-* Talk out loud to create and iterate on plots.
-
-**Databot**: <https://positron.posit.co/databot.html>
-
-* EDA assistant for Positron.
-
-**vitals**: <https://github.com/posit-dev/vitals>
-
-* Evaluate LLM performance with systematic benchmarks.
-
-**Posit AI newsletter**: <https://posit.co/blog/?post_tag=ai-newsletter>
-
 
 # Thank you!

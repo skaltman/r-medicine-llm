@@ -32,35 +32,9 @@ editor:
 </style>
 ```
 
-# 👋
-
-::: columns
-::: {.column width="50%"}
-![](assets/headshot-sara-crop.png){style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"}
-
-::: {style="text-align: center;"}
-::: {style="font-size: 1.3em; font-weight: 300;"}
-Sara Altman
-:::
-
-**AI Core Team**, Posit
-:::
-:::
-
-::: {.column width="50%"}
-![](assets/garrett.png){style="border-radius: 50%; max-width: 60%; display: block; margin: 0.5em auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"}
-
-::: {style="text-align: center;"}
-::: {style="font-size: 1.3em; font-weight: 300;"}
-Garrett Grolemund
-:::
-
-**Director of Learning**, Posit
-:::
-:::
-:::
-
 # About this workshop
+
+## 👋 Introductions {.center .text-center}
 
 ## 🏡 [skaltman.github.io/r-medicine-llm]{.code} {.center .text-center}
 
@@ -89,8 +63,7 @@ Ask questions at any point in the chat
 we'll have lecture components with slides
 demos where I'll show demo something and we'll discuss how it works
 and interactive exercises where you'll do some coding
-for these, I've set up a project for you in workbench via instruqt for you with everything you'll need
-including api keys
+for these, I've set up a project for you in workbench via instruqt for you with everything you'll need 
 
 if you have questions, you can put them in the chat at any time
 I can't promise that I'll see them while I'm talking, but during the exercise portions
@@ -110,6 +83,12 @@ garrett and I will monitor it and also consolidate questions to answer when we r
 
 {{< countdown 1:00 right=0 top="-0.5em" >}}
 
+::: notes
+ok so with that said we're going to move into the first exericse
+which is just to start setting up your environment! 
+it takes a few minutes to start up, so you're going to start the process now, well talk for a bit, and then you'll come back to it later and finish the process
+:::
+
 ## Schedule
 
 {{< partial ../partials/schedule.qmd >}}
@@ -119,8 +98,7 @@ here's a rough schedule of what we're going to be covering today
 this is only a three hour workshop, so there's a lot more to discover afterwards
 
 my goal is to show you what's possible with llm apis from r and give you a good strating point
-so you'll walk away understanding the basics of how to call llm apis from R,
-build basic chatbots, hook LLMs up to external tools, and do some system prompt designing
+so you'll walk away understanding the basics of how to call llm apis from R, hook LLMs up to external tools, do some system prompt designing, make basic apps, and usign coding agents
 :::
 
 
@@ -136,10 +114,15 @@ build basic chatbots, hook LLMs up to external tools, and do some system prompt 
 
 # Let's Dive In!
 
-## To use an AI API... {.center}
+## To use an LLM API... {.center}
 
 ::: {.fragment style="font-size: 2em;"}
-...you need an API key!
+...you (generally) need an API key!
+:::
+
+::: notes
+we are going to be working with llm apis today
+and to use an api, you generally need an api key
 :::
 
 ## How to get an API key, beyond this workshop {.center}
@@ -152,6 +135,11 @@ build basic chatbots, hook LLMs up to external tools, and do some system prompt 
 3. 🔑 Get an API key
 
 4. 💾 Store it in `.Renviron` file<br>as `OPENAI_API_KEY`,  `ANTHROPIC_API_KEY`, etc. 
+:::
+
+::: {.fragment}
+
+(or your organization provides them to you)
 :::
 
 ::: notes
@@ -172,31 +160,35 @@ this is likely what you'll want to do if you want to run the exercises locally a
 already set up in posit cloud 
 :::
 
-## Your Turn {.slide-your-turn}
+## Our Turn {.slide-your-turn}
 
 ::: {style="--li-margin: 0.66em;"}
 
-::: {style="font-size: 1.1em;"}
-**☁️ Set up Instruqt:** 
-:::
+Instruqt should now be ready to open.
 
-
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
-1. Click *Start* 
-1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
-1. Click *Open external Window*
-1. Open RStudio or Positron 
+1. Click the green *Start* button, then *Open external window*.  
+1. Click *New Session* and select either RStudio Pro or Positron Pro.
+1. Click *Launch*.
+1. Open the `r-medicine-llm-exercises` project (RStudio) or folder (Positron).
 
 ::: {style="font-size: 1.1em;"}
-**☁️ Set up keys:** 
-:::
+**🔑 Set up keys:** 
 
+1. Copy the code in the provided Google Doc.
+1. Paste it into the R console and run. 
+:::
 
 ::: {style="font-size: 1.1em;"}
 **🤖 Check that everything's working:**
 :::
 
-* Run the code in [_exercises/01_hello-llm]{.b}
+* Run the code in [_exercises/01_hello-llm/01_hello-llm.R]{.b}
 :::
 
-{{< countdown 6:00 right=0 top="-0.5em" >}}
+{{< countdown 2:00 right=0 top="-0.5em" >}}
+
+
+::: notes
+Send google doc in the chat!!
+we are going to do these steps together
+:::
