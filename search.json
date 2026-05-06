@@ -469,7 +469,7 @@
     "href": "setup.html",
     "title": "Setup",
     "section": "",
-    "text": "Go to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron"
+    "text": "Go to https://play.instruqt.com/posit/invite/18ocdvpujl2t\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron"
   },
   {
     "objectID": "workshop-02.html",
@@ -520,7 +520,7 @@
     "href": "slides/slides-01.html#welcome-to-llms-for-data-analysis-in-r",
     "title": "Welcome!",
     "section": "Welcome to LLMs for Data Analysis in R!",
-    "text": "Welcome to LLMs for Data Analysis in R!\n Workshop repo: https://github.com/skaltman/r-medicine-llm\n\n☁️ Launch Instruqt environment:\n\nGo to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron"
+    "text": "Welcome to LLMs for Data Analysis in R!\n Workshop repo: https://github.com/skaltman/r-medicine-llm\n\n☁️ Launch Instruqt environment:\n\nGo to https://play.instruqt.com/posit/invite/18ocdvpujl2t\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron"
   },
   {
     "objectID": "slides/slides-01.html#introductions",
@@ -590,7 +590,7 @@
     "href": "slides/slides-01.html#our-turn",
     "title": "Welcome!",
     "section": "Our Turn",
-    "text": "Our Turn\n\nInstruqt should now be ready to open.\n\nClick the green Start button, then Open external window.\n\nClick New Session and select either RStudio Pro or Positron Pro.\nClick Launch.\nOpen the r-medicine-llm-exercises project (RStudio) or folder (Positron).\n\n\n🔑 Set up keys:\n\nCopy the code in the provided Google Doc.\nPaste it into the R console and run.\n\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm/01_hello-llm.R\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nSend google doc in the chat!! we are going to do these steps together"
+    "text": "Our Turn\n\nInstruqt should now be ready to open.\n\nClick the green Start button, then Open external window.\n\nClick New Session and select either RStudio Pro or Positron Pro.\nClick Launch.\n\n\n🔑 Set up keys:\n\nCopy the code in the provided Google Doc.\nPaste it into the R console and run.\n\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm/01_hello-llm.R\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nSend google doc in the chat!! we are going to do these steps together"
   },
   {
     "objectID": "slides/slides-03.html#section",
@@ -1045,6 +1045,6 @@
     "href": "slides/slides-07.html#your-turn-extend-the-querychat-app",
     "title": "Coding agents for data tasks",
     "section": "Your Turn: Extend the querychat app",
-    "text": "Your Turn: Extend the querychat app\n\nUse Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don’t need to know Shiny — the assistant will help you write the code.\n\n\nOpen _exercises/09_posit-assistant/09_posit-assistant-app.R and run it to confirm it works.\nOpen Posit Assistant (sidebar or Cmd+Shift+P &gt; “Assistant”).\nAsk it to help you extend the app (for example, add a plot).\nRun the app and continue iterating.\n\n\n  \n    −\n    +\n \n 06:00"
+    "text": "Your Turn: Extend the querychat app\n\nUse Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don’t need to know Shiny — the assistant will help you write the code.\n\n\nOpen _exercises/08_posit-assistant/08_posit-assistant-app.R and run it to confirm it works.\nOpen Posit Assistant (sidebar or Cmd+Shift+P &gt; “Assistant”).\nAsk it to help you extend the app (for example, add a plot).\nRun the app and continue iterating.\n\n\n  \n    −\n    +\n \n 06:00"
   }
 ]

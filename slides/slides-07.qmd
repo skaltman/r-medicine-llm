@@ -133,7 +133,7 @@ send login
 Use Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don't need to know Shiny — the assistant will help you write the code.
 :::
 
-1. Open `_exercises/09_posit-assistant/09_posit-assistant-app.R` and run it to confirm it works.
+1. Open `_exercises/08_posit-assistant/08_posit-assistant-app.R` and run it to confirm it works.
 
 2. Open Posit Assistant (sidebar or `Cmd+Shift+P` > "Assistant").
 

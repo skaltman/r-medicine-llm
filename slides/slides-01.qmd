@@ -17,7 +17,7 @@ editor:
 
 ☁️ **Launch Instruqt environment:**
 
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Go to <https://play.instruqt.com/posit/invite/18ocdvpujl2t>
 1. Click *Start* 
 1. It will take a few minutes to start up. When it's ready, click the green *Start* button. 
 1. Click *Open external Window*
@@ -169,7 +169,6 @@ Instruqt should now be ready to open.
 1. Click the green *Start* button, then *Open external window*.  
 1. Click *New Session* and select either RStudio Pro or Positron Pro.
 1. Click *Launch*.
-1. Open the `r-medicine-llm-exercises` project (RStudio) or folder (Positron).
 
 ::: {style="font-size: 1.1em;"}
 **🔑 Set up keys:** 
