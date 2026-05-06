@@ -14,5 +14,5 @@ chat_gpt$chat(
 chat_claude <- chat_anthropic()
 chat_claude$chat(
   "I'm at the R/Medicine 2026 conference.",
-  "Write an R-related limerick.."
+  "Write an R-related limerick."
 )
