@@ -135,17 +135,16 @@ def server(input: Inputs, output: Outputs, session: Session):
         if params.model.startswith("claude"):
             chat_client = chatlas.ChatAnthropic(
                 model=params.model,
-                system_prompt=params.system_prompt,
             )
         elif params.model.startswith("gpt"):
             chat_client = chatlas.ChatOpenAI(
                 model=params.model,
-                system_prompt=params.system_prompt,
             )
         else:
             raise ValueError(f"Unknown model: {params.model}")
 
         chat_client.set_turns(these_turns)
+        chat_client.system_prompt = params.system_prompt
 
         for toolset in input.tools():
             for tool in all_tools[toolset]:
