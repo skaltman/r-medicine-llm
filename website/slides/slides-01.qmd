@@ -157,7 +157,7 @@ this is likely what you'll want to do if you want to run the exercises locally a
 :::
 
 ::: notes
-already set up in posit cloud 
+we will set this up next
 :::
 
 ## Our Turn {.slide-your-turn}
@@ -169,6 +169,7 @@ Instruqt should now be ready to open.
 1. Click the green *Start* button, then *Open external window*.  
 1. Click *New Session* and select either RStudio Pro or Positron Pro.
 1. Click *Launch*.
+1. Open the `r-medicine-llm-exercises` folder (do not create a project).
 
 ::: {style="font-size: 1.1em;"}
 **🔑 Set up keys:** 
