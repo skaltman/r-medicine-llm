@@ -212,13 +212,10 @@ R/Medicine 2026
 </div>
 
 </section>
-<section id="how-do-llms-actually-work" class="slide level2">
-<h2>How do LLMs actually work?</h2>
-<div class="fragment">
-<p><em>On their own, can LLMs… access the internet? run code? send an email? interact with the world?</em></p>
-</div>
+<section class="slide level2">
+
 <aside class="notes">
-<p>Before we dive into tools, let’s clarify what LLMs can and can’t do. On their own, LLMs are quite limited. They can’t access the internet, run code, or interact with systems. They only process the text you send them. This is where tools come in.</p>
+<p>we just saw how to add knowledge with prompting now we’re going to talk about how to add abilities with tools another way to make llms useful for you by giving them new abilities that they don’t have out of the box</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -231,9 +228,29 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="llms-dont-have-access-to-real-time-data" class="slide level2">
-<h2>LLMs don’t have access to real-time data</h2>
+<section id="how-do-llms-actually-work" class="slide level2">
+<h2>How do LLMs actually work?</h2>
+<div class="fragment">
+<p><em>On their own, can LLMs… access the internet? run code? send an email? interact with the world?</em></p>
+</div>
 <aside class="notes">
+<p>Before we dive into tools, let’s clarify what LLMs can and can’t do. can they…? lets try it out</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<aside class="notes">
+<p>what happens if we ask about the current weahter?</p>
 <p>The model can’t access real-time weather data. No internet connection.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -253,10 +270,15 @@ R/Medicine 2026
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>I don't have access to real-time weather data, so I can't tell</span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>you the current conditions in San Francisco.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><br> <br></p>
+<div class="fragment">
+<h3 id="llms-dont-have-access-to-real-time-data">LLMs don’t have access to real-time data!</h3>
+</div>
 </section>
-<section id="llms-cant-affect-the-world" class="slide level2">
-<h2>LLMs can’t affect the world</h2>
+<section id="section-1" class="slide level2">
+<h2></h2>
 <aside class="notes">
+<p>what about asking it to affect the world, like writing a file to your computer?</p>
 <p>They also can’t interact with the file system, send emails, or take any real-world actions.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -277,11 +299,19 @@ R/Medicine 2026
 <span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>write files to your system. I can only provide </span>
 <span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a>code snippets and guidance.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><br></p>
+<p><br></p>
+<div class="fragment">
+<h3 id="llms-cant-affect-the-world">LLMs can’t affect the world!</h3>
+</div>
 </section>
 <section id="tool-function-metadata" class="slide level2 center">
 <h2>Tool = function + metadata</h2>
 <aside class="notes">
-<p>So how do we solve these problems? Tools! Also called functions or function calling.</p>
+<p>So how do we solve these problems? Tools!</p>
+<p>Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.</p>
+<p>They can also give the model new abilities to take action on behalf of the user.</p>
+<p>tools are essentially just functions + metadata. if you’ve ever written an R function and then documented it, you can write a tool. it’s basically the same process, just iwth an LLM as the intended audience instead of another human.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -324,6 +354,19 @@ R/Medicine 2026
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(latitude, longitude) {</span>
 <span id="cb5-2"><a></a>  <span class="co"># Return weather for that location</span></span>
 <span id="cb5-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>were going to make a tool so the llm can get the current weather</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tool-function-metadata-2" class="slide level2">
 <h2>Tool = function + metadata</h2>
@@ -353,6 +396,19 @@ R/Medicine 2026
 <span id="cb7-9"><a></a>)</span>
 <span id="cb7-10"><a></a></span>
 <span id="cb7-11"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(get_weather_tool)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>tell your chat about the tool LLM now knows this tool exists and can request to use it</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tool-function-metadata-4" class="slide level2">
 <h2>Tool = function + metadata</h2>
@@ -371,6 +427,19 @@ R/Medicine 2026
 <span id="cb8-13"><a></a>)</span>
 <span id="cb8-14"><a></a></span>
 <span id="cb8-15"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(get_weather_tool)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>take a look in more detail 1. create a function that does our desired functionality 2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types 3. finally, we register it, which tells the llm the tool exists and is available for use</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tool-function-metadata-5" class="slide level2">
 <h2>Tool = function + metadata</h2>
@@ -427,6 +496,67 @@ R/Medicine 2026
 <span id="cb11-9"><a></a><span class="ss">- </span>Wind: WSW at 7 mph</span>
 <span id="cb11-10"><a></a><span class="ss">- </span>Chance of rain: 0%</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="type_-functions" class="slide level2">
+<h2><code>type_()</code> functions</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb12-2"><a></a>  \(lat, lon) weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon),</span>
+<span id="cb12-3"><a></a>  <span class="at">name =</span> <span class="st">"get_weather"</span>,</span>
+<span id="cb12-4"><a></a>  <span class="at">description =</span> <span class="st">"Get the weather for a location."</span>,</span>
+<span id="cb12-5"><a></a>  <span class="at">arguments =</span> <span class="fu">list</span>(</span>
+<span id="cb12-6"><a></a>    <span class="at">lat =</span> <span class="fu">type_number</span>(<span class="st">"Latitude"</span>),</span>
+<span id="cb12-7"><a></a>    <span class="at">lon =</span> <span class="fu">type_number</span>(<span class="st">"Longitude"</span>)</span>
+<span id="cb12-8"><a></a>  )</span>
+<span id="cb12-9"><a></a>)</span>
+<span id="cb12-10"><a></a></span>
+<span id="cb12-11"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(get_weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>you might have noticed the type functions way to specify object types for the llm in a way it will easily understand</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="type_-functions-1" class="slide level2">
+<h2><code>type_()</code> functions</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_boolean</span>(<span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_integer</span>(<span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_number</span>(<span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_string</span>(<span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_enum</span>(values, <span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_array</span>(items, <span class="at">description =</span> <span class="cn">NULL</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-12"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a aria-hidden="true" tabindex="-1"></a><span class="fu">type_object</span>(</span>
+<span id="cb13-14"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">.description =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-15"><a aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb13-16"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">.required =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb13-17"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">.additional_properties =</span> <span class="cn">FALSE</span></span>
+<span id="cb13-18"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>use the appropriate type function</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="how-does-tool-calling-work" class="title-slide slide level1 center">
@@ -445,13 +575,13 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-2" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-01.excalidraw.svg" class="r-stretch"><aside class="notes">
 <p>The conversation starts with a user sending a message to the chatbot.</p>
-<p>In this example, the user asks whether they can go to the pool today - which requires knowing the weather.</p>
-<p>The model doesn’t have access to real-time weather data, just like we saw earlier with San Francisco.</p>
+<p>In this example, the user asks about hte weather</p>
+<p>The model doesn’t have access to real-time weather data, just like we saw earlier</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -464,7 +594,7 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-3" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-02.excalidraw.svg" class="r-stretch"><aside class="notes">
@@ -482,11 +612,11 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-2" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-4" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-03.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>The programmer takes that tool call message and executes the actual function - in this case, querying a weather API with the location the model specified.</p>
+<p>ellmer takes that tool call message and executes the actual function in your R session - in this case, querying a weather API with the location the model specified.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -499,7 +629,7 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-3" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-5" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-04.excalidraw.svg" class="r-stretch"><aside class="notes">
@@ -521,11 +651,11 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-4" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-6" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-05.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>The programmer sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON. Not the kind of thing you’d want to read directly unless you’re the kind of person who likes reading computer data formats.</p>
+<p>ellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -538,7 +668,7 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-5" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-7" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-06.excalidraw.svg" class="r-stretch"><aside class="notes">
@@ -558,7 +688,7 @@ R/Medicine 2026
 <section id="the-llm-cannot-run-code-by-itself" class="slide level2">
 <h2>The LLM cannot run code by itself!</h2>
 <aside class="notes">
-<p>This is crucial to understand - the LLM doesn’t execute tools. It just asks you to run them.</p>
+<p>This is crucial to understand - the LLM doesn’t execute tools. LLMs cant run code. It just asks you (ie. your computer) to run them. the tool code is running like normal r code on your laptop, not in a cloud somewhere</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -579,11 +709,11 @@ R/Medicine 2026
 </ol>
 </div>
 </section>
-<section id="section-6" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-8" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 
 <img data-src="assets/tool-07.excalidraw.svg" class="r-stretch"></section>
-<section id="section-7" class="slide level2 center" style="text-align: center" data-transition="fade">
+<section id="section-9" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 <aside class="notes">
 <p>The LLM also chooses the arguments for the tool. It uses its knowledge to fill in the right values - using information from its training data.</p>
@@ -600,10 +730,30 @@ R/Medicine 2026
       }</style></aside>
 
 <img data-src="assets/tool-08.excalidraw.svg" class="r-stretch"></section>
-<section id="demo-weather-tool" class="slide level2 center">
-<h2>Demo: weather tool</h2>
+<section id="helper-function-create_tool_def" class="slide level2">
+<h2>Helper function: <code>create_tool_def()</code></h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">create_tool_def</span>(rnorm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a></a>Using model = "gpt-4.1".</span>
+<span id="cb15-2"><a></a>tool(</span>
+<span id="cb15-3"><a></a>  stats::rnorm,</span>
+<span id="cb15-4"><a></a>  "Generates random deviates from the normal distribution with specified mean and standard deviation.",</span>
+<span id="cb15-5"><a></a>  n = type_integer(</span>
+<span id="cb15-6"><a></a>    "Number of observations. If length(n) &gt; 1, the length is taken to be the number required.",</span>
+<span id="cb15-7"><a></a>    required = TRUE</span>
+<span id="cb15-8"><a></a>  ),</span>
+<span id="cb15-9"><a></a>  mean = type_number(</span>
+<span id="cb15-10"><a></a>    "Mean(s) of the normal distribution. Defaults to 0.",</span>
+<span id="cb15-11"><a></a>    required = FALSE</span>
+<span id="cb15-12"><a></a>  ),</span>
+<span id="cb15-13"><a></a>  sd = type_number(</span>
+<span id="cb15-14"><a></a>    "Standard deviation(s) of the normal distribution. Defaults to 1.",</span>
+<span id="cb15-15"><a></a>    required = FALSE</span>
+<span id="cb15-16"><a></a>  )</span>
+<span id="cb15-17"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <aside class="notes">
-<p>But you’re programmers! You can automate this. Let me show you how to define tools that run automatically.</p>
+<p>if you already have a function defined and documented</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -615,30 +765,6 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>👩‍💻 <span class="code b purple">_demos/05_tools/05_weather-tool-02-end.R</span></p>
-</section>
-<section id="helper-function-create_tool_def" class="slide level2">
-<h2>Helper function: <code>create_tool_def()</code></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">create_tool_def</span>(rnorm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a></a>Using model = "gpt-4.1".</span>
-<span id="cb13-2"><a></a>tool(</span>
-<span id="cb13-3"><a></a>  stats::rnorm,</span>
-<span id="cb13-4"><a></a>  "Generates random deviates from the normal distribution with specified mean and standard deviation.",</span>
-<span id="cb13-5"><a></a>  n = type_integer(</span>
-<span id="cb13-6"><a></a>    "Number of observations. If length(n) &gt; 1, the length is taken to be the number required.",</span>
-<span id="cb13-7"><a></a>    required = TRUE</span>
-<span id="cb13-8"><a></a>  ),</span>
-<span id="cb13-9"><a></a>  mean = type_number(</span>
-<span id="cb13-10"><a></a>    "Mean(s) of the normal distribution. Defaults to 0.",</span>
-<span id="cb13-11"><a></a>    required = FALSE</span>
-<span id="cb13-12"><a></a>  ),</span>
-<span id="cb13-13"><a></a>  sd = type_number(</span>
-<span id="cb13-14"><a></a>    "Standard deviation(s) of the normal distribution. Defaults to 1.",</span>
-<span id="cb13-15"><a></a>    required = FALSE</span>
-<span id="cb13-16"><a></a>  )</span>
-<span id="cb13-17"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section></section>
 <section>
 <section id="your-turn-07_tool-calling" class="title-slide slide level1 slide-your-turn center">
@@ -661,7 +787,7 @@ R/Medicine 2026
 <li><p>Wrap it as a tool with <code>tool()</code> and register it.</p></li>
 <li><p>Ask the model about spending for a specific country.</p></li>
 </ol>
-<div id="timer_d5990e81c7e2629633eff8d6c9bdb5e820ae361a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d13bb6a16b42388c0d73b95f151b4407dd246c9c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -684,6 +810,19 @@ R/Medicine 2026
 </section>
 <section id="some-questions" class="slide level2">
 <h2>Some questions</h2>
+<aside class="notes">
+<p>FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="fragment">
 <p><strong>Does the model have access to the data?</strong></p>
 </div>
@@ -704,7 +843,7 @@ R/Medicine 2026
 </div>
 <div class="fragment">
 <ul>
-<li>Give the model access to the list of counties and years available.</li>
+<li>Give the model access to the list of countries and years available.</li>
 <li>Think through failure modes.</li>
 </ul>
 </div>
@@ -724,9 +863,9 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_anthropic</span>()</span>
-<span id="cb14-2"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(<span class="fu">claude_tool_web_search</span>())</span>
-<span id="cb14-3"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Who are the keynote speakers at R/Medicine 2026?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_anthropic</span>()</span>
+<span id="cb16-2"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(<span class="fu">claude_tool_web_search</span>())</span>
+<span id="cb16-3"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Who are the keynote speakers at R/Medicine 2026?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>Also available: <code>openai_tool_web_search()</code>, <code>google_tool_web_search()</code></p>
 </div>

@@ -257,6 +257,19 @@ R/Medicine 2026
 <div class="footer">
 <p><a href="https://ellmer.tidyverse.org" class="uri">https://ellmer.tidyverse.org</a></p>
 </div>
+<aside class="notes">
+<p>we can do this same back and forth from R with a package called ellmer</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -267,6 +280,22 @@ R/Medicine 2026
 <span id="cb1-4"><a></a></span>
 <span id="cb1-5"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Tell me a quick fact about sheep."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<aside class="notes">
+<p>lets take a look at the code at a high level and then we’ll go into the details</p>
+<p>in ellmer, you set up a chat – a connection to an LLM</p>
+<p>and then once you have that connection, you can send requests to the model</p>
+<p>and it will send you a response back</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
@@ -286,6 +315,21 @@ R/Medicine 2026
 <section id="how-does-this-work" class="slide level2">
 <h2>How does this work?</h2>
 <p>Most LLMs are accessible through HTTP APIs</p>
+<aside class="notes">
+<p>it works because most llms are accessible through http apis</p>
+<p>this is pretty much just a normal api. if you’ve ever queried an api to get data, this is fundmentally the same thing, and we’re going to use these apis to build tools from r that use llms</p>
+<p>lets take a look at the code</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="section-3" class="slide level2" data-transition="fade">
 <h2></h2>
@@ -309,7 +353,7 @@ R/Medicine 2026
 <section id="section-4" class="slide level2" data-transition="fade">
 <h2></h2>
 <aside class="notes">
-<p>Now we create a chat object. This sets up a connection to OpenAI’s API. The chat object is what we’ll use to send messages and get responses.</p>
+<p>Now we create a chat object. This sets up a connection to (here) anthropic’s API. The chat object is what we’ll use to send messages and get responses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -355,8 +399,7 @@ R/Medicine 2026
 <h2></h2>
 <aside class="notes">
 <p>And we get a response back!</p>
-<p>think back to what we just learned about roles. What are the user and assistant roles in this example?</p>
-<p>The user role is our question - “Tell me a quick fact about sheep” The assistant role is the response we got back.</p>
+<p>i have fact checked this fact</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -385,8 +428,9 @@ R/Medicine 2026
 <h2></h2>
 <aside class="notes">
 <p>One of the nice things about ellmer is that you can easily inspect the chat object to see the full conversation history.</p>
-<p>If we just call ‘chat’, we can see all the messages and their roles. You can see the user message and the assistant response, as well as how many tokens were used</p>
-<p>but what about the third role – the system prompt? where is that? we didn’t set up one, so the model just uses whatever behavior it defaults to</p>
+<p>If we just call ‘chat’, we can see all the messages in the conversation so far <strong>click</strong> see basics of convo, tokens used and cost (tokens are units of llms–will talk about later)</p>
+<p>You can see the user message (what we sent) marked with user <strong>click</strong> and the assistant response <strong>click</strong></p>
+<p><strong>click</strong></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -400,7 +444,7 @@ R/Medicine 2026
       }</style></aside>
 <div style="--code-font-size: 0.7em">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>chat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-code-line-numbers="|2|2,4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="dt">&lt;</span><span class="kw">Chat</span><span class="ot"> Anthropic</span><span class="er">/</span><span class="ot">claude-sonnet-4-5 turns</span><span class="op">=</span><span class="st">2</span><span class="ot"> input</span><span class="op">=</span><span class="st">15</span><span class="ot"> output</span><span class="op">=</span><span class="st">37</span><span class="ot"> cost</span><span class="op">=</span><span class="st">$0.00</span><span class="dt">&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-code-line-numbers="|1|2|2,4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a></a><span class="dt">&lt;</span><span class="kw">Chat</span><span class="ot"> Anthropic</span><span class="er">/</span><span class="ot">claude-sonnet-4-5 turns</span><span class="op">=</span><span class="st">2</span><span class="ot"> input</span><span class="op">=</span><span class="st">15</span><span class="ot"> output</span><span class="op">=</span><span class="st">37</span><span class="ot"> cost</span><span class="op">=</span><span class="st">$0.00</span><span class="dt">&gt;</span></span>
 <span id="cb8-2"><a></a>── user ─────────────────────────────────────────────────────────────────────────────────</span>
 <span id="cb8-3"><a></a>Tell me a quick fact about sheep.</span>
 <span id="cb8-4"><a></a>── assistant <span class="co">[</span><span class="ot">input=15 output=37 cost=$0.00</span><span class="co">]</span> ────────────────────────────────────────────</span>
@@ -410,14 +454,7 @@ R/Medicine 2026
 <p>Messages have <strong>roles</strong>.</p>
 </div>
 <aside class="notes">
-<p>Now let’s talk about how these messages are structured.</p>
-<p>When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.</p>
-<p>There are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.</p>
-<ul>
-<li>Then USER role - marks what the person using your app types</li>
-<li>And ASSISTANT role - marks what the LLM responds with</li>
-</ul>
-<p>This might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.</p>
+<p>and these messages are marked with user and assistant because each message in the conversation is assigned a role.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -437,7 +474,6 @@ R/Medicine 2026
 <section id="section-9" class="slide level2">
 <h2></h2>
 <aside class="notes">
-<p>Now let’s talk about how these messages are structured.</p>
 <p>When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.</p>
 <p>There are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.</p>
 <p>[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with</p>
@@ -459,7 +495,6 @@ R/Medicine 2026
 <section id="section-10" class="slide level2">
 <h2></h2>
 <aside class="notes">
-<p>Now let’s talk about how these messages are structured.</p>
 <p>When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.</p>
 <p>There are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.</p>
 <p>[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with</p>
@@ -481,7 +516,6 @@ R/Medicine 2026
 <section id="section-11" class="slide level2">
 <h2></h2>
 <aside class="notes">
-<p>Now let’s talk about how these messages are structured.</p>
 <p>When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.</p>
 <p>There are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.</p>
 <p>[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with</p>
@@ -640,7 +674,7 @@ R/Medicine 2026
 <li><p>Create a new <code>chat</code> with no system prompt and ask the second question again.</p></li>
 <li><p>How do the answers to 3 and 4 differ? Think about both the content and the style.</p></li>
 </ol>
-<div id="timer_419d467795110b8e0db1a969b6b26374cbbc5faf" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_97328c876e4349254bc27a8535c47f9045043804" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -968,37 +1002,6 @@ Attempts that don’t work still provide insights</p></li>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="start-simple-build-understanding" class="slide level2 center text-center">
-<h2>Start Simple, Build Understanding</h2>
-</section>
-<section id="start-simple-build-understanding-1" class="slide level2 center text-center">
-<h2>Start Simple, Build Understanding</h2>
-<ul>
-<li><p>We’re going to focus on the <strong>core building blocks</strong>.</p></li>
-<li><p>All the incredible things you see AI do<br>
-<strong>decompose to just a few key ingredients</strong>.</p></li>
-<li><p>Our goal is to <strong>have fun and build intuition</strong><br>
-through hands-on experience.</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Think <strong>very generally</strong> about what tools can do - they’re as powerful as any software you can write</li>
-<li>Remember: <strong>“Everything decomposes”</strong> to the basic components once you understand the underlying APIs</li>
-<li>Build intuition through hands-on experience rather than theoretical study</li>
-<li>We want to have fun in this course! It’s worth saying up front that our examples are not necessarily practical, but they’re full of practical lessons.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section id="what-if-i-want-to-keep-chatting-back-and-forth" class="title-slide slide level1 center" data-background-image="assets/shinychat-input-empty.png" data-background-size="contain" data-background-position="center">
 <h1><span class="bg-white f1 normal relative" style="top: -14px">What if I want to keep chatting back-and-forth?</span></h1>
@@ -1048,8 +1051,7 @@ through hands-on experience.</p></li>
 </table>
 </div>
 <aside class="notes">
-<p>As we’ll see, everything we’re going to do today can be done in either R or Python and ellmer and chatlas are designed to be similar.</p>
-<p>But they’re in different languages and those languages have different conventions and idioms, so they’re not completely identical. If they were, one or the other would start to feel unnatural to use.</p>
+<p>FROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

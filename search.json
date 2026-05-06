@@ -2,58 +2,65 @@
   {
     "objectID": "slides/slides-08.html#model-providers-vs.-llms",
     "href": "slides/slides-08.html#model-providers-vs.-llms",
-    "title": "Privacy, Security & Wrap-up",
+    "title": "Privacy & security",
     "section": "Model providers vs. LLMs",
     "text": "Model providers vs. LLMs\n\nProvider: The company that hosts the model (Anthropic, OpenAI, Google, etc.).\nLLM: The actual model that generates responses to your queries.\nLLMs are stateless. They have no memory of your prior requests.\nHowever, the model provider may log and store your requests.\n\n\nThe model doesn’t remember you, but the provider’s servers might."
   },
   {
-    "objectID": "slides/slides-08.html#where-does-your-data-go",
-    "href": "slides/slides-08.html#where-does-your-data-go",
-    "title": "Privacy, Security & Wrap-up",
-    "section": "Where does your data go?",
-    "text": "Where does your data go?"
+    "objectID": "slides/slides-08.html#section",
+    "href": "slides/slides-08.html#section",
+    "title": "Privacy & security",
+    "section": "",
+    "text": "lets walk through the flow of data when you have a convo, you really only see this it looks liek you send a message to anthropic or whoever, and you get back a response"
   },
   {
-    "objectID": "slides/slides-08.html#where-does-your-data-go-1",
-    "href": "slides/slides-08.html#where-does-your-data-go-1",
-    "title": "Privacy, Security & Wrap-up",
-    "section": "Where does your data go?",
-    "text": "Where does your data go?"
+    "objectID": "slides/slides-08.html#section-1",
+    "href": "slides/slides-08.html#section-1",
+    "title": "Privacy & security",
+    "section": "",
+    "text": "the model provider is responsible for routing your message to the actual model"
   },
   {
-    "objectID": "slides/slides-08.html#where-does-your-data-go-2",
-    "href": "slides/slides-08.html#where-does-your-data-go-2",
-    "title": "Privacy, Security & Wrap-up",
-    "section": "Where does your data go?",
-    "text": "Where does your data go?"
+    "objectID": "slides/slides-08.html#section-2",
+    "href": "slides/slides-08.html#section-2",
+    "title": "Privacy & security",
+    "section": "",
+    "text": "remember, LLMs are stateless. so the llm doesn’t store your request or any data. it just takes in your request and gives a response the model provider handles giving that response back to you"
+  },
+  {
+    "objectID": "slides/slides-08.html#section-3",
+    "href": "slides/slides-08.html#section-3",
+    "title": "Privacy & security",
+    "section": "",
+    "text": "the nuance is that the model provider might do something with your data, and this can vary by rpovider and by agreement you have with the provider.\nmodel training, third party, storage"
+  },
+  {
+    "objectID": "slides/slides-08.html#section-4",
+    "href": "slides/slides-08.html#section-4",
+    "title": "Privacy & security",
+    "section": "",
+    "text": "when you use something like posit assistant, this diagram doesn’t change much again, teh llm itself isn’t going to retain any of your data. it doesn’t automatcaly “learn” or anything.\nand posit doesn’t store your data unless two things are true"
   },
   {
     "objectID": "slides/slides-08.html#you-need-to-trust-your-model-provider",
     "href": "slides/slides-08.html#you-need-to-trust-your-model-provider",
-    "title": "Privacy, Security & Wrap-up",
-    "section": "You need to trust your model provider",
-    "text": "You need to trust your model provider\n\nPosit doesn’t store your data\nBut your provider might, depending on your agreement"
+    "title": "Privacy & security",
+    "section": "You* need to trust your model provider",
+    "text": "You* need to trust your model provider\n* or more likely, your organization\n\n\nKnow what your model provider does with your data\n\n\n\n\nellmer, querychat, shinychat, etc. will never store your data anywhere. They pass the request directly to your specified model provider.\n\n\n\n\nPosit Assistant will only store your data if a) you use Posit as your model provider and b) you opt-in."
   },
   {
     "objectID": "slides/slides-08.html#the-good-news",
     "href": "slides/slides-08.html#the-good-news",
-    "title": "Privacy, Security & Wrap-up",
+    "title": "Privacy & security",
     "section": "The good news",
     "text": "The good news\n\nYour organization can work out a zero data retention (ZDR), HIPAA-compliant agreement, or other arrangements with model providers. These arrangements are common.\n\n\nLearn more: https://posit.co/blog/trust-llm-tools/"
   },
   {
     "objectID": "slides/slides-08.html#learn-more",
     "href": "slides/slides-08.html#learn-more",
-    "title": "Privacy, Security & Wrap-up",
+    "title": "Privacy & security",
     "section": "Learn more",
     "text": "Learn more\n\nThese are the Posit packages for working with AI. We’ve focused on ellmer and shinychat today, but there are others for different use cases."
-  },
-  {
-    "objectID": "slides/slides-08.html#learn-more-1",
-    "href": "slides/slides-08.html#learn-more-1",
-    "title": "Privacy, Security & Wrap-up",
-    "section": "Learn more",
-    "text": "Learn more\nquerychat: https://github.com/posit-dev/querychat\n\nChat with your data using natural language queries.\n\nggbot2: https://github.com/tidyverse/ggbot2\n\nTalk out loud to create and iterate on plots.\n\nDatabot: https://positron.posit.co/databot.html\n\nEDA assistant for Positron.\n\nvitals: https://github.com/posit-dev/vitals\n\nEvaluate LLM performance with systematic benchmarks.\n\nPosit AI newsletter: https://posit.co/blog/?post_tag=ai-newsletter"
   },
   {
     "objectID": "slides/slides-06.html#what-is-querychat",
@@ -67,42 +74,49 @@
     "href": "slides/slides-06.html#how-does-querychat-work",
     "title": "querychat",
     "section": "How does querychat work?",
-    "text": "How does querychat work?\n\nHere’s the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly. This means results are reliable — no hallucinated numbers.\n\n\nYou ask a question in natural language\nThe LLM writes a SQL query\nA database executes the query\nYou get back real, filtered data"
+    "text": "How does querychat work?\n\nHere’s the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly.\nthis has a variety of benefits\n\n\nYou ask a question in natural language\nThe LLM writes a SQL query\nA database executes the query\nYou get back real, filtered data"
   },
   {
     "objectID": "slides/slides-06.html#benefits",
     "href": "slides/slides-06.html#benefits",
     "title": "querychat",
     "section": "Benefits",
-    "text": "Benefits\n\nThis architecture gives us several important properties, especially relevant for health data.\n\n\nReliable — the database runs the queries, not the LLM. No hallucinated numbers.\nSafe — limited to read-only queries. No data destruction.\nReproducible — SQL can be exported and re-run."
+    "text": "Benefits\n\nThis architecture gives us several important properties,\n\n\nReliable — the database runs the queries, not the LLM. No hallucinated numbers.\nSafe — limited to read-only queries. No data destruction.\nReproducible — SQL can be exported and re-run."
   },
   {
     "objectID": "slides/slides-06.html#the-simplest-version",
     "href": "slides/slides-06.html#the-simplest-version",
     "title": "querychat",
     "section": "The simplest version",
-    "text": "The simplest version\n\nYou can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.\n\nlibrary(querychat)\n\nquerychat_app(your_data)"
+    "text": "The simplest version\n\nquerychat is built on shiny, but you don’t really need to know shiny today. i want to give you an overview of querychat becasue it’s pretty useful, so we’re just going to make a really simple app. You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.\n\nlibrary(querychat)\n\nquerychat_app(your_data)"
   },
   {
     "objectID": "slides/slides-06.html#demo",
     "href": "slides/slides-06.html#demo",
     "title": "querychat",
     "section": "Demo",
-    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\n\n👩‍💻 _demos/06_querychat/06_querychat-dashboard.R"
+    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\n\n👩‍💻 _demos/05_querychat/05_querychat-dashboard.R"
+  },
+  {
+    "objectID": "slides/slides-06.html#section",
+    "href": "slides/slides-06.html#section",
+    "title": "querychat",
+    "section": "",
+    "text": "lets take a closer look at how querychat works. the LLM takes in a user’s questino and writes the appropriate sql query. the database executes that query, updating the underlying data used in the app (if you know shiny, it’s updating reactives). The model never sees your raw data. it may see the result of the query though"
   },
   {
     "objectID": "slides/slides-06.html#section-2",
     "href": "slides/slides-06.html#section-2",
     "title": "querychat",
     "section": "",
-    "text": "https://posit-dev.github.io/querychat/r/articles/build.html"
+    "text": "there is a lot more to querychat! the querychat website is very helpful, and you might take a look at this build an app vignette if you want to build a more involved app\nquerychat_app just gives you the basics.\n\n\n\nhttps://posit-dev.github.io/querychat/r/articles/build.html"
   },
   {
     "objectID": "slides/slides-06.html#shinychat",
     "href": "slides/slides-06.html#shinychat",
     "title": "querychat",
     "section": "shinychat",
-    "text": "shinychat\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/shinychat/"
+    "text": "shinychat\n\nalso useful to know about shinychat, which querychat is built on. shinychat lets you build chatbots in shiny for r and python\n\n\n\n\n\n\n\n\nhttps://posit-dev.github.io/shinychat/"
   },
   {
     "objectID": "slides/slides-04.html#reminder-the-system_prompt-arg",
@@ -116,7 +130,7 @@
     "href": "slides/slides-04.html#reminder-the-system_prompt-arg-1",
     "title": "Prompt Writing",
     "section": "Reminder: the system_prompt arg",
-    "text": "Reminder: the system_prompt arg\nchat &lt;- \n   chat(\n      \"anthropic\", \n      system_prompt = readr::read_file(\"prompt.md\")\n   )"
+    "text": "Reminder: the system_prompt arg\nchat &lt;- \n   chat(\n      \"anthropic\", \n      system_prompt = readr::read_file(\"prompt.md\")\n   )\n\nreminder earlier we saw the system prompt arg the system prompt persists across teh entire conversation\nwill guide behavior across that entire conversation happening with that chat object\nprompts are just text, and you can at least start by writing a prompt basically the same as writing a set of instructions for a person."
   },
   {
     "objectID": "slides/slides-04.html#three-questions-to-ask-yourself",
@@ -161,11 +175,11 @@
     "text": "More tips\n\nAdvanced technique - make the model think out loud. This helps it follow complex rules or constraints.\n\nForce the model to say things out loud.\nE.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside  tags. If you have made three, stop and answer.”"
   },
   {
-    "objectID": "slides/slides-04.html#more-tips-4",
-    "href": "slides/slides-04.html#more-tips-4",
+    "objectID": "slides/slides-04.html#more-guidance",
+    "href": "slides/slides-04.html#more-guidance",
     "title": "Prompt Writing",
-    "section": "More tips",
-    "text": "More tips\n\nFinally, all the major providers have excellent documentation on prompt engineering. These are great resources to dive deeper.\n\nSee Anthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
+    "section": "More guidance",
+    "text": "More guidance\n\nellmer vignette on prompt design\n\nhttps://ellmer.tidyverse.org/articles/prompt-design.html"
   },
   {
     "objectID": "slides/slides-02.html#section",
@@ -179,14 +193,14 @@
     "href": "slides/slides-02.html#we-can-do-this-from-r",
     "title": "Anatomy of a conversation",
     "section": "We can do this from R!",
-    "text": "We can do this from R!\n\n\nhttps://ellmer.tidyverse.org"
+    "text": "We can do this from R!\n\n\nhttps://ellmer.tidyverse.org\n\n\nwe can do this same back and forth from R with a package called ellmer"
   },
   {
     "objectID": "slides/slides-02.html#section-1",
     "href": "slides/slides-02.html#section-1",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "library(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n\nchat$chat(\"Tell me a quick fact about sheep.\")"
+    "text": "library(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n\nchat$chat(\"Tell me a quick fact about sheep.\")\n\n\nlets take a look at the code at a high level and then we’ll go into the details\nin ellmer, you set up a chat – a connection to an LLM\nand then once you have that connection, you can send requests to the model\nand it will send you a response back"
   },
   {
     "objectID": "slides/slides-02.html#section-2",
@@ -200,7 +214,7 @@
     "href": "slides/slides-02.html#how-does-this-work",
     "title": "Anatomy of a conversation",
     "section": "How does this work?",
-    "text": "How does this work?\nMost LLMs are accessible through HTTP APIs"
+    "text": "How does this work?\nMost LLMs are accessible through HTTP APIs\n\nit works because most llms are accessible through http apis\nthis is pretty much just a normal api. if you’ve ever queried an api to get data, this is fundmentally the same thing, and we’re going to use these apis to build tools from r that use llms\nlets take a look at the code"
   },
   {
     "objectID": "slides/slides-02.html#section-3",
@@ -214,7 +228,7 @@
     "href": "slides/slides-02.html#section-4",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Now we create a chat object. This sets up a connection to OpenAI’s API. The chat object is what we’ll use to send messages and get responses.\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")"
+    "text": "Now we create a chat object. This sets up a connection to (here) anthropic’s API. The chat object is what we’ll use to send messages and get responses.\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")"
   },
   {
     "objectID": "slides/slides-02.html#section-5",
@@ -228,35 +242,35 @@
     "href": "slides/slides-02.html#section-6",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "And we get a response back!\nthink back to what we just learned about roles. What are the user and assistant roles in this example?\nThe user role is our question - “Tell me a quick fact about sheep” The assistant role is the response we got back.\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n\nchat$chat(\"Tell me a quick fact about sheep.\")\n#&gt; Sheep have rectangular pupils that give them \n#&gt; a nearly 360-degree field of vision, \n#&gt; allowing them to see predators approaching \n#&gt; from almost any direction without turning \n#&gt; their heads."
+    "text": "And we get a response back!\ni have fact checked this fact\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n\nchat$chat(\"Tell me a quick fact about sheep.\")\n#&gt; Sheep have rectangular pupils that give them \n#&gt; a nearly 360-degree field of vision, \n#&gt; allowing them to see predators approaching \n#&gt; from almost any direction without turning \n#&gt; their heads."
   },
   {
     "objectID": "slides/slides-02.html#section-7",
     "href": "slides/slides-02.html#section-7",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "One of the nice things about ellmer is that you can easily inspect the chat object to see the full conversation history.\nIf we just call ‘chat’, we can see all the messages and their roles. You can see the user message and the assistant response, as well as how many tokens were used\nbut what about the third role – the system prompt? where is that? we didn’t set up one, so the model just uses whatever behavior it defaults to\n\n\nchat\n&lt;Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00&gt;\n── user ─────────────────────────────────────────────────────────────────────────────────\nTell me a quick fact about sheep.\n── assistant [input=15 output=37 cost=$0.00] ────────────────────────────────────────────\nSheep have rectangular pupils that give them a nearly 360-degree field of vision, allowing them to see predators approaching from almost any direction without turning their heads.\n\n\nMessages have roles.\n\n\nNow let’s talk about how these messages are structured.\nWhen you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n\nThen USER role - marks what the person using your app types\nAnd ASSISTANT role - marks what the LLM responds with\n\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior."
+    "text": "One of the nice things about ellmer is that you can easily inspect the chat object to see the full conversation history.\nIf we just call ‘chat’, we can see all the messages in the conversation so far click see basics of convo, tokens used and cost (tokens are units of llms–will talk about later)\nYou can see the user message (what we sent) marked with user click and the assistant response click\nclick\n\n\nchat\n&lt;Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00&gt;\n── user ─────────────────────────────────────────────────────────────────────────────────\nTell me a quick fact about sheep.\n── assistant [input=15 output=37 cost=$0.00] ────────────────────────────────────────────\nSheep have rectangular pupils that give them a nearly 360-degree field of vision, allowing them to see predators approaching from almost any direction without turning their heads.\n\n\nMessages have roles.\n\n\nand these messages are marked with user and assistant because each message in the conversation is assigned a role."
   },
   {
     "objectID": "slides/slides-02.html#section-9",
     "href": "slides/slides-02.html#section-9",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Now let’s talk about how these messages are structured.\nWhen you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
+    "text": "When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
   },
   {
     "objectID": "slides/slides-02.html#section-10",
     "href": "slides/slides-02.html#section-10",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Now let’s talk about how these messages are structured.\nWhen you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
+    "text": "When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
   },
   {
     "objectID": "slides/slides-02.html#section-11",
     "href": "slides/slides-02.html#section-11",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Now let’s talk about how these messages are structured.\nWhen you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
+    "text": "When you send a message to an LLM, you’re not just sending text - you’re sending text with a specific ROLE attached to it.\nThere are three main roles that messages can have, and understanding these roles is key to working with LLMs programmatically.\n[As the diagrams appear] - USER messages - what the person using your app types - And ASSISTANT messages - what the LLM responds with\nThis might seem like a small detail, but these roles are fundamental to how you control and guide LLM behavior.\nthere’s also the SYSTEM PROMPT - This is your instruction manual for the LLM. It’s where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across the entire conversation and shapes how the assistant responds to every user message."
   },
   {
     "objectID": "slides/slides-02.html#message-roles",
@@ -357,32 +371,18 @@
     "text": "Embrace the Experimental Process\n\nExplore!\nFocus on learning and engaging with the technology, not outcomes\nFailure is valuable!\nthose are some of the most interesting conversations that we have\nIt doesn’t have to be a success.\nAttempts that don’t work still provide insights\n\n\n\nUse the best models available for experimentation\nDon’t constrain yourself to “practical” applications initially\nThink of it as forming your own independent conclusions about usefulness"
   },
   {
-    "objectID": "slides/slides-02.html#start-simple-build-understanding",
-    "href": "slides/slides-02.html#start-simple-build-understanding",
-    "title": "Anatomy of a conversation",
-    "section": "Start Simple, Build Understanding",
-    "text": "Start Simple, Build Understanding"
-  },
-  {
-    "objectID": "slides/slides-02.html#start-simple-build-understanding-1",
-    "href": "slides/slides-02.html#start-simple-build-understanding-1",
-    "title": "Anatomy of a conversation",
-    "section": "Start Simple, Build Understanding",
-    "text": "Start Simple, Build Understanding\n\nWe’re going to focus on the core building blocks.\nAll the incredible things you see AI do\ndecompose to just a few key ingredients.\nOur goal is to have fun and build intuition\nthrough hands-on experience.\n\n\n\nThink very generally about what tools can do - they’re as powerful as any software you can write\nRemember: “Everything decomposes” to the basic components once you understand the underlying APIs\nBuild intuition through hands-on experience rather than theoretical study\nWe want to have fun in this course! It’s worth saying up front that our examples are not necessarily practical, but they’re full of practical lessons."
-  },
-  {
     "objectID": "slides/slides-02.html#section-18",
     "href": "slides/slides-02.html#section-18",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\n\n\nAs we’ll see, everything we’re going to do today can be done in either R or Python and ellmer and chatlas are designed to be similar.\nBut they’re in different languages and those languages have different conventions and idioms, so they’re not completely identical. If they were, one or the other would start to feel unnatural to use."
+    "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\n\n\nFROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with."
   },
   {
     "objectID": "workshop.html",
     "href": "workshop.html",
     "title": "Overview",
     "section": "",
-    "text": "Activity\n\n\n\n\n👋\nIntro\n\n\n💬\nAnatomy of a conversation\n\n\n💻\nProgramming with LLMs\n\n\n✍️\nPrompt engineering\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🔍\nquerychat\n\n\n🤖\nCoding agents\n\n\n🌳\nPrivacy, security, & wrap-up",
+    "text": "Activity\n\n\n\n\n👋\nIntro\n\n\n💬\nLLM APIs from R\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🤖\nApps and coding agents\n\n\n🌳\nPrivacy and security",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -393,7 +393,7 @@
     "href": "workshop.html#schedule",
     "title": "Overview",
     "section": "",
-    "text": "Activity\n\n\n\n\n👋\nIntro\n\n\n💬\nAnatomy of a conversation\n\n\n💻\nProgramming with LLMs\n\n\n✍️\nPrompt engineering\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🔍\nquerychat\n\n\n🤖\nCoding agents\n\n\n🌳\nPrivacy, security, & wrap-up",
+    "text": "Activity\n\n\n\n\n👋\nIntro\n\n\n💬\nLLM APIs from R\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🤖\nApps and coding agents\n\n\n🌳\nPrivacy and security",
     "crumbs": [
       "Workshop",
       "Overview"
@@ -523,6 +523,13 @@
     "text": "Welcome to LLMs for Data Analysis in R!\n Workshop repo: https://github.com/skaltman/r-medicine-llm\n\n☁️ Launch Instruqt environment:\n\nGo to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron"
   },
   {
+    "objectID": "slides/slides-01.html#introductions",
+    "href": "slides/slides-01.html#introductions",
+    "title": "Welcome!",
+    "section": "👋 Introductions",
+    "text": "👋 Introductions"
+  },
+  {
     "objectID": "slides/slides-01.html#skaltman.github.ior-medicine-llm",
     "href": "slides/slides-01.html#skaltman.github.ior-medicine-llm",
     "title": "Welcome!",
@@ -534,21 +541,21 @@
     "href": "slides/slides-01.html#workshop-format",
     "title": "Welcome!",
     "section": "Workshop format",
-    "text": "Workshop format\n\n📊 Slides\n💻 Demos\n✏️ Exercises in Instruqt environment\n\n\nAsk questions at any point in the chat\n\n\nwe’ll have lecture components with slides demos where I’ll show demo something and we’ll discuss how it works and interactive exercises where you’ll do some coding for these, I’ve set up a project for you in workbench via instruqt for you with everything you’ll need including api keys\nif you have questions, you can put them in the chat at any time I can’t promise that I’ll see them while I’m talking, but during the exercise portions garrett and I will monitor it and also consolidate questions to answer when we regroup"
+    "text": "Workshop format\n\n📊 Slides\n💻 Demos\n✏️ Exercises in Instruqt environment\n\n\nAsk questions at any point in the chat\n\n\nwe’ll have lecture components with slides demos where I’ll show demo something and we’ll discuss how it works and interactive exercises where you’ll do some coding for these, I’ve set up a project for you in workbench via instruqt for you with everything you’ll need\nif you have questions, you can put them in the chat at any time I can’t promise that I’ll see them while I’m talking, but during the exercise portions garrett and I will monitor it and also consolidate questions to answer when we regroup"
   },
   {
     "objectID": "slides/slides-01.html#your-turn",
     "href": "slides/slides-01.html#your-turn",
     "title": "Welcome!",
     "section": "Your Turn",
-    "text": "Your Turn\n\nSet up Instruqt:\n\n\nGo to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, you’ll click the green Start button. (don’t worry if you don’t get to this)\n\n\n  \n    −\n    +\n \n 01:00"
+    "text": "Your Turn\n\nSet up Instruqt:\n\n\nGo to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, you’ll click the green Start button. (don’t worry if you don’t get to this)\n\n\n  \n    −\n    +\n \n 01:00\n \n\nok so with that said we’re going to move into the first exericse which is just to start setting up your environment! it takes a few minutes to start up, so you’re going to start the process now, well talk for a bit, and then you’ll come back to it later and finish the process"
   },
   {
     "objectID": "slides/slides-01.html#schedule",
     "href": "slides/slides-01.html#schedule",
     "title": "Welcome!",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\nActivity\n\n\n\n\n👋\nIntro\n\n\n💬\nAnatomy of a conversation\n\n\n💻\nProgramming with LLMs\n\n\n✍️\nPrompt engineering\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🔍\nquerychat\n\n\n🤖\nCoding agents\n\n\n🌳\nPrivacy, security, & wrap-up\n\n\n\n\nhere’s a rough schedule of what we’re going to be covering today this is only a three hour workshop, so there’s a lot more to discover afterwards\nmy goal is to show you what’s possible with llm apis from r and give you a good strating point so you’ll walk away understanding the basics of how to call llm apis from R, build basic chatbots, hook LLMs up to external tools, and do some system prompt designing"
+    "text": "Schedule\n\n\n\n\nActivity\n\n\n\n\n👋\nIntro\n\n\n💬\nLLM APIs from R\n\n\n☕\nBreak\n\n\n🛠️\nTool calling\n\n\n🤖\nApps and coding agents\n\n\n🌳\nPrivacy and security\n\n\n\n\nhere’s a rough schedule of what we’re going to be covering today this is only a three hour workshop, so there’s a lot more to discover afterwards\nmy goal is to show you what’s possible with llm apis from r and give you a good strating point so you’ll walk away understanding the basics of how to call llm apis from R, hook LLMs up to external tools, do some system prompt designing, make basic apps, and usign coding agents"
   },
   {
     "objectID": "slides/slides-01.html#file-organization",
@@ -558,18 +565,18 @@
     "text": "File organization\n\n\n\n\n_exercises/\nFiles for Your Turn exercises\n\n\n_solutions/\nSolutions to those exercises\n\n\n_demos/\nFiles for demos"
   },
   {
-    "objectID": "slides/slides-01.html#to-use-an-ai-api",
-    "href": "slides/slides-01.html#to-use-an-ai-api",
+    "objectID": "slides/slides-01.html#to-use-an-llm-api",
+    "href": "slides/slides-01.html#to-use-an-llm-api",
     "title": "Welcome!",
-    "section": "To use an AI API…",
-    "text": "To use an AI API…\n\n…you need an API key!"
+    "section": "To use an LLM API…",
+    "text": "To use an LLM API…\n\n…you (generally) need an API key!\n\n\nwe are going to be working with llm apis today and to use an api, you generally need an api key"
   },
   {
     "objectID": "slides/slides-01.html#how-to-get-an-api-key-beyond-this-workshop",
     "href": "slides/slides-01.html#how-to-get-an-api-key-beyond-this-workshop",
     "title": "Welcome!",
     "section": "How to get an API key, beyond this workshop",
-    "text": "How to get an API key, beyond this workshop\n\n\n🆙 Sign up for an account with OpenAI, Anthropic, etc.\n💳 Add a payment method\n🔑 Get an API key\n💾 Store it in .Renviron fileas OPENAI_API_KEY, ANTHROPIC_API_KEY, etc.\n\n\n\nthis is likely what you’ll want to do if you want to run the exercises locally after this workshop is over"
+    "text": "How to get an API key, beyond this workshop\n\n\n🆙 Sign up for an account with OpenAI, Anthropic, etc.\n💳 Add a payment method\n🔑 Get an API key\n💾 Store it in .Renviron fileas OPENAI_API_KEY, ANTHROPIC_API_KEY, etc.\n\n\n\n(or your organization provides them to you)\n\n\nthis is likely what you’ll want to do if you want to run the exercises locally after this workshop is over"
   },
   {
     "objectID": "slides/slides-01.html#but-well-give-you-api-keys-to-use-today",
@@ -579,11 +586,11 @@
     "text": "But we’ll give you API keys to use today!\n\nUse these keys for all of our activities today\nExplore! But please be considerate :)\nWe’ll turn them off at the end of the workshop\n\n\nalready set up in posit cloud"
   },
   {
-    "objectID": "slides/slides-01.html#your-turn-1",
-    "href": "slides/slides-01.html#your-turn-1",
+    "objectID": "slides/slides-01.html#our-turn",
+    "href": "slides/slides-01.html#our-turn",
     "title": "Welcome!",
-    "section": "Your Turn",
-    "text": "Your Turn\n\n\n☁️ Set up Instruqt:\n\n\nGo to https://play.instruqt.com/posit/invite/omatxsihs3we\nClick Start\nIt will take a few minutes to start up. When it’s ready, click the green Start button.\nClick Open external Window\nOpen RStudio or Positron\n\n\n☁️ Set up keys:\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm\n\n\n\n  \n    −\n    +\n \n 06:00"
+    "section": "Our Turn",
+    "text": "Our Turn\n\nInstruqt should now be ready to open.\n\nClick the green Start button, then Open external window.\n\nClick New Session and select either RStudio Pro or Positron Pro.\nClick Launch.\nOpen the r-medicine-llm-exercises project (RStudio) or folder (Positron).\n\n\n🔑 Set up keys:\n\nCopy the code in the provided Google Doc.\nPaste it into the R console and run.\n\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm/01_hello-llm.R\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nSend google doc in the chat!! we are going to do these steps together"
   },
   {
     "objectID": "slides/slides-03.html#section",
@@ -597,21 +604,21 @@
     "href": "slides/slides-03.html#how-are-models-different",
     "title": "Programming with LLMs",
     "section": "How are models different?",
-    "text": "How are models different?\n\nModels differ across several dimensions. Let’s look at the main factors you’ll consider when choosing a model.\n\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc.\n\n\n\nContent: 200k tokens is normal, 1M tokens in some newer models\nSpeed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.\nCost: $1-5 per million tokens is normal for big frontier models, &lt; $1 for smaller, faster models\nIntelligence is a stand-in for lots of concepts"
+    "text": "How are models different?\n\nModels differ across several dimensions. Let’s look at the main factors you’ll consider when choosing a model.\n\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc.\n\n\n\nContent: 200k tokens is normal, 1M tokens in some newer models\nSpeed: Speed is often a trade-off with intelligence.\nCost: $1-5 per million input tokens is normal for big frontier models, &lt; $1 for smaller, faster models\nIntelligence is a stand-in for lots of concepts"
   },
   {
     "objectID": "slides/slides-03.html#section-1",
     "href": "slides/slides-03.html#section-1",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "We’ll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude."
+    "text": "naming can be kind of confusing for all providers, so we’ll just quickly go through it\nWe’ll start with Anthropic. they make a family of models they call claude"
   },
   {
     "objectID": "slides/slides-03.html#section-2",
     "href": "slides/slides-03.html#section-2",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Claude comes in different sizes, with different levels of intelligence.\nThey have a small model that’s fast and cheap, a large model that’s intelligent but expensive, and a just-right sized model that balances speed, cost, and intelligence.\nIn line with Anthropic’s branding, these models are named after different types of poetry.\n\nHaiku is small, fast, and cheap\nSonnet is larger, more expensive, and more intelligent\nOpus is the largest, most expensive, and most intelligent\n\nAnthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)\nWhen you’re choosing a model, you can get higher quality responses by moving up a size tier.\nAnd when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)"
+    "text": "Claude models comes in different sizes, with different levels of intelligence and speed.\nthey naemd their three model families after types of poetry:\n\nHaiku is small, fast, and cheap\nSonnet is larger, more expensive, and more intelligent\nOpus is the largest, most expensive, and most intelligent\n\nWhen you’re choosing a model, you can get higher quality responses by moving up a size tier.\nAnd when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)\nso all these families have different number versions which indicates how new they are. so for opus, the newest is 4.7, sonnet is 4.6, haiku 4.5"
   },
   {
     "objectID": "slides/slides-03.html#section-3",
@@ -625,21 +632,21 @@
     "href": "slides/slides-03.html#model-comparison",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Here’s a comparison table if you want to see the specific numbers for different models. But don’t stress too much about this - pick something and try it."
+    "text": "for openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper"
   },
   {
     "objectID": "slides/slides-03.html#localopen-weights-models",
     "href": "slides/slides-03.html#localopen-weights-models",
     "title": "Programming with LLMs",
     "section": "Local/open weights models",
-    "text": "Local/open weights models\n\nModels that you (or your organization) can run on your own.\nNaming schemes can be even more confusing\nUse via HuggingFace, LM Studio, Ollama"
+    "text": "Local/open weights models\n\ngoogle also has the gemini models, which we aren’t going to talk about today purely for efficiency, but the latest gemini models are also pretty good.\nbut you don’t have to use a major model provider or even pay for tokens directly. there are local or open weights models that you or your organization may be able to run locally, or that you can run on a rented server.\nthese have typically been lower ability, but have really been improving recently.\n\n\nModels that you (or your organization) can run on your own.\nNaming schemes can be even more confusing\nUse via HuggingFace, LM Studio, Ollama"
   },
   {
     "objectID": "slides/slides-03.html#localopen-weights-models-1",
     "href": "slides/slides-03.html#localopen-weights-models-1",
     "title": "Programming with LLMs",
     "section": "Local/open weights models",
-    "text": "Local/open weights models"
+    "text": "Local/open weights models\n\n\nqwen 3.6 and gemma 4 are two recent examples of good local models\nthe naming conventions for local models can be even more confusing though"
   },
   {
     "objectID": "slides/slides-03.html#localopen-weights-models-2",
@@ -674,7 +681,7 @@
     "href": "slides/slides-03.html#how-to-choose-a-model",
     "title": "Programming with LLMs",
     "section": "How to choose a model",
-    "text": "How to choose a model\n\nIf you have your pick: pick a recent frontier model, then move to a cheaper one if needed\n\n\nyou’re probably not doing anything where you need to worry about cost effectiveness right away."
+    "text": "How to choose a model\n\nIf you have your pick: pick a recent frontier model, then move to a cheaper one if needed\n\n\nbut you don’t always have your pick!\n\n\nyou’re probably not doing anything where you need to worry about cost effectiveness right away."
   },
   {
     "objectID": "slides/slides-03.html#ellmer",
@@ -688,7 +695,7 @@
     "href": "slides/slides-03.html#shortcut---chat",
     "title": "Programming with LLMs",
     "section": "Shortcut - chat()",
-    "text": "Shortcut - chat()\n\nEllmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")"
+    "text": "Shortcut - chat()\n\nEllmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.\nwhich is what we did earlier\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")"
   },
   {
     "objectID": "slides/slides-03.html#shortcut---chat-1",
@@ -716,14 +723,14 @@
     "href": "slides/slides-03.html#how-to-choose-a-model-1",
     "title": "Programming with LLMs",
     "section": "How to choose a model",
-    "text": "How to choose a model"
+    "text": "How to choose a model\n\nIf you want to be more systematic about model selection, the vitals package lets you run evaluations — benchmark your specific task across models to see which performs best.\nwe aren’t really going to talk about this today\n\n\n\nhttp://vitals.tidyverse.org"
   },
   {
     "objectID": "slides/slides-03.html#how-to-choose-a-model-2",
     "href": "slides/slides-03.html#how-to-choose-a-model-2",
     "title": "Programming with LLMs",
     "section": "How to choose a model",
-    "text": "How to choose a model"
+    "text": "How to choose a model\n\n\n\n\n\n\n\nhttp://vitals.tidyverse.org"
   },
   {
     "objectID": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
@@ -751,7 +758,7 @@
     "href": "slides/slides-03.html#your-turn-04_vision",
     "title": "Programming with LLMs",
     "section": "Your Turn 04_vision",
-    "text": "Your Turn 04_vision\n\nNow try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.\n\n\nThere are some images of food in the data/recipes/images folder.\nYour job: show the food to the LLM and ask it to write a corresponding recipe.\n\n\n  \n    −\n    +\n \n 05:00"
+    "text": "Your Turn 04_vision\n\nThis exercise has plots from two datasets — health expenditure and (simulated) Georgia mortality. practice passing images to the model and asking it to interpret what it sees.\n\n\nThere are several data visualization plots in _exercises/04_vision/.\nYour job: show a plot to the LLM and ask it to interpret or describe it.\n\n\n  \n    −\n    +\n \n 05:00"
   },
   {
     "objectID": "slides/slides-03.html#content_pdf_file-content_pdf_url",
@@ -835,35 +842,35 @@
     "href": "slides/slides-05.html#how-do-llms-actually-work",
     "title": "Tool Calling",
     "section": "How do LLMs actually work?",
-    "text": "How do LLMs actually work?\n\nOn their own, can LLMs… access the internet? run code? send an email? interact with the world?\n\n\nBefore we dive into tools, let’s clarify what LLMs can and can’t do. On their own, LLMs are quite limited. They can’t access the internet, run code, or interact with systems. They only process the text you send them. This is where tools come in."
+    "text": "How do LLMs actually work?\n\nOn their own, can LLMs… access the internet? run code? send an email? interact with the world?\n\n\nBefore we dive into tools, let’s clarify what LLMs can and can’t do. can they…? lets try it out"
   },
   {
-    "objectID": "slides/slides-05.html#llms-dont-have-access-to-real-time-data",
-    "href": "slides/slides-05.html#llms-dont-have-access-to-real-time-data",
+    "objectID": "slides/slides-05.html#section",
+    "href": "slides/slides-05.html#section",
     "title": "Tool Calling",
-    "section": "LLMs don’t have access to real-time data",
-    "text": "LLMs don’t have access to real-time data\n\nThe model can’t access real-time weather data. No internet connection.\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"What's the weather like in San Francisco?\")\n\nI don't have access to real-time weather data, so I can't tell\nyou the current conditions in San Francisco."
+    "section": "",
+    "text": "what happens if we ask about the current weahter?\nThe model can’t access real-time weather data. No internet connection.\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"What's the weather like in San Francisco?\")\n\nI don't have access to real-time weather data, so I can't tell\nyou the current conditions in San Francisco.\n\n \n\nLLMs don’t have access to real-time data!"
   },
   {
-    "objectID": "slides/slides-05.html#llms-cant-affect-the-world",
-    "href": "slides/slides-05.html#llms-cant-affect-the-world",
+    "objectID": "slides/slides-05.html#section-1",
+    "href": "slides/slides-05.html#section-1",
     "title": "Tool Calling",
-    "section": "LLMs can’t affect the world",
-    "text": "LLMs can’t affect the world\n\nThey also can’t interact with the file system, send emails, or take any real-world actions.\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"Write df to data/data.csv\")\n\nI'm not able to actually execute code or \nwrite files to your system. I can only provide \ncode snippets and guidance."
+    "section": "",
+    "text": "what about asking it to affect the world, like writing a file to your computer?\nThey also can’t interact with the file system, send emails, or take any real-world actions.\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"Write df to data/data.csv\")\n\nI'm not able to actually execute code or \nwrite files to your system. I can only provide \ncode snippets and guidance.\n\n\n\n\nLLMs can’t affect the world!"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata",
     "href": "slides/slides-05.html#tool-function-metadata",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\n\nSo how do we solve these problems? Tools! Also called functions or function calling.\n\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.\nThey can also give the model new abilities to take action on behalf of the user."
+    "text": "Tool = function + metadata\n\nSo how do we solve these problems? Tools!\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.\nThey can also give the model new abilities to take action on behalf of the user.\ntools are essentially just functions + metadata. if you’ve ever written an R function and then documented it, you can write a tool. it’s basically the same process, just iwth an LLM as the intended audience instead of another human.\n\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.\nThey can also give the model new abilities to take action on behalf of the user."
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-1",
     "href": "slides/slides-05.html#tool-function-metadata-1",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\nStep 1\nWrite (or find) an R function that carries out your desired functionality.\nget_weather &lt;- function(latitude, longitude) {\n  # Return weather for that location\n}"
+    "text": "Tool = function + metadata\nStep 1\nWrite (or find) an R function that carries out your desired functionality.\nget_weather &lt;- function(latitude, longitude) {\n  # Return weather for that location\n}\n\nwere going to make a tool so the llm can get the current weather"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-2",
@@ -877,14 +884,14 @@
     "href": "slides/slides-05.html#tool-function-metadata-3",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\nStep 3: Register the tool\nget_weather &lt;- function(latitude, longitude) {\n  # Return weather for that location\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = # Specify arguments\n)\n\nchat$register_tool(get_weather_tool)"
+    "text": "Tool = function + metadata\nStep 3: Register the tool\nget_weather &lt;- function(latitude, longitude) {\n  # Return weather for that location\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = # Specify arguments\n)\n\nchat$register_tool(get_weather_tool)\n\ntell your chat about the tool LLM now knows this tool exists and can request to use it"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-4",
     "href": "slides/slides-05.html#tool-function-metadata-4",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\nget_weather &lt;- function(latitude, longitude) {\n  weathR::point_forecast(latitude, longitude)\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = \n    list(\n      latitude = type_number(\"Latitude\"),\n      longitude = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather_tool)"
+    "text": "Tool = function + metadata\nget_weather &lt;- function(latitude, longitude) {\n  weathR::point_forecast(latitude, longitude)\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = \n    list(\n      latitude = type_number(\"Latitude\"),\n      longitude = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather_tool)\n\ntake a look in more detail 1. create a function that does our desired functionality 2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types 3. finally, we register it, which tells the llm the tool exists and is available for use"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-5",
@@ -901,43 +908,57 @@
     "text": "Now the model can tell us the weather\n\nNow when we ask about the weather, the LLM calls our tool. It figured out the lat/lon for San Francisco on its own. The tool returns real data, and the model formats it nicely.\n\nchat$chat(\"What's the weather in San Francisco?\")\n\n◯ [tool call] get_weather(lat = 37.7749, lon = -122.4194)\n● #&gt; [{\"time\":\"2026-05-01 14:00:00 PDT\",\"temp\":65,\"dewpoint\":1…\nHere's the current weather for San Francisco:\n\n**Current conditions (May 1, 2:00 PM PDT):**\n- Temperature: 65°F\n- Conditions: Mostly Sunny\n- Humidity: 72%\n- Wind: WSW at 7 mph\n- Chance of rain: 0%"
   },
   {
-    "objectID": "slides/slides-05.html#section",
-    "href": "slides/slides-05.html#section",
+    "objectID": "slides/slides-05.html#type_-functions",
+    "href": "slides/slides-05.html#type_-functions",
     "title": "Tool Calling",
-    "section": "",
-    "text": "The conversation starts with a user sending a message to the chatbot.\nIn this example, the user asks whether they can go to the pool today - which requires knowing the weather.\nThe model doesn’t have access to real-time weather data, just like we saw earlier with San Francisco."
+    "section": "type_() functions",
+    "text": "type_() functions\nget_weather &lt;- tool(\n  \\(lat, lon) weathR::point_forecast(lat, lon),\n  name = \"get_weather\",\n  description = \"Get the weather for a location.\",\n  arguments = list(\n    lat = type_number(\"Latitude\"),\n    lon = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather)\n\nyou might have noticed the type functions way to specify object types for the llm in a way it will easily understand"
   },
   {
-    "objectID": "slides/slides-05.html#section-1",
-    "href": "slides/slides-05.html#section-1",
+    "objectID": "slides/slides-05.html#type_-functions-1",
+    "href": "slides/slides-05.html#type_-functions-1",
     "title": "Tool Calling",
-    "section": "",
-    "text": "Now imagine we’ve told the LLM that it has access to a tool called get_weather(). Knowing that it needs weather information and doesn’t have access to real-time data, the model decides to use the weather tool.\nIt sends back a message that includes a tool call - basically instructions to call the get_weather() function with the appropriate location argument. The model uses its training data to figure out the right location format (like a ZIP code)."
+    "section": "type_() functions",
+    "text": "type_() functions\ntype_boolean(description = NULL, required = TRUE)\n\ntype_integer(description = NULL, required = TRUE)\n\ntype_number(description = NULL, required = TRUE)\n\ntype_string(description = NULL, required = TRUE)\n\ntype_enum(values, description = NULL, required = TRUE)\n\ntype_array(items, description = NULL, required = TRUE)\n\ntype_object(\n  .description = NULL,\n  ...,\n  .required = TRUE,\n  .additional_properties = FALSE\n)\n\nuse the appropriate type function"
   },
   {
     "objectID": "slides/slides-05.html#section-2",
     "href": "slides/slides-05.html#section-2",
     "title": "Tool Calling",
     "section": "",
-    "text": "The programmer takes that tool call message and executes the actual function - in this case, querying a weather API with the location the model specified."
+    "text": "The conversation starts with a user sending a message to the chatbot.\nIn this example, the user asks about hte weather\nThe model doesn’t have access to real-time weather data, just like we saw earlier"
   },
   {
     "objectID": "slides/slides-05.html#section-3",
     "href": "slides/slides-05.html#section-3",
     "title": "Tool Calling",
     "section": "",
-    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF"
+    "text": "Now imagine we’ve told the LLM that it has access to a tool called get_weather(). Knowing that it needs weather information and doesn’t have access to real-time data, the model decides to use the weather tool.\nIt sends back a message that includes a tool call - basically instructions to call the get_weather() function with the appropriate location argument. The model uses its training data to figure out the right location format (like a ZIP code)."
   },
   {
     "objectID": "slides/slides-05.html#section-4",
     "href": "slides/slides-05.html#section-4",
     "title": "Tool Calling",
     "section": "",
-    "text": "The programmer sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON. Not the kind of thing you’d want to read directly unless you’re the kind of person who likes reading computer data formats."
+    "text": "ellmer takes that tool call message and executes the actual function in your R session - in this case, querying a weather API with the location the model specified."
   },
   {
     "objectID": "slides/slides-05.html#section-5",
     "href": "slides/slides-05.html#section-5",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF"
+  },
+  {
+    "objectID": "slides/slides-05.html#section-6",
+    "href": "slides/slides-05.html#section-6",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "ellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON."
+  },
+  {
+    "objectID": "slides/slides-05.html#section-7",
+    "href": "slides/slides-05.html#section-7",
     "title": "Tool Calling",
     "section": "",
     "text": "The LLM doesn’t mind JSON though, so it reads the data and generates a response that incorporates the data from the tool call."
@@ -947,35 +968,28 @@
     "href": "slides/slides-05.html#the-llm-cannot-run-code-by-itself",
     "title": "Tool Calling",
     "section": "The LLM cannot run code by itself!",
-    "text": "The LLM cannot run code by itself!\n\nThis is crucial to understand - the LLM doesn’t execute tools. It just asks you to run them.\n\nIt just requests that tools be run.\n\nThe LLM controls:\n\nWhen the tool is called\nHow the tool is called (i.e., the arguments)"
+    "text": "The LLM cannot run code by itself!\n\nThis is crucial to understand - the LLM doesn’t execute tools. LLMs cant run code. It just asks you (ie. your computer) to run them. the tool code is running like normal r code on your laptop, not in a cloud somewhere\n\nIt just requests that tools be run.\n\nThe LLM controls:\n\nWhen the tool is called\nHow the tool is called (i.e., the arguments)"
   },
   {
-    "objectID": "slides/slides-05.html#section-7",
-    "href": "slides/slides-05.html#section-7",
+    "objectID": "slides/slides-05.html#section-9",
+    "href": "slides/slides-05.html#section-9",
     "title": "Tool Calling",
     "section": "",
     "text": "The LLM also chooses the arguments for the tool. It uses its knowledge to fill in the right values - using information from its training data."
-  },
-  {
-    "objectID": "slides/slides-05.html#demo-weather-tool",
-    "href": "slides/slides-05.html#demo-weather-tool",
-    "title": "Tool Calling",
-    "section": "Demo: weather tool",
-    "text": "Demo: weather tool\n\nBut you’re programmers! You can automate this. Let me show you how to define tools that run automatically.\n\n👩‍💻 _demos/05_tools/05_weather-tool-02-end.R"
   },
   {
     "objectID": "slides/slides-05.html#helper-function-create_tool_def",
     "href": "slides/slides-05.html#helper-function-create_tool_def",
     "title": "Tool Calling",
     "section": "Helper function: create_tool_def()",
-    "text": "Helper function: create_tool_def()\ncreate_tool_def(rnorm)\n\nUsing model = \"gpt-4.1\".\ntool(\n  stats::rnorm,\n  \"Generates random deviates from the normal distribution with specified mean and standard deviation.\",\n  n = type_integer(\n    \"Number of observations. If length(n) &gt; 1, the length is taken to be the number required.\",\n    required = TRUE\n  ),\n  mean = type_number(\n    \"Mean(s) of the normal distribution. Defaults to 0.\",\n    required = FALSE\n  ),\n  sd = type_number(\n    \"Standard deviation(s) of the normal distribution. Defaults to 1.\",\n    required = FALSE\n  )\n)"
+    "text": "Helper function: create_tool_def()\ncreate_tool_def(rnorm)\n\nUsing model = \"gpt-4.1\".\ntool(\n  stats::rnorm,\n  \"Generates random deviates from the normal distribution with specified mean and standard deviation.\",\n  n = type_integer(\n    \"Number of observations. If length(n) &gt; 1, the length is taken to be the number required.\",\n    required = TRUE\n  ),\n  mean = type_number(\n    \"Mean(s) of the normal distribution. Defaults to 0.\",\n    required = FALSE\n  ),\n  sd = type_number(\n    \"Standard deviation(s) of the normal distribution. Defaults to 1.\",\n    required = FALSE\n  )\n)\n\n\nif you already have a function defined and documented"
   },
   {
     "objectID": "slides/slides-05.html#some-questions",
     "href": "slides/slides-05.html#some-questions",
     "title": "Tool Calling",
     "section": "Some questions",
-    "text": "Some questions\n\nDoes the model have access to the data?\n\n\nNo.\n\n\nWhat does the model control?\n\n\n\nWhen to use the tool.\nWhat arguments to pass to the function. In this case, just the year and country.\n\n\n\nHow could we make this function better?\n\n\n\nGive the model access to the list of counties and years available.\nThink through failure modes."
+    "text": "Some questions\n\nFROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.\n\n\nDoes the model have access to the data?\n\n\nNo.\n\n\nWhat does the model control?\n\n\n\nWhen to use the tool.\nWhat arguments to pass to the function. In this case, just the year and country.\n\n\n\nHow could we make this function better?\n\n\n\nGive the model access to the list of countries and years available.\nThink through failure modes."
   },
   {
     "objectID": "slides/slides-05.html#built-in-web-search-tools",
@@ -989,28 +1003,35 @@
     "href": "slides/slides-07.html#what-is-an-agent",
     "title": "Coding agents for data tasks",
     "section": "What is an agent?",
-    "text": "What is an agent?\n\nCan gather information from the environment\n\ne.g., what files are in a directory?\n\nCan alter the environment\n\ne.g., write a dataset to a file"
+    "text": "What is an agent?\n\nfinally (or almost finally) we’re going to talk about using coding agnets for data tasks.\nso first, what is an agent? An agent is essentially an LLM that can execute tools in a loop — it can observe, act, observe the result, and act again.\nor in simpler terms:\n\n\nCan gather information from the environment\n\ne.g., what files are in a directory?\n\nCan alter the environment\n\ne.g., write a dataset to a file"
+  },
+  {
+    "objectID": "slides/slides-07.html#section",
+    "href": "slides/slides-07.html#section",
+    "title": "Coding agents for data tasks",
+    "section": "",
+    "text": "you might have heard about claude code click or codex click these are coding agents, they are pretty useful for writing code. there are a bunch of these, you might have your own bespoke one, one that lives in whatever environment you write code in. they are everwhere today.\nposit has posit assistant lives in rstudio and positron (also available as a tui)\nwe are just going to briefly talk about posit assistant but what we are going to talk about will broadly apply to many coding agents"
   },
   {
     "objectID": "slides/slides-07.html#posit-assistant",
     "href": "slides/slides-07.html#posit-assistant",
     "title": "Coding agents for data tasks",
     "section": "Posit Assistant",
-    "text": "Posit Assistant\n\nPosit Assistant is an AI coding assistant built into Positron. You can use it to help you write code — including Shiny apps. Let’s use it to build on the querychat app we just explored.\n\n\nCoding / data analysis agent in RStudio and Positron\nWorks with R and Python\nAccess to your R/Python session\nSuccessor to Databot"
+    "text": "Posit Assistant\n\nPosit Assistant is an AI coding assistant built into rstudio/Positron. You can use it to help you write code — including Shiny apps.\nit is very new!!\n\n\nCoding / data analysis agent in RStudio and Positron\nWorks with R and Python\nAccess to your R/Python session\nSuccessor to Databot\n\n\nhttps://posit-dev.github.io/assistant/docs/"
   },
   {
     "objectID": "slides/slides-07.html#demo",
     "href": "slides/slides-07.html#demo",
     "title": "Coding agents for data tasks",
     "section": "Demo",
-    "text": "Demo\n\nLet me show you Posit Assistant in action — I’ll use it to build a querychat Shiny app with a plot."
+    "text": "Demo\n\nLet me show you Posit Assistant in action. use to look at health data, write report point out thinking and model choice\nin rstudio, you currently have to have posit ai account. we will be giving you access for this workshop in positron, you can bring your own key"
   },
   {
     "objectID": "slides/slides-07.html#add-memory-with-agents.md",
     "href": "slides/slides-07.html#add-memory-with-agents.md",
     "title": "Coding agents for data tasks",
     "section": "Add memory with AGENTS.md",
-    "text": "Add memory with AGENTS.md\n\nAGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.\n\n\nMarkdown file that stores persistent context about your project\nLoaded automatically at the start of every conversation\nInclude info like project structure, coding conventions, preferred libraries, etc.\n\n\nhttps://posit-dev.github.io/assistant/docs/features/memory/"
+    "text": "Add memory with AGENTS.md\n\nlets talk about customizing. this info generalizes to other coding agents. AGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.\n\n\nMarkdown file that stores persistent context about your project\nLoaded automatically at the start of every conversation\nInclude info like project structure, coding conventions, preferred libraries, etc.\n\n\nhttps://posit-dev.github.io/assistant/docs/features/memory/"
   },
   {
     "objectID": "slides/slides-07.html#skills",
@@ -1020,10 +1041,17 @@
     "text": "Skills\n\nSkills are specialized knowledge modules that extend Posit Assistant. They load automatically when relevant — no manual activation needed.\n\n\nSpecialized knowledge modules that load automatically when relevant\nBuilt-in skills include shiny-bslib, quarto-authoring, and more\nCreate your own: project-level (.positai/skills/) or user-level (~/.positai/skills/)\n\n\nhttps://posit-dev.github.io/assistant/docs/features/skills/"
   },
   {
+    "objectID": "slides/slides-07.html#our-turn-set-up-posit-assistant",
+    "href": "slides/slides-07.html#our-turn-set-up-posit-assistant",
+    "title": "Coding agents for data tasks",
+    "section": "Our Turn: Set up Posit Assistant",
+    "text": "Our Turn: Set up Posit Assistant\n\nsend login"
+  },
+  {
     "objectID": "slides/slides-07.html#your-turn-extend-the-querychat-app",
     "href": "slides/slides-07.html#your-turn-extend-the-querychat-app",
     "title": "Coding agents for data tasks",
     "section": "Your Turn: Extend the querychat app",
-    "text": "Your Turn: Extend the querychat app\n\nUse Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don’t need to know Shiny — the assistant will help you write the code.\n\n\nOpen _exercises/09_posit-assistant/09_posit-assistant-app.R and run it to confirm it works.\nOpen Posit Assistant (sidebar or Cmd+Shift+P &gt; “Assistant”).\nAsk it to help you extend the app (for example, add a plot).\nRun the app continue iterating\n\n\n  \n    −\n    +\n \n 06:00"
+    "text": "Your Turn: Extend the querychat app\n\nUse Posit Assistant to help you add features to the querychat app — like embedding it in a Shiny app with a plot or table. You don’t need to know Shiny — the assistant will help you write the code.\n\n\nOpen _exercises/09_posit-assistant/09_posit-assistant-app.R and run it to confirm it works.\nOpen Posit Assistant (sidebar or Cmd+Shift+P &gt; “Assistant”).\nAsk it to help you extend the app (for example, add a plot).\nRun the app and continue iterating.\n\n\n  \n    −\n    +\n \n 06:00"
   }
 ]

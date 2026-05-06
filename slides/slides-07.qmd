@@ -9,14 +9,33 @@ editor:
 
 ## What is an agent?
 
+::: notes
+finally (or almost finally) we're going to talk about using coding agnets for data tasks. 
+
+so first, what is an agent?
+An agent is essentially an LLM that can execute tools in a loop — it can observe, act, observe the result, and act again. 
+
+or in simpler terms:
+:::
+
 ::: {.incremental}
 * Can gather information from the environment
   * e.g., what files are in a directory?
-* Can alter the environment 
+* Can alter the environment
   * e.g., write a dataset to a file
 :::
 
 ## {.center style="text-align: center" transition="fade"}
+
+::: notes
+you might have heard about claude code *click* or codex *click* these are coding agents, they are pretty useful for writing code. there are a bunch of these, you might have your own bespoke one, one that lives in whatever environment you write code in. they are everwhere today.
+
+posit has posit assistant
+lives in rstudio and positron (also available as a tui)
+
+we are just going to briefly talk about posit assistant
+but what we are going to talk about will broadly apply to many coding agents
+:::
 
 ![](assets/coding-agents-01.excalidraw.svg)
 
@@ -31,7 +50,9 @@ editor:
 ## Posit Assistant
 
 ::: notes
-Posit Assistant is an AI coding assistant built into Positron. You can use it to help you write code — including Shiny apps. Let's use it to build on the querychat app we just explored.
+Posit Assistant is an AI coding assistant built into rstudio/Positron. You can use it to help you write code — including Shiny apps. 
+
+it is very new!!
 :::
 
 ::: incremental
@@ -44,16 +65,28 @@ Posit Assistant is an AI coding assistant built into Positron. You can use it to
 * Successor to Databot
 :::
 
+
+::: footer
+<https://posit-dev.github.io/assistant/docs/>
+:::
+
+
 ## Demo {.center}
 
 ::: notes
-Let me show you Posit Assistant in action — I'll use it to build a querychat Shiny app with a plot.
+Let me show you Posit Assistant in action.
+use to look at health data, write report
+point out thinking and model choice 
+
+in rstudio, you currently have to have posit ai account. we will be giving you access for this workshop
+in positron, you can bring your own key
 :::
 
 
 ## Add memory with `AGENTS.md`
 
 ::: notes
+lets talk about customizing. this info generalizes to other coding agents. 
 AGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.
 :::
 
@@ -87,6 +120,12 @@ Skills are specialized knowledge modules that extend Posit Assistant. They load 
 <https://posit-dev.github.io/assistant/docs/features/skills/>
 :::
 
+## Our Turn: Set up Posit Assistant {.slide-your-turn}
+
+::: notes
+send login
+:::
+
 
 ## Your Turn: Extend the querychat app {.slide-your-turn}
 
@@ -100,6 +139,6 @@ Use Posit Assistant to help you add features to the querychat app — like embed
 
 3. Ask it to help you extend the app (for example, add a plot).
 
-4. Run the app continue iterating
+4. Run the app and continue iterating.
 
 {{< countdown 6:00 left=0 bottom="-2em" >}}

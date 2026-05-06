@@ -148,6 +148,21 @@ R/Medicine 2026
 </section>
 <section id="what-is-an-agent" class="slide level2">
 <h2>What is an agent?</h2>
+<aside class="notes">
+<p>finally (or almost finally) we’re going to talk about using coding agnets for data tasks.</p>
+<p>so first, what is an agent? An agent is essentially an LLM that can execute tools in a loop — it can observe, act, observe the result, and act again.</p>
+<p>or in simpler terms:</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li class="fragment">Can gather information from the environment
 <ul>
@@ -161,6 +176,21 @@ R/Medicine 2026
 </section>
 <section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
+<aside class="notes">
+<p>you might have heard about claude code <em>click</em> or codex <em>click</em> these are coding agents, they are pretty useful for writing code. there are a bunch of these, you might have your own bespoke one, one that lives in whatever environment you write code in. they are everwhere today.</p>
+<p>posit has posit assistant lives in rstudio and positron (also available as a tui)</p>
+<p>we are just going to briefly talk about posit assistant but what we are going to talk about will broadly apply to many coding agents</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="assets/coding-agents-01.excalidraw.svg" class="r-stretch"></section>
 <section id="section-1" class="slide level2 center" style="text-align: center" data-transition="fade">
@@ -174,7 +204,8 @@ R/Medicine 2026
 <section id="posit-assistant" class="slide level2">
 <h2>Posit Assistant</h2>
 <aside class="notes">
-<p>Posit Assistant is an AI coding assistant built into Positron. You can use it to help you write code — including Shiny apps. Let’s use it to build on the querychat app we just explored.</p>
+<p>Posit Assistant is an AI coding assistant built into rstudio/Positron. You can use it to help you write code — including Shiny apps.</p>
+<p>it is very new!!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -192,11 +223,15 @@ R/Medicine 2026
 <li class="fragment"><p>Access to your R/Python session</p></li>
 <li class="fragment"><p>Successor to Databot</p></li>
 </ul>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/assistant/docs/" class="uri">https://posit-dev.github.io/assistant/docs/</a></p>
+</div>
 </section>
 <section id="demo" class="slide level2 center">
 <h2>Demo</h2>
 <aside class="notes">
-<p>Let me show you Posit Assistant in action — I’ll use it to build a querychat Shiny app with a plot.</p>
+<p>Let me show you Posit Assistant in action. use to look at health data, write report point out thinking and model choice</p>
+<p>in rstudio, you currently have to have posit ai account. we will be giving you access for this workshop in positron, you can bring your own key</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -212,7 +247,7 @@ R/Medicine 2026
 <section id="add-memory-with-agents.md" class="slide level2">
 <h2>Add memory with <code>AGENTS.md</code></h2>
 <aside class="notes">
-<p>AGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.</p>
+<p>lets talk about customizing. this info generalizes to other coding agents. AGENTS.md is a memory file that gives Posit Assistant persistent context about your project. It loads automatically at the start of every conversation.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -257,6 +292,22 @@ R/Medicine 2026
 <p><a href="https://posit-dev.github.io/assistant/docs/features/skills/" class="uri">https://posit-dev.github.io/assistant/docs/features/skills/</a></p>
 </div>
 </section>
+<section id="our-turn-set-up-posit-assistant" class="slide level2 slide-your-turn">
+<h2>Our Turn: Set up Posit Assistant</h2>
+<aside class="notes">
+<p>send login</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="your-turn-extend-the-querychat-app" class="slide level2 slide-your-turn">
 <h2>Your Turn: Extend the querychat app</h2>
 <aside class="notes">
@@ -276,9 +327,9 @@ R/Medicine 2026
 <li><p>Open <code>_exercises/09_posit-assistant/09_posit-assistant-app.R</code> and run it to confirm it works.</p></li>
 <li><p>Open Posit Assistant (sidebar or <code>Cmd+Shift+P</code> &gt; “Assistant”).</p></li>
 <li><p>Ask it to help you extend the app (for example, add a plot).</p></li>
-<li><p>Run the app continue iterating</p></li>
+<li><p>Run the app and continue iterating.</p></li>
 </ol>
-<div id="timer_f28798b222a70ad3a22924ecbe86870f94c28ab2" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_b0ce8eb2c550bb69be92ebc0581a3b8dca053fac" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

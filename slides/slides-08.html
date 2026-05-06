@@ -14,7 +14,7 @@
   <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="R/Medicine 2026">
-  <title>Privacy, Security &amp; Wrap-up</title>
+  <title>Privacy &amp; security</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -132,7 +132,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Privacy, Security &amp; Wrap-up</h1>
+  <h1 class="title">Privacy &amp; security</h1>
   <p class="subtitle">LLMs for Data Analysis in R</p>
 
 <div class="quarto-title-authors">
@@ -183,24 +183,111 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 </section>
-<section id="where-does-your-data-go" class="slide level2">
-<h2>Where does your data go?</h2>
+<section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+<aside class="notes">
+<p>lets walk through the flow of data when you have a convo, you really only see this it looks liek you send a message to anthropic or whoever, and you get back a response</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
-<img data-src="assets/trust-diagram-1.svg" style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;" class="r-stretch"></section>
-<section id="where-does-your-data-go-1" class="slide level2">
-<h2>Where does your data go?</h2>
+<img data-src="assets/trust-01.excalidraw.svg" class="r-stretch"></section>
+<section id="section-1" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
 
-<img data-src="assets/trust-diagram-2.svg" style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;" class="r-stretch"></section>
-<section id="where-does-your-data-go-2" class="slide level2">
-<h2>Where does your data go?</h2>
+<img data-src="assets/trust-02.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>the model provider is responsible for routing your message to the actual model</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-2" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
 
-<img data-src="assets/trust-diagram.svg" style="display: block; margin-left: auto; margin-right: auto; max-width: 90%;" class="r-stretch"></section>
+<img data-src="assets/trust-03.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>remember, LLMs are stateless. so the llm doesn’t store your request or any data. it just takes in your request and gives a response the model provider handles giving that response back to you</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-3" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/trust-04.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>the nuance is that the model provider might do something with your data, and this can vary by rpovider and by agreement you have with the provider.</p>
+<p>model training, third party, storage</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-4" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/trust-05.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>when you use something like posit assistant, this diagram doesn’t change much again, teh llm itself isn’t going to retain any of your data. it doesn’t automatcaly “learn” or anything.</p>
+<p>and posit doesn’t store your data unless two things are true</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="you-need-to-trust-your-model-provider" class="slide level2">
-<h2>You need to trust your model provider</h2>
+<h2>You* need to trust your model provider</h2>
+<p>* or more likely, your organization</p>
+<div class="fragment">
 <ul>
-<li><p><strong>Posit doesn’t store your data</strong></p></li>
-<li><p>But your provider might, depending on your agreement</p></li>
+<li>Know what your model provider does with your data</li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li>ellmer, querychat, shinychat, etc. will never store your data anywhere. They pass the request directly to your specified model provider.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Posit Assistant will only store your data if a) you use Posit as your model provider and b) you opt-in.</li>
+</ul>
+</div>
 </section>
 <section id="the-good-news" class="slide level2">
 <h2>The good news</h2>
@@ -227,27 +314,7 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 
-<img data-src="assets/posit-ai-packages.png" class="r-stretch"></section>
-<section id="learn-more-1" class="slide level2">
-<h2>Learn more</h2>
-<p><strong>querychat</strong>: <a href="https://github.com/posit-dev/querychat" class="uri">https://github.com/posit-dev/querychat</a></p>
-<ul>
-<li>Chat with your data using natural language queries.</li>
-</ul>
-<p><strong>ggbot2</strong>: <a href="https://github.com/tidyverse/ggbot2" class="uri">https://github.com/tidyverse/ggbot2</a></p>
-<ul>
-<li>Talk out loud to create and iterate on plots.</li>
-</ul>
-<p><strong>Databot</strong>: <a href="https://positron.posit.co/databot.html" class="uri">https://positron.posit.co/databot.html</a></p>
-<ul>
-<li>EDA assistant for Positron.</li>
-</ul>
-<p><strong>vitals</strong>: <a href="https://github.com/posit-dev/vitals" class="uri">https://github.com/posit-dev/vitals</a></p>
-<ul>
-<li>Evaluate LLM performance with systematic benchmarks.</li>
-</ul>
-<p><strong>Posit AI newsletter</strong>: <a href="https://posit.co/blog/?post_tag=ai-newsletter" class="uri">https://posit.co/blog/?post_tag=ai-newsletter</a></p>
-</section></section>
+<img data-src="assets/posit-ai-packages.png" class="r-stretch"></section></section>
 <section id="thank-you" class="title-slide slide level1 center">
 <h1>Thank you!</h1>
 

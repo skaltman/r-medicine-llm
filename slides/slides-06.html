@@ -239,7 +239,8 @@ R/Medicine 2026
 <section id="how-does-querychat-work" class="slide level2">
 <h2>How does querychat work?</h2>
 <aside class="notes">
-<p>Here’s the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly. This means results are reliable — no hallucinated numbers.</p>
+<p>Here’s the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly.</p>
+<p>this has a variety of benefits</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -261,7 +262,7 @@ R/Medicine 2026
 <section id="benefits" class="slide level2">
 <h2>Benefits</h2>
 <aside class="notes">
-<p>This architecture gives us several important properties, especially relevant for health data.</p>
+<p>This architecture gives us several important properties,</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -282,7 +283,7 @@ R/Medicine 2026
 <section id="the-simplest-version" class="slide level2">
 <h2>The simplest version</h2>
 <aside class="notes">
-<p>You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.</p>
+<p>querychat is built on shiny, but you don’t really need to know shiny today. i want to give you an overview of querychat becasue it’s pretty useful, so we’re just going to make a really simple app. You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -313,10 +314,23 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>👩‍💻 <span class="code b purple">_demos/06_querychat/06_querychat-dashboard.R</span></p>
+<p>👩‍💻 <span class="code b purple">_demos/05_querychat/05_querychat-dashboard.R</span></p>
 </section>
 <section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
+<aside class="notes">
+<p>lets take a closer look at how querychat works. the LLM takes in a user’s questino and writes the appropriate sql query. the database executes that query, updating the underlying data used in the app (if you know shiny, it’s updating reactives). The model never sees your raw data. it may see the result of the query though</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="assets/querychat-01.excalidraw.svg" class="r-stretch"></section>
 <section id="section-1" class="slide level2 center" style="text-align: center" data-transition="fade">
@@ -348,7 +362,7 @@ R/Medicine 2026
 <li>“Show me spending by purpose for Japan”</li>
 </ul></li>
 </ol>
-<div id="timer_d5990e81c7e2629633eff8d6c9bdb5e820ae361a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_b0ce8eb2c550bb69be92ebc0581a3b8dca053fac" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -358,6 +372,20 @@ R/Medicine 2026
 </section>
 <section id="section-2" class="slide level2 center" style="text-align: center">
 <h2></h2>
+<aside class="notes">
+<p>there is a lot more to querychat! the querychat website is very helpful, and you might take a look at this build an app vignette if you want to build a more involved app</p>
+<p>querychat_app just gives you the basics.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="assets/querychat-page.png" class="r-stretch"><div class="footer">
 <p><a href="https://posit-dev.github.io/querychat/r/articles/build.html" class="uri">https://posit-dev.github.io/querychat/r/articles/build.html</a></p>
@@ -365,6 +393,19 @@ R/Medicine 2026
 </section>
 <section id="shinychat" class="slide level2 center" style="text-align: center">
 <h2>shinychat</h2>
+<aside class="notes">
+<p>also useful to know about shinychat, which querychat is built on. shinychat lets you build chatbots in shiny for r and python</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><img data-src="assets/shinychat.png"></p>

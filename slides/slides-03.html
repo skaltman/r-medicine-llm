@@ -302,8 +302,8 @@ dd:before {
 <aside class="notes">
 <ol type="1">
 <li>Content: 200k tokens is normal, 1M tokens in some newer models</li>
-<li>Speed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.</li>
-<li>Cost: $1-5 per million tokens is normal for big frontier models, &lt; $1 for smaller, faster models</li>
+<li>Speed: Speed is often a trade-off with intelligence.</li>
+<li>Cost: $1-5 per million input tokens is normal for big frontier models, &lt; $1 for smaller, faster models</li>
 <li>Intelligence is a stand-in for lots of concepts</li>
 </ol>
 <style type="text/css">
@@ -322,7 +322,8 @@ dd:before {
 <h2></h2>
 
 <img data-src="assets/model-comparison-anthropic-01.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
-<p>We’ll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.</p>
+<p>naming can be kind of confusing for all providers, so we’ll just quickly go through it</p>
+<p>We’ll start with Anthropic. they make a family of models they call claude</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -339,17 +340,16 @@ dd:before {
 <h2></h2>
 
 <img data-src="assets/model-comparison-anthropic-02.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
-<p>Claude comes in different sizes, with different levels of intelligence.</p>
-<p>They have a small model that’s fast and cheap, a large model that’s intelligent but expensive, and a just-right sized model that balances speed, cost, and intelligence.</p>
-<p>In line with Anthropic’s branding, these models are named after different types of poetry.</p>
+<p>Claude models comes in different sizes, with different levels of intelligence and speed.</p>
+<p>they naemd their three model families after types of poetry:</p>
 <ul>
 <li>Haiku is small, fast, and cheap</li>
 <li>Sonnet is larger, more expensive, and more intelligent</li>
 <li>Opus is the largest, most expensive, and most intelligent</li>
 </ul>
-<p>Anthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)</p>
 <p>When you’re choosing a model, you can get higher quality responses by moving up a size tier.</p>
 <p>And when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)</p>
+<p>so all these families have different number versions which indicates how new they are. so for opus, the newest is 4.7, sonnet is 4.6, haiku 4.5</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -382,7 +382,7 @@ dd:before {
 <section id="model-comparison" class="slide level2 smaller">
 <h2></h2>
 <aside class="notes">
-<p>Here’s a comparison table if you want to see the specific numbers for different models. But don’t stress too much about this - pick something and try it.</p>
+<p>for openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -394,11 +394,24 @@ dd:before {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<!--
-{{< include ../partials/model-comparison.qmd >}} -->
 </section>
 <section id="localopen-weights-models" class="slide level2">
 <h2>Local/open weights models</h2>
+<aside class="notes">
+<p>google also has the gemini models, which we aren’t going to talk about today purely for efficiency, but the latest gemini models are also pretty good.</p>
+<p>but you don’t have to use a major model provider or even pay for tokens directly. there are local or open weights models that you or your organization may be able to run locally, or that you can run on a rented server.</p>
+<p>these have typically been lower ability, but have really been improving recently.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>Models that you (or your organization) can run on your own.</li>
 <li>Naming schemes can be even more confusing</li>
@@ -408,7 +421,21 @@ dd:before {
 <section id="localopen-weights-models-1" class="slide level2">
 <h2>Local/open weights models</h2>
 
-<img data-src="assets/qwen-gemma-options.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
+<img data-src="assets/qwen-gemma-options.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"><aside class="notes">
+<p>qwen 3.6 and gemma 4 are two recent examples of good local models</p>
+<p>the naming conventions for local models can be even more confusing though</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="localopen-weights-models-2" class="slide level2">
 <h2>Local/open weights models</h2>
 
@@ -421,18 +448,6 @@ dd:before {
 <h2>Local/open weights models</h2>
 
 <img data-src="assets/local-model-naming-03.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<p><img data-src="assets/local-model-naming-01.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<p><img data-src="assets/local-model-naming-02.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<p><img data-src="assets/local-model-naming-03.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
-</section>
 <section id="for-example" class="slide level2">
 <h2>For example</h2>
 <ul>
@@ -447,6 +462,9 @@ dd:before {
 <ul>
 <li>If you have your pick: pick a recent frontier model, then move to a cheaper one if needed</li>
 </ul>
+<div class="fragment">
+<p>but you don’t always have your pick!</p>
+</div>
 <aside class="notes">
 <p>you’re probably not doing anything where you need to worry about cost effectiveness right away.</p>
 <style type="text/css">
@@ -513,6 +531,7 @@ dd:before {
 <h2>Shortcut - <code>chat()</code></h2>
 <aside class="notes">
 <p>Ellmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.</p>
+<p>which is what we did earlier</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -611,7 +630,7 @@ dd:before {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_94e966065a5ed0b6ad3e352ce1450947b703270e" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -626,17 +645,37 @@ dd:before {
 </section>
 <section id="how-to-choose-a-model-1" class="slide level2">
 <h2>How to choose a model</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="../assets/logos/vitals.png"></p>
-</div><div class="column" style="width:70%;">
-<p><img data-src="assets/eval.png"></p>
-</div></div>
+<aside class="notes">
+<p>If you want to be more systematic about model selection, the vitals package lets you run evaluations — benchmark your specific task across models to see which performs best.</p>
+<p>we aren’t really going to talk about this today</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+<img data-src="../assets/logos/vitals.png" class="r-stretch"><div class="footer">
+<p><a href="http://vitals.tidyverse.org" class="uri">http://vitals.tidyverse.org</a></p>
+</div>
 </section>
 <section id="how-to-choose-a-model-2" class="slide level2">
 <h2>How to choose a model</h2>
-
-<img data-src="assets/eval-costs.png" class="r-stretch"></section></section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="assets/eval.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/eval-costs.png"></p>
+</div></div>
+<div class="footer">
+<p><a href="http://vitals.tidyverse.org" class="uri">http://vitals.tidyverse.org</a></p>
+</div>
+</section></section>
 <section>
 <section id="multi-modal-input" class="title-slide slide level1 center" data-background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="hidden">Multi-modal input</span></h1>
@@ -730,7 +769,7 @@ dd:before {
 <section id="your-turn-04_vision" class="slide level2 slide-your-turn">
 <h2>Your Turn <code>04_vision</code></h2>
 <aside class="notes">
-<p>Now try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.</p>
+<p>This exercise has plots from two datasets — health expenditure and (simulated) Georgia mortality. practice passing images to the model and asking it to interpret what it sees.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -743,10 +782,10 @@ dd:before {
           display:block!important;
       }</style></aside>
 <ol type="1">
-<li><p>There are some images of food in the <code>data/recipes/images</code> folder.</p></li>
-<li><p>Your job: show the food to the LLM and ask it to write a corresponding recipe.</p></li>
+<li><p>There are several data visualization plots in <code>_exercises/04_vision/</code>.</p></li>
+<li><p>Your job: show a plot to the LLM and ask it to interpret or describe it.</p></li>
 </ol>
-<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<div id="timer_94e966065a5ed0b6ad3e352ce1450947b703270e" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -778,20 +817,6 @@ dd:before {
 <span id="cb7-6"><a></a>  <span class="st">"List the contraindications and serious adverse reactions."</span></span>
 <span id="cb7-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!--
-## Your Turn `09_pdf` {.slide-your-turn}
-
-::: notes
-Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs can extract and reformat document content.
-:::
-
-1. We have the actual recipes as PDFs in the `data/recipes/pdf` folder.
-
-2. Your job: ask the LLM to convert the recipes to markdown.
-
-
-
--->
 </section></section>
 <section>
 <section id="structured-output" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" data-background-size="cover" data-background-position="center">
@@ -1207,7 +1232,7 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
 <section id="your-turn-05_structured-output" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>05_structured-output</code></h1>
 <aside class="notes">
-<p>Now practice structured output - extract recipe data as proper R objects. This is a key skill for working with LLMs in real applications.</p>
+<p>This exercise uses simulated clinical notes. Students extract patient name, age, diagnoses, and medications into structured R objects. Same pattern as the name/age example but more realistic for this audience.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1220,12 +1245,11 @@ Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs 
           display:block!important;
       }</style></aside>
 <ol type="1">
-<li><p><code>data/recipes/txt</code> contains a set of recipes.</p></li>
-<li><p>Use <code>ellmer::type_*()</code> to extract structured data from the Cinnamon Peach Oat Waffles recipe (already read in for you).</p></li>
+<li><p><code>data/clinical-notes.R</code> contains fictional clinical notes (free text).</p></li>
+<li><p>Use <code>ellmer::type_*()</code> to extract structured patient data (name, age, diagnoses, medications).</p></li>
 <li><p>I’ve given you the expected structure, you just need to implement it.</p></li>
-<li><p>If you have extra time, try it with other recipes in the folder.</p></li>
 </ol>
-<div id="timer_71f298e678828d32f6e9e88abfc99089f9f958cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_94e966065a5ed0b6ad3e352ce1450947b703270e" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

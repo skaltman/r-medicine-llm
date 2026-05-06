@@ -219,7 +219,9 @@ R/Medicine 2026
 <p>Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/photos/tk9RQCq5eQo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
 </div>
 <aside class="notes">
-<p>Prompt engineering is the art of getting LLMs to do what you want.</p>
+<p>a huge part of working with llms is figuring out ways to get them the context they need to be useful.</p>
+<p>one of those ways is by writing prompts.</p>
+<p>writign prompts is a major way to get llms to act in ways that are useful to you.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -247,6 +249,21 @@ R/Medicine 2026
 <span id="cb2-3"><a></a>      <span class="st">"anthropic"</span>, </span>
 <span id="cb2-4"><a></a>      <span class="at">system_prompt =</span> readr<span class="sc">::</span><span class="fu">read_file</span>(<span class="st">"prompt.md"</span>)</span>
 <span id="cb2-5"><a></a>   )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>reminder earlier we saw the system prompt arg the system prompt persists across teh entire conversation</p>
+<p>will guide behavior across that entire conversation happening with that chat object</p>
+<p>prompts are just text, and you can at least start by writing a prompt basically the same as writing a set of instructions for a person.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="your-turn-06_prompt-engineering" class="title-slide slide level1 slide-your-turn center">
@@ -265,11 +282,11 @@ R/Medicine 2026
           display:block!important;
       }</style></aside>
 <ol type="1">
-<li><p>Ask the model to interpret a Georgia cancer mortality plot with no special prompting.</p></li>
+<li><p>Ask the model to interpret a plot with no special prompting.</p></li>
 <li><p>Edit <code>prompt.md</code> to write a system prompt that tailors the interpretation for a specific audience: screen reader alt text, data analyst, non-technical stakeholder, etc.</p></li>
 <li><p>How does the output change? Try different audiences!</p></li>
 </ol>
-<div id="timer_d5990e81c7e2629633eff8d6c9bdb5e820ae361a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d13bb6a16b42388c0d73b95f151b4407dd246c9c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -482,10 +499,10 @@ R/Medicine 2026
 <p><strong>Force the model to say things out loud.</strong></p>
 <p>E.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer.”</p>
 </section>
-<section id="more-tips-4" class="slide level2">
-<h2>More tips</h2>
+<section id="more-guidance" class="slide level2">
+<h2>More guidance</h2>
 <aside class="notes">
-<p>Finally, all the major providers have excellent documentation on prompt engineering. These are great resources to dive deeper.</p>
+<p>ellmer vignette on prompt design</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -497,8 +514,7 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>See Anthropic’s <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><em>Prompt Engineering Overview</em></a> and OpenAI’s <a href="https://cookbook.openai.com/"><em>OpenAI Cookbook</em></a> are excellent, and contain lots of tips and examples.</p>
-<p>Google’s <a href="https://ai.google.dev/gemini-api/docs/prompting-strategies"><em>Prompt Design Strategies</em></a> may also be useful.</p>
+<p><a href="https://ellmer.tidyverse.org/articles/prompt-design.html" class="uri">https://ellmer.tidyverse.org/articles/prompt-design.html</a></p>
 
 
 </section></section>

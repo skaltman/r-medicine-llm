@@ -7,6 +7,12 @@ editor:
   render-on-save: true
 ---
 
+::: notes
+we just saw how to add knowledge with prompting
+now we're going to talk about how to add abilities with tools
+another way to make llms useful for you by giving them new abilities that they don't have out of the box
+:::
+
 
 ## How do LLMs actually work?
 
@@ -15,12 +21,15 @@ _On their own, can LLMs... access the internet? run code? send an email? interac
 :::
 
 ::: notes
-Before we dive into tools, let's clarify what LLMs can and can't do. On their own, LLMs are quite limited. They can't access the internet, run code, or interact with systems. They only process the text you send them. This is where tools come in.
+Before we dive into tools, let's clarify what LLMs can and can't do. can they...?
+lets try it out
 :::
 
-## LLMs don't have access to real-time data
+## 
 
 ::: notes
+what happens if we ask about the current weahter?
+
 The model can't access real-time weather data. No internet connection.
 :::
 
@@ -37,9 +46,18 @@ you the current conditions in San Francisco.
 ```
 :::
 
-## LLMs can't affect the world
+<br>
+<br>
+
+::: fragment
+### LLMs don't have access to real-time data!
+:::
+
+## 
 
 ::: notes
+what about asking it to affect the world, like writing a file to your computer?
+
 They also can't interact with the file system, send emails, or take any real-world actions.
 :::
 
@@ -57,10 +75,26 @@ code snippets and guidance.
 ```
 :::
 
+<br>
+
+<br>
+
+::: fragment
+### LLMs can't affect the world!
+:::
+
 ## Tool = function + metadata {.center}
 
 ::: notes
-So how do we solve these problems? Tools! Also called functions or function calling.
+So how do we solve these problems? Tools! 
+
+Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database.
+These capabilities are things that the model can't do on its own.
+The goal is to let the model pull in real-time or up-to-date information as needed.
+
+They can also give the model new abilities to take action on behalf of the user.
+
+tools are essentially just functions + metadata. if you've ever written an R function and then documented it, you can write a tool. it's basically the same process, just iwth an LLM as the intended audience instead of another human.
 :::
 
 ::: incremental
@@ -89,6 +123,10 @@ get_weather <- function(latitude, longitude) {
   # Return weather for that location
 }
 ```
+
+::: notes
+were going to make a tool so the llm can get the current weather
+:::
 
 ## Tool = function + metadata 
 
@@ -126,6 +164,11 @@ get_weather_tool <- tool(
 chat$register_tool(get_weather_tool)
 ```
 
+::: notes
+tell your chat about the tool
+LLM now knows this tool exists and can request to use it
+:::
+
 ## Tool = function + metadata
 
 ```{.r code-line-numbers="|1-3|5|6|7|8-12|15"}
@@ -145,6 +188,13 @@ get_weather_tool <- tool(
 
 chat$register_tool(get_weather_tool)
 ```
+
+::: notes
+take a look in more detail
+1. create a function that does our desired functionality
+2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types
+3. finally, we register it, which tells the llm the tool exists and is available for use 
+:::
 
 
 ## Tool = function + metadata
@@ -193,6 +243,54 @@ Here's the current weather for San Francisco:
 ```
 :::
 
+## `type_()` functions
+
+```{.r code-line-numbers="5-8"}
+get_weather <- tool(
+  \(lat, lon) weathR::point_forecast(lat, lon),
+  name = "get_weather",
+  description = "Get the weather for a location.",
+  arguments = list(
+    lat = type_number("Latitude"),
+    lon = type_number("Longitude")
+  )
+)
+
+chat$register_tool(get_weather)
+```
+
+::: notes
+you might have noticed the type functions
+way to specify object types for the llm in a way it will easily understand
+::: 
+
+## `type_()` functions
+
+```{.r code-line-numbers="false"}
+type_boolean(description = NULL, required = TRUE)
+
+type_integer(description = NULL, required = TRUE)
+
+type_number(description = NULL, required = TRUE)
+
+type_string(description = NULL, required = TRUE)
+
+type_enum(values, description = NULL, required = TRUE)
+
+type_array(items, description = NULL, required = TRUE)
+
+type_object(
+  .description = NULL,
+  ...,
+  .required = TRUE,
+  .additional_properties = FALSE
+)
+```
+
+::: notes
+use the appropriate type function
+:::
+
 # How does tool calling work?
 
 ::: notes
@@ -206,9 +304,9 @@ Let me walk you through exactly how tool calling works step by step. This is the
 ::: notes
 The conversation starts with a user sending a message to the chatbot.
 
-In this example, the user asks whether they can go to the pool today - which requires knowing the weather.
+In this example, the user asks about hte weather 
 
-The model doesn't have access to real-time weather data, just like we saw earlier with San Francisco.
+The model doesn't have access to real-time weather data, just like we saw earlier 
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -228,7 +326,7 @@ The model uses its training data to figure out the right location format (like a
 ![](assets/tool-03.excalidraw.svg)
 
 ::: notes
-The programmer takes that tool call message and executes the actual function - in this case, querying a weather API with the location the model specified.
+ellmer takes that tool call message and executes the actual function in your R session - in this case, querying a weather API with the location the model specified.
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -248,9 +346,8 @@ The weather API sends back some data:
 ![](assets/tool-05.excalidraw.svg)
 
 ::: notes
-The programmer sends that data back to the LLM.
+ellmer then sends that data back to the LLM.
 Note that it's often in a pretty raw format, like JSON.
-Not the kind of thing you'd want to read directly unless you're the kind of person who likes reading computer data formats.
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -265,7 +362,7 @@ The LLM doesn't mind JSON though, so it reads the data and generates a response 
 ## The LLM cannot run code by itself!
 
 ::: notes
-This is crucial to understand - the LLM doesn't execute tools. It just asks you to run them.
+This is crucial to understand - the LLM doesn't execute tools. LLMs cant run code. It just asks you (ie. your computer) to run them. the tool code is running like normal r code on your laptop, not in a cloud somewhere
 :::
 
 It just requests that tools be run.
@@ -290,14 +387,6 @@ The LLM also chooses the arguments for the tool. It uses its knowledge to fill i
 :::
 
 ![](assets/tool-08.excalidraw.svg)
-
-## Demo: weather tool {.center}
-
-::: notes
-But you're programmers! You can automate this. Let me show you how to define tools that run automatically.
-:::
-
-👩‍💻 [_demos/05_tools/05_weather-tool-02-end.R]{.code .b .purple}
 
 ## Helper function: `create_tool_def()`
 
@@ -328,6 +417,10 @@ tool(
 ```
 :::
 
+::: notes
+if you already have a function defined and documented
+:::
+
 
 
 # Your Turn `07_tool-calling` {.slide-your-turn}
@@ -349,6 +442,10 @@ to highlight: does the model have access to the data? what does the model contro
 :::
 
 ## Some questions
+
+::: notes
+FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+:::
 
 ::: {.fragment}
 **Does the model have access to the data?**
@@ -373,7 +470,7 @@ No.
 :::
 
 ::: {.fragment}
-* Give the model access to the list of counties and years available. 
+* Give the model access to the list of countries and years available. 
 * Think through failure modes. 
 :::
 
