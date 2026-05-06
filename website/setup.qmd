@@ -2,7 +2,7 @@
 title: Setup
 ---
 
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>
+1. Go to <https://play.instruqt.com/posit/invite/18ocdvpujl2t>
 1. Click *Start*
 1. It will take a few minutes to start up. When it's ready, click the green *Start* button.
 1. Click *Open external Window*
