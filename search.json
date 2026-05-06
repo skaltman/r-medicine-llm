@@ -74,7 +74,7 @@
     "href": "slides/slides-06.html#demo",
     "title": "querychat",
     "section": "Demo",
-    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\n\n👩‍💻 _demos/05_querychat/05_querychat-dashboard.R"
+    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\ndo demo locally\n\n👩‍💻 _demos/05_querychat/05_querychat-dashboard.R"
   },
   {
     "objectID": "slides/slides-06.html#how-does-querychat-work",
