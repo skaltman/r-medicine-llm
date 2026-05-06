@@ -19,13 +19,13 @@ No AI or machine learning background is required—just basic R familiarity. Att
 
 ## Setup
 
-1. Go to <https://play.instruqt.com/posit/invite/omatxsihs3we>.
+1. Go to <https://play.instruqt.com/posit/invite/18ocdvpujl2t>.
 1. Click *Start*.
 1. It will take a few minutes to start up. When it's ready, click the green *Start* button.
 1. Click *Open external window*
 1. Click *New Session* and select either RStudio Pro or Positron Pro.
 1. Click *Launch*.
-1. Open the `r-medicine-llm-exercises` project (RStudio) or folder (Positron).
+1. Open the `r-medicine-llm-exercises` folder.
 
 ## Schedule
 
