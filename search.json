@@ -754,13 +754,6 @@
     "text": "🐈 content_image_url\n\nOr use content_image_url() to pass an image from a URL. Same pattern, different source.\n\n\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5-20251001\")\nchat$chat(\n  content_image_url(\"https://placecats.com/bella/400/400\"),\n  \"What do you see in this image?\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#your-turn-04_vision",
-    "href": "slides/slides-03.html#your-turn-04_vision",
-    "title": "Programming with LLMs",
-    "section": "Your Turn 04_vision",
-    "text": "Your Turn 04_vision\n\nThis exercise has plots from two datasets — health expenditure and (simulated) Georgia mortality. practice passing images to the model and asking it to interpret what it sees.\n\n\nThere are several data visualization plots in _exercises/04_vision/.\nYour job: show a plot to the LLM and ask it to interpret or describe it.\n\n\n  \n    −\n    +\n \n 05:00"
-  },
-  {
     "objectID": "slides/slides-03.html#content_pdf_file-content_pdf_url",
     "href": "slides/slides-03.html#content_pdf_file-content_pdf_url",
     "title": "Programming with LLMs",

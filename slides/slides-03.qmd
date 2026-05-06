@@ -402,18 +402,6 @@ chat$chat(
 ```
 :::
 
-## Your Turn `04_vision` {.slide-your-turn}
-
-::: notes
-This exercise has plots from two datasets — health expenditure and (simulated) Georgia mortality. practice passing images to the model and asking it to interpret what it sees.
-:::
-
-1. There are several data visualization plots in `_exercises/04_vision/`.
-
-2. Your job: show a plot to the LLM and ask it to interpret or describe it. 
-
-{{< countdown 5:00 left=0 >}}
-
 ## 📑 content_pdf_file / content_pdf_url
 
 ::: notes
