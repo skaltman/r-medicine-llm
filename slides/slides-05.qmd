@@ -59,6 +59,8 @@ you the current conditions in San Francisco.
 what about asking it to affect the world, like writing a file to your computer?
 
 They also can't interact with the file system, send emails, or take any real-world actions.
+
+at this point you might be thinking...
 :::
 
 ```{.r}
@@ -90,24 +92,15 @@ So how do we solve these problems? Tools!
 
 Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database.
 These capabilities are things that the model can't do on its own.
-The goal is to let the model pull in real-time or up-to-date information as needed.
-
-They can also give the model new abilities to take action on behalf of the user.
 
 tools are essentially just functions + metadata. if you've ever written an R function and then documented it, you can write a tool. it's basically the same process, just iwth an LLM as the intended audience instead of another human.
+
+so we can use tools to **click**...
 :::
 
 ::: incremental
 * Bring real-time or up-to-date information to the model
 * Let the model interact with the world
-:::
-
-::: notes
-Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database.
-These capabilities are things that the model can't do on its own.
-The goal is to let the model pull in real-time or up-to-date information as needed.
-
-They can also give the model new abilities to take action on behalf of the user.
 :::
 
 # Tools in R
@@ -171,7 +164,7 @@ LLM now knows this tool exists and can request to use it
 
 ## Tool = function + metadata
 
-```{.r code-line-numbers="|1-3|5|6|7|8-12|15"}
+```{.r code-line-numbers="1-3|5|6|7|8-12|15"}
 get_weather <- function(latitude, longitude) {
   weathR::point_forecast(latitude, longitude)
 }
@@ -191,6 +184,7 @@ chat$register_tool(get_weather_tool)
 
 ::: notes
 take a look in more detail
+
 1. create a function that does our desired functionality
 2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types
 3. finally, we register it, which tells the llm the tool exists and is available for use 
@@ -203,7 +197,7 @@ take a look in more detail
 simplify a bit
 :::
 
-```{.r code-line-numbers="|1|1-2|3-4|5-8|11"}
+```{.r}
 get_weather <- tool(
   \(lat, lon) weathR::point_forecast(lat, lon),
   name = "get_weather",
@@ -262,6 +256,8 @@ chat$register_tool(get_weather)
 ::: notes
 you might have noticed the type functions
 way to specify object types for the llm in a way it will easily understand
+
+saw this earlier for structured data
 ::: 
 
 ## `type_()` functions
@@ -339,6 +335,9 @@ The weather API sends back some data:
 * The forecast is mostly sunny
 * High of 98ºF
 * Low of 78ºF
+
+ellmer then sends that data back to the LLM.
+Note that it's often in a pretty raw format, like JSON.
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -346,8 +345,7 @@ The weather API sends back some data:
 ![](assets/tool-05.excalidraw.svg)
 
 ::: notes
-ellmer then sends that data back to the LLM.
-Note that it's often in a pretty raw format, like JSON.
+llm incorporates into response
 :::
 
 ## {.center style="text-align: center" transition="fade"}
@@ -355,7 +353,7 @@ Note that it's often in a pretty raw format, like JSON.
 ![](assets/tool-06.excalidraw.svg)
 
 ::: notes
-The LLM doesn't mind JSON though, so it reads the data and generates a response that _incorporates_ the data from the tool call.
+ellmer handles all this communication here for you.
 :::
 
 
@@ -444,7 +442,11 @@ to highlight: does the model have access to the data? what does the model contro
 ## Some questions
 
 ::: notes
-FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+
+data? no just choosing argument for country and year
+control? arguments 
+could be better.
 :::
 
 ::: {.fragment}

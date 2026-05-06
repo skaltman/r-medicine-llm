@@ -15,7 +15,9 @@ editor:
 :::
 
 ::: notes
-querychat is a package from Posit that lets you explore tabular data using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.
+querychat is a package from Posit that lets you explore tabular data in a shiny app using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.
+
+do not need to really know shiny! just know shiny makes web apps in r
 :::
 
 ::: incremental
@@ -25,6 +27,16 @@ querychat is a package from Posit that lets you explore tabular data using natur
 
 * Works with data frames and database connections
 :::
+
+## Demo {.center}
+
+::: notes
+Let me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.
+
+do demo locally
+:::
+
+👩‍💻 [_demos/05_querychat/05_querychat-dashboard.R]{.code .b .purple}
 
 ## How does querychat work?
 
@@ -71,13 +83,6 @@ library(querychat)
 querychat_app(your_data)
 ```
 
-## Demo {.center}
-
-::: notes
-Let me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.
-:::
-
-👩‍💻 [_demos/05_querychat/05_querychat-dashboard.R]{.code .b .purple}
 
 ## {.center style="text-align: center" transition="fade"}
 

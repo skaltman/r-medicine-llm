@@ -31,10 +31,9 @@ you've probably talked with chatgpt or claude or gemini and seen a conversation 
 
 You ask a question and ChatGPT responds.
 You can keep talking to ChatGPT and it keeps responding,
-and it feels kind of like you're having a conversation with a person.
+and it feels kind of like you're having a conversation 
 
-how is this happening?
-The entire conversation happens via HTTP requests and responses
+we can do this same thing in r
 :::
 
 ## We can do this from R!
@@ -204,6 +203,8 @@ Messages have **roles**.
 
 ::: notes
 and these messages are marked with user and assistant because each message in the conversation is assigned a role. 
+
+let look into this a bit more because role are important
 :::
 
 ## 
@@ -342,20 +343,6 @@ Demo showing what's really happening behind the scenes - the full conversation h
 
 👩‍💻 [_demos/01_clearbot/app.py]{.code .b .purple}
 
-## {.center}
-
-![](assets/intro-conversation-01.png)
-![](assets/intro-conversation-02.png){.fragment}
-![](assets/intro-conversation-03.png){.fragment}
-![](assets/intro-conversation-04.png){.fragment}
-
-::: notes
-You just saw in clearbot what's really happening when you have a conversation with an LLM.
-
-Those conversations look something like this - you ask, it responds, back and forth.
-But as clearbot showed, something interesting is happening behind the scenes.
-:::
-
 ## [Is this actually a conversation?]{.dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/marija-zaric-wFWXRDilwKo-unsplash.jpg" background-size="cover" background-position="center"}
 
 ::: {.footer style="color: rgba(255,255,255,0.5);"}
@@ -363,6 +350,11 @@ Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&utm_mediu
 :::
 
 ::: notes
+You just saw in clearbot what's really happening when you have a conversation with an LLM.
+
+Those conversations look something like this - you ask, it responds, back and forth.
+But as clearbot showed, something interesting is happening behind the scenes.
+
 It IS a conversation, but it works differently than you might think.
 :::
 
@@ -497,7 +489,7 @@ source(here::here("website/slides/_incremental_slides.R"))
 ```
 
 ::: notes
-Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.
+approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.
 :::
 
 ## Think Empirically, Not Theoretically {.center .text-center}
@@ -540,7 +532,9 @@ Don't expect smooth, predictable performance across tasks. LLMs can surprise you
 Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">National Cancer Institute</a> on <a href="https://unsplash.com/photos/Okk-eID2Z9k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 :::
 
-## Embrace the Experimental Process {.center .text-center}
+::: notes
+
+will talk about ways to formally run experiments in the next section
 
 - **Explore!** \
   Focus on learning and engaging with the technology, not outcomes
@@ -551,7 +545,6 @@ Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=refer
 - **It doesn't have to be a success.** \
   Attempts that don't work still provide insights
 
-::: notes
 - Use the **best models available** for experimentation
 - Don't constrain yourself to "practical" applications initially
 - Think of it as forming your own independent conclusions about usefulness
@@ -575,7 +568,7 @@ Transition to showing how to build interactive chat interfaces with shinychat.
 :::
 
 ::: notes
-FROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we've been working with.
+ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we've been working with.
 :::
 
 # Demo: <br> `live` {.slide-demo style="--code-font-size: 0.66em"}

@@ -280,6 +280,7 @@ R/Medicine 2026
 <aside class="notes">
 <p>what about asking it to affect the world, like writing a file to your computer?</p>
 <p>They also can’t interact with the file system, send emails, or take any real-world actions.</p>
+<p>at this point you might be thinking…</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -309,9 +310,9 @@ R/Medicine 2026
 <h2>Tool = function + metadata</h2>
 <aside class="notes">
 <p>So how do we solve these problems? Tools!</p>
-<p>Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.</p>
-<p>They can also give the model new abilities to take action on behalf of the user.</p>
+<p>Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own.</p>
 <p>tools are essentially just functions + metadata. if you’ve ever written an R function and then documented it, you can write a tool. it’s basically the same process, just iwth an LLM as the intended audience instead of another human.</p>
+<p>so we can use tools to <strong>click</strong>…</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -327,20 +328,6 @@ R/Medicine 2026
 <li class="fragment">Bring real-time or up-to-date information to the model</li>
 <li class="fragment">Let the model interact with the world</li>
 </ul>
-<aside class="notes">
-<p>Tools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.</p>
-<p>They can also give the model new abilities to take action on behalf of the user.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="tools-in-r" class="title-slide slide level1 center">
@@ -412,7 +399,7 @@ R/Medicine 2026
 </section>
 <section id="tool-function-metadata-4" class="slide level2">
 <h2>Tool = function + metadata</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-code-line-numbers="|1-3|5|6|7|8-12|15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(latitude, longitude) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-code-line-numbers="1-3|5|6|7|8-12|15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(latitude, longitude) {</span>
 <span id="cb8-2"><a></a>  weathR<span class="sc">::</span><span class="fu">point_forecast</span>(latitude, longitude)</span>
 <span id="cb8-3"><a></a>}</span>
 <span id="cb8-4"><a></a></span>
@@ -428,7 +415,12 @@ R/Medicine 2026
 <span id="cb8-14"><a></a></span>
 <span id="cb8-15"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(get_weather_tool)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
-<p>take a look in more detail 1. create a function that does our desired functionality 2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types 3. finally, we register it, which tells the llm the tool exists and is available for use</p>
+<p>take a look in more detail</p>
+<ol type="1">
+<li>create a function that does our desired functionality</li>
+<li>then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types</li>
+<li>finally, we register it, which tells the llm the tool exists and is available for use</li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -456,7 +448,7 @@ R/Medicine 2026
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-code-line-numbers="|1|1-2|3-4|5-8|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
 <span id="cb9-2"><a></a>  \(lat, lon) weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon),</span>
 <span id="cb9-3"><a></a>  <span class="at">name =</span> <span class="st">"get_weather"</span>,</span>
 <span id="cb9-4"><a></a>  <span class="at">description =</span> <span class="st">"Get the weather for a location."</span>,</span>
@@ -512,6 +504,7 @@ R/Medicine 2026
 <span id="cb12-11"><a></a>chat<span class="sc">$</span><span class="fu">register_tool</span>(get_weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <p>you might have noticed the type functions way to specify object types for the llm in a way it will easily understand</p>
+<p>saw this earlier for structured data</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -639,6 +632,7 @@ R/Medicine 2026
 <li>High of 98ºF</li>
 <li>Low of 78ºF</li>
 </ul>
+<p>ellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -655,7 +649,7 @@ R/Medicine 2026
 <h2></h2>
 
 <img data-src="assets/tool-05.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>ellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON.</p>
+<p>llm incorporates into response</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -672,7 +666,7 @@ R/Medicine 2026
 <h2></h2>
 
 <img data-src="assets/tool-06.excalidraw.svg" class="r-stretch"><aside class="notes">
-<p>The LLM doesn’t mind JSON though, so it reads the data and generates a response that <em>incorporates</em> the data from the tool call.</p>
+<p>ellmer handles all this communication here for you.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -787,7 +781,7 @@ R/Medicine 2026
 <li><p>Wrap it as a tool with <code>tool()</code> and register it.</p></li>
 <li><p>Ask the model about spending for a specific country.</p></li>
 </ol>
-<div id="timer_69d97609d1545aef0540482c2fd6048b50595726" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_3e135baab3a02393459d1c58ced250e4fd04caf4" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -811,7 +805,8 @@ R/Medicine 2026
 <section id="some-questions" class="slide level2">
 <h2>Some questions</h2>
 <aside class="notes">
-<p>FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.</p>
+<p>These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.</p>
+<p>data? no just choosing argument for country and year control? arguments could be better.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

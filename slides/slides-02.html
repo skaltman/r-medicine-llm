@@ -237,8 +237,8 @@ R/Medicine 2026
 <p><img data-src="assets/cat-fact-1.png"> <img data-src="assets/cat-fact-2.png" class="fragment"></p>
 <aside class="notes">
 <p>you’ve probably talked with chatgpt or claude or gemini and seen a conversation that looks something like this:</p>
-<p>You ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, and it feels kind of like you’re having a conversation with a person.</p>
-<p>how is this happening? The entire conversation happens via HTTP requests and responses</p>
+<p>You ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, and it feels kind of like you’re having a conversation</p>
+<p>we can do this same thing in r</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -455,6 +455,7 @@ R/Medicine 2026
 </div>
 <aside class="notes">
 <p>and these messages are marked with user and assistant because each message in the conversation is assigned a role.</p>
+<p>let look into this a bit more because role are important</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -674,7 +675,7 @@ R/Medicine 2026
 <li><p>Create a new <code>chat</code> with no system prompt and ask the second question again.</p></li>
 <li><p>How do the answers to 3 and 4 differ? Think about both the content and the style.</p></li>
 </ol>
-<div id="timer_74477a4a65de535815a65bdad7c9ba351dbbb515" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_3d7d035dd3e1fc154e2a932b867632ba79419286" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -714,30 +715,14 @@ R/Medicine 2026
       }</style></aside>
 <p>👩‍💻 <span class="code b purple">_demos/01_clearbot/app.py</span></p>
 </section>
-<section id="section-15" class="slide level2 center">
-<h2></h2>
-<p><img data-src="assets/intro-conversation-01.png"> <img data-src="assets/intro-conversation-02.png" class="fragment"> <img data-src="assets/intro-conversation-03.png" class="fragment"> <img data-src="assets/intro-conversation-04.png" class="fragment"></p>
-<aside class="notes">
-<p>You just saw in clearbot what’s really happening when you have a conversation with an LLM.</p>
-<p>Those conversations look something like this - you ask, it responds, back and forth. But as clearbot showed, something interesting is happening behind the scenes.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="is-this-actually-a-conversation" class="slide level2 no-invert-dark-mode" data-background-image="assets/marija-zaric-wFWXRDilwKo-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h2><span class="dib bg-black ph4 white">Is this actually a conversation?</span></h2>
 <div class="footer" style="color: rgba(255,255,255,0.5);">
 <p>Photo by <a href="https://unsplash.com/@simplicity?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Marija Zaric</a> on <a href="https://unsplash.com/photos/wFWXRDilwKo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" style="color: rgba(255,255,255,0.5);">Unsplash</a></p>
 </div>
 <aside class="notes">
+<p>You just saw in clearbot what’s really happening when you have a conversation with an LLM.</p>
+<p>Those conversations look something like this - you ask, it responds, back and forth. But as clearbot showed, something interesting is happening behind the scenes.</p>
 <p>It IS a conversation, but it works differently than you might think.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -905,7 +890,7 @@ R/Medicine 2026
 <section id="how-to-think-about-llms" class="title-slide slide level1 dark-blue center" data-background-image="assets/retro-mac.jpg" data-background-size="cover" data-background-position="bottom left">
 <h1>How to think about LLMs</h1>
 <aside class="notes">
-<p>Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.</p>
+<p>approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -947,7 +932,7 @@ that it turns out they’re <em>terrible</em> at</p></li>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <aside class="notes">
 <p>Don’t expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones.</p>
@@ -968,15 +953,13 @@ that it turns out they’re <em>terrible</em> at</p></li>
 <h2>LLMs are jagged</h2>
 <p><img data-src="assets/task-llm-jagged.excalidraw.svg" style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"></p>
 </section></section>
-<section>
 <section id="embrace-the-experimental-process" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/national-cancer-institute-Okk-eID2Z9k-unsplash.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="dib bg-black ph4 white" style="position: relative; top: 5em;">Embrace the Experimental Process</span></h1>
 <div class="footer">
 <p>Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">National Cancer Institute</a> on <a href="https://unsplash.com/photos/Okk-eID2Z9k?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
 </div>
-</section>
-<section id="embrace-the-experimental-process-1" class="slide level2 center text-center">
-<h2>Embrace the Experimental Process</h2>
+<aside class="notes">
+<p>will talk about ways to formally run experiments in the next section</p>
 <ul>
 <li><p><strong>Explore!</strong><br>
 Focus on learning and engaging with the technology, not outcomes</p></li>
@@ -984,12 +967,9 @@ Focus on learning and engaging with the technology, not outcomes</p></li>
 <em>those are some of the most interesting conversations that we have</em></p></li>
 <li><p><strong>It doesn’t have to be a success.</strong><br>
 Attempts that don’t work still provide insights</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Use the <strong>best models available</strong> for experimentation</li>
-<li>Don’t constrain yourself to “practical” applications initially</li>
-<li>Think of it as forming your own independent conclusions about usefulness</li>
+<li><p>Use the <strong>best models available</strong> for experimentation</p></li>
+<li><p>Don’t constrain yourself to “practical” applications initially</p></li>
+<li><p>Think of it as forming your own independent conclusions about usefulness</p></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1002,7 +982,8 @@ Attempts that don’t work still provide insights</p></li>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
+</section>
+
 <section id="what-if-i-want-to-keep-chatting-back-and-forth" class="title-slide slide level1 center" data-background-image="assets/shinychat-input-empty.png" data-background-size="contain" data-background-position="center">
 <h1><span class="bg-white f1 normal relative" style="top: -14px">What if I want to keep chatting back-and-forth?</span></h1>
 <aside class="notes">
@@ -1025,7 +1006,7 @@ Attempts that don’t work still provide insights</p></li>
 <h1><span class="bg-white f1 normal relative" style="top: -14px">ellmer can do that, too!</span></h1>
 
 </section>
-<section id="section-18" class="slide level2 center">
+<section id="section-17" class="slide level2 center">
 <h2></h2>
 <div class="table-no-border">
 <table class="caption-top">
@@ -1051,7 +1032,7 @@ Attempts that don’t work still provide insights</p></li>
 </table>
 </div>
 <aside class="notes">
-<p>FROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with.</p>
+<p>ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

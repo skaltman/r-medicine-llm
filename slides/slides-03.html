@@ -366,6 +366,7 @@ dd:before {
 <h2></h2>
 <aside class="notes">
 <p>All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models. So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.</p>
+<p>for openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -379,22 +380,6 @@ dd:before {
       }</style></aside>
 
 <img data-src="assets/model-comparison-openai.excalidraw.svg" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="model-comparison" class="slide level2 smaller">
-<h2></h2>
-<aside class="notes">
-<p>for openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="localopen-weights-models" class="slide level2">
 <h2>Local/open weights models</h2>
 <aside class="notes">
@@ -630,7 +615,7 @@ dd:before {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div id="timer_e11dfad27f4c56cf77fb79decfbce04095f7d898" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_7a3cc73acba22b15a95291c12dcaa6ad410917f0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -697,8 +682,8 @@ dd:before {
       }</style></aside>
 <p><span class="white b absolute" style="font-size: 3em;top: -400px; right: 0px; ">Multi-modal input</span></p>
 </section>
-<section id="a-picture-is-worth-a-thousand-words" class="slide level2 center">
-<h2>A picture is worth a thousand words</h2>
+<section id="images-get-tokenized-too" class="slide level2 center">
+<h2>Images get tokenized too</h2>
 <aside class="notes">
 <p>Images get tokenized just like text. For LLMs, an image is roughly 170 tokens.</p>
 <style type="text/css">
@@ -1120,16 +1105,13 @@ dd:before {
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text[[<span class="dv">1</span>]])</span>
-<span id="cb17-2"><a></a><span class="co">#&gt; list(</span></span>
-<span id="cb17-3"><a></a><span class="co">#&gt;   name = "Alex",</span></span>
-<span id="cb17-4"><a></a><span class="co">#&gt;   age = 42</span></span>
-<span id="cb17-5"><a></a><span class="co">#&gt; )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="structured-chat-output-1" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
 <aside class="notes">
 <p>Define the structure with type_object() - specify each field and its type. Then pass it to chat_structured().</p>
+<p>type object creats a list but each element must have specified type</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1146,11 +1128,7 @@ dd:before {
 <span id="cb18-3"><a></a>  <span class="at">age =</span> <span class="fu">type_integer</span>()</span>
 <span id="cb18-4"><a></a>)</span>
 <span id="cb18-5"><a></a></span>
-<span id="cb18-6"><a></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text[[<span class="dv">1</span>]], <span class="at">type =</span> type_person)</span>
-<span id="cb18-7"><a></a><span class="co">#&gt; list(</span></span>
-<span id="cb18-8"><a></a><span class="co">#&gt;   name = "Alex",</span></span>
-<span id="cb18-9"><a></a><span class="co">#&gt;   age = 42</span></span>
-<span id="cb18-10"><a></a><span class="co">#&gt; )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-6"><a></a>chat<span class="sc">$</span><span class="fu">chat_structured</span>(age_free_text[[<span class="dv">1</span>]], <span class="at">type =</span> type_person)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="structured-chat-output-2" class="slide level2" data-transition="fade">
 <h2>Structured chat output</h2>
@@ -1222,7 +1200,7 @@ dd:before {
 <li><p>Use <code>ellmer::type_*()</code> to extract structured patient data (name, age, diagnoses, medications).</p></li>
 <li><p>I’ve given you the expected structure, you just need to implement it.</p></li>
 </ol>
-<div id="timer_e11dfad27f4c56cf77fb79decfbce04095f7d898" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_7a3cc73acba22b15a95291c12dcaa6ad410917f0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

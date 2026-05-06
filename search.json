@@ -67,7 +67,14 @@
     "href": "slides/slides-06.html#what-is-querychat",
     "title": "querychat",
     "section": "What is querychat?",
-    "text": "What is querychat?\n\nhttps://posit-dev.github.io/querychat/r/\n\n\nquerychat is a package from Posit that lets you explore tabular data using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.\n\n\nExplore data using natural language\nBuilt on top of ellmer and Shiny\nWorks with data frames and database connections"
+    "text": "What is querychat?\n\nhttps://posit-dev.github.io/querychat/r/\n\n\nquerychat is a package from Posit that lets you explore tabular data in a shiny app using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.\ndo not need to really know shiny! just know shiny makes web apps in r\n\n\nExplore data using natural language\nBuilt on top of ellmer and Shiny\nWorks with data frames and database connections"
+  },
+  {
+    "objectID": "slides/slides-06.html#demo",
+    "href": "slides/slides-06.html#demo",
+    "title": "querychat",
+    "section": "Demo",
+    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\n\n👩‍💻 _demos/05_querychat/05_querychat-dashboard.R"
   },
   {
     "objectID": "slides/slides-06.html#how-does-querychat-work",
@@ -89,13 +96,6 @@
     "title": "querychat",
     "section": "The simplest version",
     "text": "The simplest version\n\nquerychat is built on shiny, but you don’t really need to know shiny today. i want to give you an overview of querychat becasue it’s pretty useful, so we’re just going to make a really simple app. You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.\n\nlibrary(querychat)\n\nquerychat_app(your_data)"
-  },
-  {
-    "objectID": "slides/slides-06.html#demo",
-    "href": "slides/slides-06.html#demo",
-    "title": "querychat",
-    "section": "Demo",
-    "text": "Demo\n\nLet me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.\n\n👩‍💻 _demos/05_querychat/05_querychat-dashboard.R"
   },
   {
     "objectID": "slides/slides-06.html#section",
@@ -179,14 +179,14 @@
     "href": "slides/slides-04.html#more-guidance",
     "title": "Prompt Writing",
     "section": "More guidance",
-    "text": "More guidance\n\nellmer vignette on prompt design\n\nhttps://ellmer.tidyverse.org/articles/prompt-design.html"
+    "text": "More guidance\n\nellmer vignette on prompt design\nbreak time - 5 minutes\n\nhttps://ellmer.tidyverse.org/articles/prompt-design.html"
   },
   {
     "objectID": "slides/slides-02.html#section",
     "href": "slides/slides-02.html#section",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "you’ve probably talked with chatgpt or claude or gemini and seen a conversation that looks something like this:\nYou ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, and it feels kind of like you’re having a conversation with a person.\nhow is this happening? The entire conversation happens via HTTP requests and responses"
+    "text": "you’ve probably talked with chatgpt or claude or gemini and seen a conversation that looks something like this:\nYou ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, and it feels kind of like you’re having a conversation\nwe can do this same thing in r"
   },
   {
     "objectID": "slides/slides-02.html#we-can-do-this-from-r",
@@ -249,7 +249,7 @@
     "href": "slides/slides-02.html#section-7",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "One of the nice things about ellmer is that you can easily inspect the chat object to see the full conversation history.\nIf we just call ‘chat’, we can see all the messages in the conversation so far click see basics of convo, tokens used and cost (tokens are units of llms–will talk about later)\nYou can see the user message (what we sent) marked with user click and the assistant response click\nclick\n\n\nchat\n&lt;Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00&gt;\n── user ─────────────────────────────────────────────────────────────────────────────────\nTell me a quick fact about sheep.\n── assistant [input=15 output=37 cost=$0.00] ────────────────────────────────────────────\nSheep have rectangular pupils that give them a nearly 360-degree field of vision, allowing them to see predators approaching from almost any direction without turning their heads.\n\n\nMessages have roles.\n\n\nand these messages are marked with user and assistant because each message in the conversation is assigned a role."
+    "text": "One of the nice things about ellmer is that you can easily inspect the chat object to see the full conversation history.\nIf we just call ‘chat’, we can see all the messages in the conversation so far click see basics of convo, tokens used and cost (tokens are units of llms–will talk about later)\nYou can see the user message (what we sent) marked with user click and the assistant response click\nclick\n\n\nchat\n&lt;Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00&gt;\n── user ─────────────────────────────────────────────────────────────────────────────────\nTell me a quick fact about sheep.\n── assistant [input=15 output=37 cost=$0.00] ────────────────────────────────────────────\nSheep have rectangular pupils that give them a nearly 360-degree field of vision, allowing them to see predators approaching from almost any direction without turning their heads.\n\n\nMessages have roles.\n\n\nand these messages are marked with user and assistant because each message in the conversation is assigned a role.\nlet look into this a bit more because role are important"
   },
   {
     "objectID": "slides/slides-02.html#section-9",
@@ -301,18 +301,11 @@
     "text": "Now when we inspect the chat object, we can see all three roles - system, user, and assistant. The system prompt is there shaping the conversation.\n\n\nchat\n\n&lt;Chat Anthropic/claude-sonnet-4-5 turns=3 input=17 output=23 cost=$0.00&gt;\n── system ───────────────────────────────────────────────────────────────────────────────\nAlways answer in haikus.\n── user ─────────────────────────────────────────────────────────────────────────────────\nwhat is chirality\n── assistant [input=17 output=23 cost=$0.00] ────────────────────────────────────────────\nMolecules can twist,\nLeft hand, right hand—mirror forms,\nSame but different."
   },
   {
-    "objectID": "slides/slides-02.html#section-15",
-    "href": "slides/slides-02.html#section-15",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "You just saw in clearbot what’s really happening when you have a conversation with an LLM.\nThose conversations look something like this - you ask, it responds, back and forth. But as clearbot showed, something interesting is happening behind the scenes."
-  },
-  {
     "objectID": "slides/slides-02.html#is-this-actually-a-conversation",
     "href": "slides/slides-02.html#is-this-actually-a-conversation",
     "title": "Anatomy of a conversation",
     "section": "Is this actually a conversation?",
-    "text": "Is this actually a conversation?\n\nPhoto by Marija Zaric on Unsplash\n\n\nIt IS a conversation, but it works differently than you might think."
+    "text": "Is this actually a conversation?\n\nPhoto by Marija Zaric on Unsplash\n\n\nYou just saw in clearbot what’s really happening when you have a conversation with an LLM.\nThose conversations look something like this - you ask, it responds, back and forth. But as clearbot showed, something interesting is happening behind the scenes.\nIt IS a conversation, but it works differently than you might think."
   },
   {
     "objectID": "slides/slides-02.html#llms-are-stateless",
@@ -350,8 +343,8 @@
     "text": "Think Empirically, Not Theoretically\n\nIt’s okay to (mostly) treat LLMs as black boxes.\nJust try it! When wondering if an LLM can do something,\nexperiment rather than theorize\nYou might think they could not possibly do things\nthat they clearly can do today\nAnd you might think surely they can do something\nthat it turns out they’re terrible at\n\n\n\nUnderstanding the technical details can lead to bad intuition about capabilities\nYou might think “they could not possibly do things that they clearly can do today”\nEmpirical testing reveals actual capabilities vs. theoretical limitations"
   },
   {
-    "objectID": "slides/slides-02.html#section-17",
-    "href": "slides/slides-02.html#section-17",
+    "objectID": "slides/slides-02.html#section-16",
+    "href": "slides/slides-02.html#section-16",
     "title": "Anatomy of a conversation",
     "section": "",
     "text": "Don’t expect smooth, predictable performance across tasks. LLMs can surprise you - excelling at some complex tasks while struggling with seemingly simple ones."
@@ -364,18 +357,11 @@
     "text": "LLMs are jagged"
   },
   {
-    "objectID": "slides/slides-02.html#embrace-the-experimental-process-1",
-    "href": "slides/slides-02.html#embrace-the-experimental-process-1",
-    "title": "Anatomy of a conversation",
-    "section": "Embrace the Experimental Process",
-    "text": "Embrace the Experimental Process\n\nExplore!\nFocus on learning and engaging with the technology, not outcomes\nFailure is valuable!\nthose are some of the most interesting conversations that we have\nIt doesn’t have to be a success.\nAttempts that don’t work still provide insights\n\n\n\nUse the best models available for experimentation\nDon’t constrain yourself to “practical” applications initially\nThink of it as forming your own independent conclusions about usefulness"
-  },
-  {
-    "objectID": "slides/slides-02.html#section-18",
-    "href": "slides/slides-02.html#section-18",
+    "objectID": "slides/slides-02.html#section-17",
+    "href": "slides/slides-02.html#section-17",
     "title": "Anatomy of a conversation",
     "section": "",
-    "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\n\n\nFROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with."
+    "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\n\n\nellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we’ve been working with."
   },
   {
     "objectID": "workshop.html",
@@ -583,14 +569,14 @@
     "href": "slides/slides-01.html#but-well-give-you-api-keys-to-use-today",
     "title": "Welcome!",
     "section": "But we’ll give you API keys to use today!",
-    "text": "But we’ll give you API keys to use today!\n\nUse these keys for all of our activities today\nExplore! But please be considerate :)\nWe’ll turn them off at the end of the workshop\n\n\nalready set up in posit cloud"
+    "text": "But we’ll give you API keys to use today!\n\nUse these keys for all of our activities today\nExplore! But please be considerate :)\nWe’ll turn them off at the end of the workshop\n\n\nwe will set this up next"
   },
   {
     "objectID": "slides/slides-01.html#our-turn",
     "href": "slides/slides-01.html#our-turn",
     "title": "Welcome!",
     "section": "Our Turn",
-    "text": "Our Turn\n\nInstruqt should now be ready to open.\n\nClick the green Start button, then Open external window.\n\nClick New Session and select either RStudio Pro or Positron Pro.\nClick Launch.\n\n\n🔑 Set up keys:\n\nCopy the code in the provided Google Doc.\nPaste it into the R console and run.\n\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm/01_hello-llm.R\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nSend google doc in the chat!! we are going to do these steps together"
+    "text": "Our Turn\n\nInstruqt should now be ready to open.\n\nClick the green Start button, then Open external window.\n\nClick New Session and select either RStudio Pro or Positron Pro.\nClick Launch.\nOpen the r-medicine-llm-exercises folder (do not create a project).\n\n\n🔑 Set up keys:\n\nCopy the code in the provided Google Doc.\nPaste it into the R console and run.\n\n\n\n🤖 Check that everything’s working:\n\n\nRun the code in _exercises/01_hello-llm/01_hello-llm.R\n\n\n\n  \n    −\n    +\n \n 02:00\n \n\nSend google doc in the chat!! we are going to do these steps together"
   },
   {
     "objectID": "slides/slides-03.html#section",
@@ -625,14 +611,7 @@
     "href": "slides/slides-03.html#section-3",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models. So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs."
-  },
-  {
-    "objectID": "slides/slides-03.html#model-comparison",
-    "href": "slides/slides-03.html#model-comparison",
-    "title": "Programming with LLMs",
-    "section": "",
-    "text": "for openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper"
+    "text": "All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models. So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.\nfor openai, they have the GPT- models their largest are gpt or gpt pro and then mini and nano are smaller and faster and cheaper"
   },
   {
     "objectID": "slides/slides-03.html#localopen-weights-models",
@@ -733,11 +712,11 @@
     "text": "How to choose a model\n\n\n\n\n\n\n\nhttp://vitals.tidyverse.org"
   },
   {
-    "objectID": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
-    "href": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
+    "objectID": "slides/slides-03.html#images-get-tokenized-too",
+    "href": "slides/slides-03.html#images-get-tokenized-too",
     "title": "Programming with LLMs",
-    "section": "A picture is worth a thousand words",
-    "text": "A picture is worth a thousand words\n\nImages get tokenized just like text. For LLMs, an image is roughly 170 tokens.\n\n\nOr for an LLM, a picture is roughly 227 words, or 170 tokens."
+    "section": "Images get tokenized too",
+    "text": "Images get tokenized too\n\nImages get tokenized just like text. For LLMs, an image is roughly 170 tokens.\n\n\nOr for an LLM, a picture is roughly 227 words, or 170 tokens."
   },
   {
     "objectID": "slides/slides-03.html#content_image_file",
@@ -807,14 +786,14 @@
     "href": "slides/slides-03.html#structured-chat-output",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\n\nEnter chat_structured() - this method returns structured data instead of text. But we need to tell it what structure we want.\n\nchat$chat_structured(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+    "text": "Structured chat output\n\nEnter chat_structured() - this method returns structured data instead of text. But we need to tell it what structure we want.\n\nchat$chat_structured(age_free_text[[1]])"
   },
   {
     "objectID": "slides/slides-03.html#structured-chat-output-1",
     "href": "slides/slides-03.html#structured-chat-output-1",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
-    "text": "Structured chat output\n\nDefine the structure with type_object() - specify each field and its type. Then pass it to chat_structured().\n\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+    "text": "Structured chat output\n\nDefine the structure with type_object() - specify each field and its type. Then pass it to chat_structured().\ntype object creats a list but each element must have specified type\n\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)"
   },
   {
     "objectID": "slides/slides-03.html#structured-chat-output-2",
@@ -849,14 +828,14 @@
     "href": "slides/slides-05.html#section-1",
     "title": "Tool Calling",
     "section": "",
-    "text": "what about asking it to affect the world, like writing a file to your computer?\nThey also can’t interact with the file system, send emails, or take any real-world actions.\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"Write df to data/data.csv\")\n\nI'm not able to actually execute code or \nwrite files to your system. I can only provide \ncode snippets and guidance.\n\n\n\n\nLLMs can’t affect the world!"
+    "text": "what about asking it to affect the world, like writing a file to your computer?\nThey also can’t interact with the file system, send emails, or take any real-world actions.\nat this point you might be thinking…\n\nchat &lt;- chat(\"anthropic/claude-haiku-4-5\")\n\nchat$chat(\"Write df to data/data.csv\")\n\nI'm not able to actually execute code or \nwrite files to your system. I can only provide \ncode snippets and guidance.\n\n\n\n\nLLMs can’t affect the world!"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata",
     "href": "slides/slides-05.html#tool-function-metadata",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\n\nSo how do we solve these problems? Tools!\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.\nThey can also give the model new abilities to take action on behalf of the user.\ntools are essentially just functions + metadata. if you’ve ever written an R function and then documented it, you can write a tool. it’s basically the same process, just iwth an LLM as the intended audience instead of another human.\n\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own. The goal is to let the model pull in real-time or up-to-date information as needed.\nThey can also give the model new abilities to take action on behalf of the user."
+    "text": "Tool = function + metadata\n\nSo how do we solve these problems? Tools!\nTools are extra capabilities that you give to the LLM, like the ability to check the weather or query a database. These capabilities are things that the model can’t do on its own.\ntools are essentially just functions + metadata. if you’ve ever written an R function and then documented it, you can write a tool. it’s basically the same process, just iwth an LLM as the intended audience instead of another human.\nso we can use tools to click…\n\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-1",
@@ -884,7 +863,7 @@
     "href": "slides/slides-05.html#tool-function-metadata-4",
     "title": "Tool Calling",
     "section": "Tool = function + metadata",
-    "text": "Tool = function + metadata\nget_weather &lt;- function(latitude, longitude) {\n  weathR::point_forecast(latitude, longitude)\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = \n    list(\n      latitude = type_number(\"Latitude\"),\n      longitude = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather_tool)\n\ntake a look in more detail 1. create a function that does our desired functionality 2. then we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types 3. finally, we register it, which tells the llm the tool exists and is available for use"
+    "text": "Tool = function + metadata\nget_weather &lt;- function(latitude, longitude) {\n  weathR::point_forecast(latitude, longitude)\n}\n\nget_weather_tool &lt;- tool(\n  fun = get_weather,\n  description = \"Get the weather for a location\",\n  arguments = \n    list(\n      latitude = type_number(\"Latitude\"),\n      longitude = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather_tool)\n\ntake a look in more detail\n\ncreate a function that does our desired functionality\nthen we annotate it with the tool() function, basically just telling the LLM how to use it. description, arguments with types\nfinally, we register it, which tells the llm the tool exists and is available for use"
   },
   {
     "objectID": "slides/slides-05.html#tool-function-metadata-5",
@@ -905,7 +884,7 @@
     "href": "slides/slides-05.html#type_-functions",
     "title": "Tool Calling",
     "section": "type_() functions",
-    "text": "type_() functions\nget_weather &lt;- tool(\n  \\(lat, lon) weathR::point_forecast(lat, lon),\n  name = \"get_weather\",\n  description = \"Get the weather for a location.\",\n  arguments = list(\n    lat = type_number(\"Latitude\"),\n    lon = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather)\n\nyou might have noticed the type functions way to specify object types for the llm in a way it will easily understand"
+    "text": "type_() functions\nget_weather &lt;- tool(\n  \\(lat, lon) weathR::point_forecast(lat, lon),\n  name = \"get_weather\",\n  description = \"Get the weather for a location.\",\n  arguments = list(\n    lat = type_number(\"Latitude\"),\n    lon = type_number(\"Longitude\")\n  )\n)\n\nchat$register_tool(get_weather)\n\nyou might have noticed the type functions way to specify object types for the llm in a way it will easily understand\nsaw this earlier for structured data"
   },
   {
     "objectID": "slides/slides-05.html#type_-functions-1",
@@ -940,21 +919,21 @@
     "href": "slides/slides-05.html#section-5",
     "title": "Tool Calling",
     "section": "",
-    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF"
+    "text": "The weather API sends back some data:\n\nThe forecast is mostly sunny\nHigh of 98ºF\nLow of 78ºF\n\nellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON."
   },
   {
     "objectID": "slides/slides-05.html#section-6",
     "href": "slides/slides-05.html#section-6",
     "title": "Tool Calling",
     "section": "",
-    "text": "ellmer then sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON."
+    "text": "llm incorporates into response"
   },
   {
     "objectID": "slides/slides-05.html#section-7",
     "href": "slides/slides-05.html#section-7",
     "title": "Tool Calling",
     "section": "",
-    "text": "The LLM doesn’t mind JSON though, so it reads the data and generates a response that incorporates the data from the tool call."
+    "text": "ellmer handles all this communication here for you."
   },
   {
     "objectID": "slides/slides-05.html#the-llm-cannot-run-code-by-itself",
@@ -982,7 +961,7 @@
     "href": "slides/slides-05.html#some-questions",
     "title": "Tool Calling",
     "section": "Some questions",
-    "text": "Some questions\n\nFROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.\n\n\nDoes the model have access to the data?\n\n\nNo.\n\n\nWhat does the model control?\n\n\n\nWhen to use the tool.\nWhat arguments to pass to the function. In this case, just the year and country.\n\n\n\nHow could we make this function better?\n\n\n\nGive the model access to the list of countries and years available.\nThink through failure modes."
+    "text": "Some questions\n\nThese are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.\ndata? no just choosing argument for country and year control? arguments could be better.\n\n\nDoes the model have access to the data?\n\n\nNo.\n\n\nWhat does the model control?\n\n\n\nWhen to use the tool.\nWhat arguments to pass to the function. In this case, just the year and country.\n\n\n\nHow could we make this function better?\n\n\n\nGive the model access to the list of countries and years available.\nThink through failure modes."
   },
   {
     "objectID": "slides/slides-05.html#built-in-web-search-tools",

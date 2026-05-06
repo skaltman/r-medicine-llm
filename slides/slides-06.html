@@ -218,7 +218,8 @@ R/Medicine 2026
 <p><a href="https://posit-dev.github.io/querychat/r/" class="uri">https://posit-dev.github.io/querychat/r/</a></p>
 </div>
 <aside class="notes">
-<p>querychat is a package from Posit that lets you explore tabular data using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.</p>
+<p>querychat is a package from Posit that lets you explore tabular data in a shiny app using natural language. Instead of writing SQL or dplyr code, you just ask questions in plain English.</p>
+<p>do not need to really know shiny! just know shiny makes web apps in r</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -235,6 +236,23 @@ R/Medicine 2026
 <li class="fragment"><p>Built on top of <strong>ellmer</strong> and <strong>Shiny</strong></p></li>
 <li class="fragment"><p>Works with data frames and database connections</p></li>
 </ul>
+</section>
+<section id="demo" class="slide level2 center">
+<h2>Demo</h2>
+<aside class="notes">
+<p>Let me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>👩‍💻 <span class="code b purple">_demos/05_querychat/05_querychat-dashboard.R</span></p>
 </section>
 <section id="how-does-querychat-work" class="slide level2">
 <h2>How does querychat work?</h2>
@@ -299,23 +317,6 @@ R/Medicine 2026
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="fu">querychat_app</span>(your_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="demo" class="slide level2 center">
-<h2>Demo</h2>
-<aside class="notes">
-<p>Let me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p>👩‍💻 <span class="code b purple">_demos/05_querychat/05_querychat-dashboard.R</span></p>
-</section>
 <section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
 <h2></h2>
 <aside class="notes">
@@ -362,7 +363,7 @@ R/Medicine 2026
 <li>“Show me spending by purpose for Japan”</li>
 </ul></li>
 </ol>
-<div id="timer_69d97609d1545aef0540482c2fd6048b50595726" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_4442c252c51f78f0ca94c65f6fda77a4eb97ee86" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
