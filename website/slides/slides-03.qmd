@@ -113,17 +113,14 @@ so all these families have different number versions which indicates how new the
 
 All the major providers follow similar patterns - small/fast/cheap, medium/balanced, large/smart/expensive models.
 So when choosing a model, think about whether you need speed or intelligence, and pick the size that matches your needs.
-:::
 
-![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
-
-## {#model-comparison .smaller}
-
-::: notes
 for openai, they have the GPT- models 
 their largest are gpt or gpt pro
 and then mini and nano are smaller and faster and cheaper
 :::
+
+![](assets/model-comparison-openai.excalidraw.svg){style="display: block; margin: auto;"}
+
 
 ## Local/open weights models
 
@@ -354,7 +351,7 @@ Modern LLMs aren't just text - they can handle images and PDFs too. This is call
 
 [Multi-modal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
 
-## A picture is worth a thousand words {.center}
+##  Images get tokenized too {.center}
 
 ::: notes
 Images get tokenized just like text. For LLMs, an image is roughly 170 tokens.
@@ -660,16 +657,14 @@ Enter chat_structured() - this method returns structured data instead of text. B
 
 ```{.r code-line-numbers="1"}
 chat$chat_structured(age_free_text[[1]])
-#> list(
-#>   name = "Alex",
-#>   age = 42
-#> )
 ```
 
 ## Structured chat output {transition="fade"}
 
 ::: notes
 Define the structure with type_object() - specify each field and its type. Then pass it to chat_structured().
+
+type object creats a list but each element must have specified type
 :::
 
 ```{.r code-line-numbers="1-4|6"}
@@ -679,10 +674,6 @@ type_person <- type_object(
 )
 
 chat$chat_structured(age_free_text[[1]], type = type_person)
-#> list(
-#>   name = "Alex",
-#>   age = 42
-#> )
 ```
 
 ## Structured chat output {transition="fade"}
