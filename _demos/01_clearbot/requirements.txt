@@ -57,7 +57,7 @@ jiter==0.9.0
     # via openai
 linkify-it-py==2.0.3
     # via shiny
-lxml==5.4.0
+lxml>=5.4.0
     # via duckduckgo-search
 markdown-it-py==3.0.0
     # via
@@ -123,7 +123,7 @@ starlette==0.46.2
     # via shiny
 tqdm==4.67.1
     # via openai
-typing-extensions==4.13.2
+typing-extensions>=4.14
     # via
     #   anyio
     #   asgiref
