@@ -31,6 +31,10 @@ The model doesn't remember you, but the provider's servers might.
 
 ## {.center style="text-align: center" transition="fade"}
 
+::: notes
+FROM CLAUDE: These diagrams walk through the trust chain — your code talks to a model provider, which runs the model. Your data flows through the provider's infrastructure. The question is: what does the provider do with it along the way?
+:::
+
 ![](assets/trust-01.excalidraw.svg)
 
 ## {.center style="text-align: center" transition="fade"}
@@ -66,6 +70,10 @@ The model doesn't remember you, but the provider's servers might.
 :::
 
 ## The good news
+
+::: notes
+FROM CLAUDE: This is the key reassurance for the audience. ZDR and BAA agreements are standard practice — most major providers offer them. The point is that this is a solved organizational problem, not a technical barrier.
+:::
 
 ::: fragment
 Your organization can work out a zero data retention (ZDR), HIPAA-compliant agreement, or other arrangements with model providers. These arrangements are common.

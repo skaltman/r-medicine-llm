@@ -74,9 +74,13 @@ querychat_app(your_data)
 Let me show you what this looks like. This is a full Shiny dashboard with querychat embedded — you can filter the data using natural language and the plots and map update automatically.
 :::
 
-👩‍💻 [_demos/06_querychat/06_querychat-dashboard.R]{.code .b .purple}
+👩‍💻 [_demos/05_querychat/05_querychat-dashboard.R]{.code .b .purple}
 
 ## {.center style="text-align: center" transition="fade"}
+
+::: notes
+FROM CLAUDE: These diagrams show how querychat works under the hood — the LLM receives the user's question, writes a SQL query, and the database executes it. The model never sees your raw data.
+:::
 
 ![](assets/querychat-01.excalidraw.svg)
 
@@ -102,13 +106,21 @@ Now it's your turn. Open the exercise file, run it, and explore the health expen
 
 ## {.center style="text-align: center"}
 
+::: notes
+FROM CLAUDE: For those who want to go further — the querychat docs show how to embed it in a full Shiny dashboard with plots, value boxes, and more. That's what you'll do in the next section with Posit Assistant.
+:::
+
 ![](assets/querychat-page.png)
 
-::: footer                                                              
-  <https://posit-dev.github.io/querychat/r/articles/build.html>           
+::: footer
+  <https://posit-dev.github.io/querychat/r/articles/build.html>
 :::     
 
 ## shinychat {.center style="text-align: center"}
+
+::: notes
+FROM CLAUDE: shinychat is the lower-level building block that querychat is built on. If you want to build your own custom chat interface in Shiny — not necessarily tied to data querying — shinychat gives you the UI components.
+:::
 
 ::: columns
 ::: {.column width="30%"}

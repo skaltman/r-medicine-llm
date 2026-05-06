@@ -297,7 +297,7 @@ The LLM also chooses the arguments for the tool. It uses its knowledge to fill i
 But you're programmers! You can automate this. Let me show you how to define tools that run automatically.
 :::
 
-👩‍💻 [_demos/05_tools/05_weather-tool-02-end.R]{.code .b .purple}
+👩‍💻 [_demos/04_tools/04_weather-tool-02-end.R]{.code .b .purple}
 
 ## Helper function: `create_tool_def()`
 
@@ -350,6 +350,10 @@ to highlight: does the model have access to the data? what does the model contro
 
 ## Some questions
 
+::: notes
+FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+:::
+
 ::: {.fragment}
 **Does the model have access to the data?**
 :::
@@ -373,7 +377,7 @@ No.
 :::
 
 ::: {.fragment}
-* Give the model access to the list of counties and years available. 
+* Give the model access to the list of countries and years available. 
 * Think through failure modes. 
 :::
 

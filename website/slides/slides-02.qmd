@@ -45,6 +45,11 @@ The entire conversation happens via HTTP requests and responses
 <https://ellmer.tidyverse.org>
 :::
 
+::: notes
+we can do this same back and forth from R
+with a package called ellmer
+:::
+
 ##
 
 ::: {style="--code-font-size: 0.9em"}
@@ -55,6 +60,17 @@ chat <- chat("anthropic")
 
 chat$chat("Tell me a quick fact about sheep.")
 ```
+:::
+
+::: notes
+lets take a look at the code at a high level
+and then we'll go into the details
+
+in ellmer, you set up a chat -- a connection to an LLM
+
+and then once you have that connection, you can send requests to the model
+
+and it will send you a response back
 :::
 
 ##
@@ -78,6 +94,14 @@ chat$chat("Tell me a quick fact about sheep.")
 
 Most LLMs are accessible through HTTP APIs
 
+::: notes
+it works because most llms are accessible through http apis
+
+this is pretty much just a normal api. if you've ever queried an api to get data, this is fundmentally the same thing, and we're going to use these apis to build tools from r that use llms
+
+lets take a look at the code
+:::
+
 ## {transition="fade"}
 
 ::: notes
@@ -93,7 +117,7 @@ library(ellmer)
 ## {transition="fade"}
 
 ::: notes
-Now we create a chat object. This sets up a connection to OpenAI's API.
+Now we create a chat object. This sets up a connection to (here) anthropic's API.
 The chat object is what we'll use to send messages and get responses.
 :::
 
@@ -128,12 +152,7 @@ chat$chat("Tell me a quick fact about sheep.")
 ::: notes
 And we get a response back!
 
-think back to what we just learned about roles.
-What are the user and assistant roles in this example?
-
-
-The user role is our question - "Tell me a quick fact about sheep"
-The assistant role is the response we got back.
+i have fact checked this fact
 :::
 
 ::: {style="--code-font-size: 0.9em"}
@@ -157,18 +176,20 @@ chat$chat("Tell me a quick fact about sheep.")
 One of the nice things about ellmer is that you can easily inspect the chat object
 to see the full conversation history.
 
-If we just call 'chat', we can see all the messages and their roles.
-You can see the user message and the assistant response, as well as how many tokens were used
+If we just call 'chat', we can see all the messages in the conversation so far
+**click**
+see basics of convo, tokens used and cost (tokens are units of llms--will talk about later)
 
-but what about the third role -- the system prompt? where is that?
-we didn't set up one, so the model just uses whatever behavior it defaults to
+You can see the user message (what we sent) marked with user **click** and the assistant response **click**
+
+**click**
 :::
 
 ::: {style="--code-font-size: 0.7em"}
 ```r
 chat
 ```
-```{.markdown code-line-numbers="|2|2,4"}
+```{.markdown code-line-numbers="|1|2|2,4"}
 <Chat Anthropic/claude-sonnet-4-5 turns=2 input=15 output=37 cost=$0.00>
 ── user ─────────────────────────────────────────────────────────────────────────────────
 Tell me a quick fact about sheep.
@@ -182,19 +203,7 @@ Messages have **roles**.
 :::
 
 ::: notes
-Now let's talk about how these messages are structured.
-
-When you send a message to an LLM, you're not just sending text -
-you're sending text with a specific ROLE attached to it.
-
-There are three main roles that messages can have, and understanding
-these roles is key to working with LLMs programmatically.
-
-- Then USER role - marks what the person using your app types
-- And ASSISTANT role - marks what the LLM responds with
-
-This might seem like a small detail, but these roles are fundamental to
-how you control and guide LLM behavior.
+and these messages are marked with user and assistant because each message in the conversation is assigned a role. 
 :::
 
 ## 
@@ -205,7 +214,7 @@ incremental_slides(
   pattern = "conversation-roles-.+[.]svg$",
   template = r"(![]({path}){{style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}}
 )",
-  collapse = "\n\n## \n\n::: notes\nNow let's talk about how these messages are structured.\n\nWhen you send a message to an LLM, you're not just sending text -\nyou're sending text with a specific ROLE attached to it.\n\nThere are three main roles that messages can have, and understanding\nthese roles is key to working with LLMs programmatically.\n\n[As the diagrams appear]\n- USER messages - what the person using your app types\n- And ASSISTANT messages - what the LLM responds with\n\nThis might seem like a small detail, but these roles are fundamental to\nhow you control and guide LLM behavior.\n\n\n\nthere's also the SYSTEM PROMPT - This is your instruction manual for the LLM. It's where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across
+  collapse = "\n\n## \n\n::: notes\n\nWhen you send a message to an LLM, you're not just sending text -\nyou're sending text with a specific ROLE attached to it.\n\nThere are three main roles that messages can have, and understanding\nthese roles is key to working with LLMs programmatically.\n\n[As the diagrams appear]\n- USER messages - what the person using your app types\n- And ASSISTANT messages - what the LLM responds with\n\nThis might seem like a small detail, but these roles are fundamental to\nhow you control and guide LLM behavior.\n\n\n\nthere's also the SYSTEM PROMPT - This is your instruction manual for the LLM. It's where YOU as the developer tell the model how to behave, what personality to have, what constraints to follow. The user typically never sees this. think about how you would never really come across the chatgpt system prompt. The system prompt is particularly powerful because it persists across
 the entire conversation and shapes how the assistant responds to every
 user message.\n:::\n\n"
 )
@@ -548,25 +557,6 @@ Photo by <a href="https://unsplash.com/@nci?utm_source=unsplash&utm_medium=refer
 - Think of it as forming your own independent conclusions about usefulness
 :::
 
-## Start Simple, Build Understanding {.center .text-center}
-
-## Start Simple, Build Understanding {.center .text-center}
-
-- We're going to focus on the **core building blocks**.
-
-- All the incredible things you see AI do \
-  **decompose to just a few key ingredients**.
-
-- Our goal is to **have fun and build intuition** \
-  through hands-on experience.
-
-::: notes
-- Think **very generally** about what tools can do - they're as powerful as any software you can write
-- Remember: **"Everything decomposes"** to the basic components once you understand the underlying APIs
-- Build intuition through hands-on experience rather than theoretical study
-- We want to have fun in this course! It's worth saying up front that our examples are not necessarily practical, but they're full of practical lessons.
-:::
-
 # [What if I want to keep chatting back-and-forth?]{.bg-white .f1 .normal .relative style="top: -14px"} {background-image="assets/shinychat-input-empty.png" background-size="contain" background-position="center"}
 
 ::: notes
@@ -585,12 +575,7 @@ Transition to showing how to build interactive chat interfaces with shinychat.
 :::
 
 ::: notes
-As we'll see, everything we're going to do today can be done
-in either R or Python and ellmer and chatlas are designed to be similar.
-
-But they're in different languages and those languages have different
-conventions and idioms, so they're not completely identical. If they were,
-one or the other would start to feel unnatural to use.
+FROM CLAUDE: ellmer gives you two ways to have an interactive back-and-forth conversation: live_console() stays in the terminal, live_browser() opens a chat UI in your browser. Both use the same chat object we've been working with.
 :::
 
 # Demo: <br> `live` {.slide-demo style="--code-font-size: 0.66em"}

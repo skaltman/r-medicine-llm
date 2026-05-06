@@ -8,7 +8,6 @@ editor:
 ---
 
 ```{r}
-# REMOVE
 source("_incremental_slides.R")
 ```
 
@@ -72,8 +71,8 @@ Models differ across several dimensions. Let's look at the main factors you'll c
 
 ::: notes
 1. Content: 200k tokens is normal, 1M tokens in some newer models
-1. Speed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.
-1. Cost: $1-5 per million tokens is normal for big frontier models, < $1 for smaller, faster models
+1. Speed: Speed is often a trade-off with intelligence.
+1. Cost: $1-5 per million input tokens is normal for big frontier models, < $1 for smaller, faster models
 1. Intelligence is a stand-in for lots of concepts
 :::
 
@@ -82,7 +81,9 @@ Models differ across several dimensions. Let's look at the main factors you'll c
 ![](assets/model-comparison-anthropic-01.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-We'll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.
+naming can be kind of confusing for all providers, so we'll just quickly go through it 
+
+We'll start with Anthropic. they make a family of models they call claude
 :::
 
 ## {transition="fade"}
@@ -90,25 +91,20 @@ We'll start with Anthropic, a company that builds LLMs, in particular a family o
 ![](assets/model-comparison-anthropic-02.excalidraw.svg){style="display: block; margin: auto;"}
 
 ::: notes
-Claude comes in different sizes, with different levels of intelligence.
+Claude models comes in different sizes, with different levels of intelligence and speed. 
 
-They have a small model that's fast and cheap,
-a large model that's intelligent but expensive,
-and a just-right sized model that balances speed, cost, and intelligence.
-
-In line with Anthropic's branding, these models are named after different types of poetry.
+they naemd their three model families after types of poetry:
 
 * Haiku is small, fast, and cheap
 * Sonnet is larger, more expensive, and more intelligent
 * Opus is the largest, most expensive, and most intelligent
 
-Anthropic's poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry.
-(Yes, that's says a lot.)
-
 When you're choosing a model, you can get higher quality responses by moving up a size tier.
 
 And when new releases come out, you can often get similar quality improvements by moving up a version number.
 (This move tends to be cheaper than moving up a size tier.)
+
+so all these families have different number versions which indicates how new they are. so for opus, the newest is 4.7, sonnet is 4.6, haiku 4.5
 :::
 
 ## {transition="fade"}
@@ -124,21 +120,34 @@ So when choosing a model, think about whether you need speed or intelligence, an
 ## {#model-comparison .smaller}
 
 ::: notes
-Here's a comparison table if you want to see the specific numbers for different models. But don't stress too much about this - pick something and try it.
+for openai, they have the GPT- models 
+their largest are gpt or gpt pro
+and then mini and nano are smaller and faster and cheaper
 :::
-
-<!--
-{{< include ../partials/model-comparison.qmd >}} -->
 
 ## Local/open weights models
 
-* Models that you (or your organization) can run on your own. 
-* Naming schemes can be even more confusing 
+::: notes
+google also has the gemini models, which we aren't going to talk about today purely for efficiency, but the latest gemini models are also pretty good. 
+
+but you don't have to use a major model provider or even pay for tokens directly. there are local or open weights models that you or your organization may be able to run locally, or that you can run on a rented server. 
+
+these have typically been lower ability, but have really been improving recently. 
+:::
+
+* Models that you (or your organization) can run on your own.
+* Naming schemes can be even more confusing
 * Use via HuggingFace, LM Studio, Ollama
 
 ## Local/open weights models
 
 ![](assets/qwen-gemma-options.excalidraw.svg){style="display: block; margin: auto;"}
+
+::: notes
+qwen 3.6 and gemma 4 are two recent examples of good local models
+
+the naming conventions for local models can be even more confusing though
+::: 
 
 ## Local/open weights models
 
@@ -152,18 +161,6 @@ Here's a comparison table if you want to see the specific numbers for different 
 
 ![](assets/local-model-naming-03.excalidraw.svg){style="display: block; margin: auto;"}
 
-##
-
-```{r}
-#| output: asis
-incremental_slides(
-  pattern = "local-model-naming-.+[.]svg$",
-  template = r"(![]({path}){{style="max-width: 90%; max-height: 550px; display: block; margin-left: auto; margin-right: auto;"}}
-)",
-  collapse = "\n\n## \n\n"
-)
-```
-
 ## For example
 
 * **gemma-4**-*31B*
@@ -174,6 +171,10 @@ incremental_slides(
 ## How to choose a model 
 
 * If you have your pick: pick a recent frontier model, then move to a cheaper one if needed 
+
+::: {.fragment}
+but you don't always have your pick!
+:::
 
 
 ::: notes
@@ -231,6 +232,8 @@ and more!
 
 ::: notes
 Ellmer has a shortcut - the chat() function. Just pass a provider name and it picks a good default model for you.
+
+which is what we did earlier
 :::
 
 ::: {style="--code-font-size: 0.9em"}
@@ -305,22 +308,39 @@ Try using different models and see how they compare. This activity helps you get
 
 ## How to choose a model
 
-::: columns
+::: notes
+If you want to be more systematic about model selection, the vitals package lets you run evaluations — benchmark your specific task across models to see which performs best.
 
-::: {.column width="30%"}
+we aren't really going to talk about this today 
+:::
+
+
 ![](../assets/logos/vitals.png)
-:::
 
 
-::: {.column width="70%"}
-![](assets/eval.png)
-:::
-
+::: footer
+<http://vitals.tidyverse.org>
 :::
 
 ## How to choose a model
 
+::: columns
+
+::: {.column width="50%"}
+![](assets/eval.png)
+:::
+
+::: {.column width="50%"}
+
 ![](assets/eval-costs.png)
+
+:::
+
+:::
+
+::: footer
+<http://vitals.tidyverse.org>
+:::
 
 # [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
 
@@ -385,12 +405,12 @@ chat$chat(
 ## Your Turn `04_vision` {.slide-your-turn}
 
 ::: notes
-Now try it yourself - use these food images to practice vision with LLMs. See what kind of descriptions they give.
+This exercise has plots from two datasets — health expenditure and (simulated) Georgia mortality. practice passing images to the model and asking it to interpret what it sees.
 :::
 
-1. There are some images of food in the `data/recipes/images` folder.
+1. There are several data visualization plots in `_exercises/04_vision/`.
 
-2. Your job: show the food to the LLM and ask it to write a corresponding recipe. 
+2. Your job: show a plot to the LLM and ask it to interpret or describe it. 
 
 {{< countdown 5:00 left=0 >}}
 
@@ -412,22 +432,6 @@ chat$chat(
 )
 ```
 :::
-
-
-<!--
-## Your Turn `09_pdf` {.slide-your-turn}
-
-::: notes
-Practice with PDFs - convert these recipe PDFs to markdown. This shows how LLMs can extract and reformat document content.
-:::
-
-1. We have the actual recipes as PDFs in the `data/recipes/pdf` folder.
-
-2. Your job: ask the LLM to convert the recipes to markdown.
-
-{{< countdown 5:00 left=0 >}}
-
--->
 
 # [Structured output]{.title-push-down .dib .bg-black .ph4 .white} {.no-invert-dark-mode background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center"}
 
@@ -733,15 +737,13 @@ type_person <- type_object(
 # Your Turn `05_structured-output` {.slide-your-turn}
 
 ::: notes
-Now practice structured output - extract recipe data as proper R objects. This is a key skill for working with LLMs in real applications.
+This exercise uses simulated clinical notes. Students extract patient name, age, diagnoses, and medications into structured R objects. Same pattern as the name/age example but more realistic for this audience.
 :::
 
-1. `data/recipes/txt` contains a set of recipes. 
+1. `data/clinical-notes.R` contains fictional clinical notes (free text).
 
-1. Use `ellmer::type_*()` to extract structured data from the Cinnamon Peach Oat Waffles recipe (already read in for you).
+1. Use `ellmer::type_*()` to extract structured patient data (name, age, diagnoses, medications).
 
 1. I've given you the expected structure, you just need to implement it.
-
-1. If you have extra time, try it with other recipes in the folder.
 
 {{< countdown 7:00 left=0 bottom="-1em" >}}

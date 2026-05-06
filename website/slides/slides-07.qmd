@@ -9,14 +9,22 @@ editor:
 
 ## What is an agent?
 
+::: notes
+FROM CLAUDE: An agent is an LLM with tools in a loop — it can observe, act, observe the result, and act again. We just learned about tools; an agent is what happens when you give a model tools and let it decide how to use them iteratively.
+:::
+
 ::: {.incremental}
 * Can gather information from the environment
   * e.g., what files are in a directory?
-* Can alter the environment 
+* Can alter the environment
   * e.g., write a dataset to a file
 :::
 
 ## {.center style="text-align: center" transition="fade"}
+
+::: notes
+FROM CLAUDE: These diagrams illustrate how a coding agent works — it observes the environment, decides what to do, takes action (like running code or writing a file), then observes the result and repeats. It's tools in a loop.
+:::
 
 ![](assets/coding-agents-01.excalidraw.svg)
 
@@ -106,6 +114,6 @@ Use Posit Assistant to help you add features to the querychat app — like embed
 
 3. Ask it to help you extend the app (for example, add a plot).
 
-4. Run the app continue iterating
+4. Run the app and continue iterating.
 
 {{< countdown 6:00 left=0 bottom="-2em" >}}
