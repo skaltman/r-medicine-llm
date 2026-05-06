@@ -120,6 +120,12 @@ Skills are specialized knowledge modules that extend Posit Assistant. They load 
 <https://posit-dev.github.io/assistant/docs/features/skills/>
 :::
 
+## Our Turn: Set up Posit Assistant {.slide-your-turn}
+
+::: notes
+send login
+:::
+
 
 ## Your Turn: Extend the querychat app {.slide-your-turn}
 
