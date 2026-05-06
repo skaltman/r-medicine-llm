@@ -50,7 +50,7 @@ will guide behavior across that entire conversation happening with that chat obj
 prompts are just text, and you can at least start by writing a prompt basically the same as writing a set of instructions for a person.
 :::
 
-# Your Turn `06_prompt-engineering` {.slide-your-turn}
+# Your Turn `05_prompt-engineering` {.slide-your-turn}
 
 ::: notes
 Use system prompts to enforce consistent formatting. Participants have 4 messy note files and need to write a system prompt that makes them all come out in the same format.

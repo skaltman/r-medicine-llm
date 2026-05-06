@@ -423,7 +423,7 @@ if you already have a function defined and documented
 
 
 
-# Your Turn `07_tool-calling` {.slide-your-turn}
+# Your Turn `06_tool-calling` {.slide-your-turn}
 
 ::: notes
 Now practice the full pattern: write a function, wrap it as a tool, register it, and chat. The function filters health expenditure data for a given country.

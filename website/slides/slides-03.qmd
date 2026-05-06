@@ -722,7 +722,7 @@ type_person <- type_object(
 ```
 :::
 
-# Your Turn `05_structured-output` {.slide-your-turn}
+# Your Turn `04_structured-output` {.slide-your-turn}
 
 ::: notes
 This exercise uses simulated clinical notes. Students extract patient name, age, diagnoses, and medications into structured R objects. Same pattern as the name/age example but more realistic for this audience.

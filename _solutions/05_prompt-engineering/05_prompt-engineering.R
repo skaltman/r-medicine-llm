@@ -5,7 +5,7 @@ chat <- chat("anthropic/claude-sonnet-4-6")
 chat$chat(
   "Interpret this plot.",
   content_image_file(
-    here::here("_exercises/06_prompt-engineering/georgia-mortality-plot.png")
+    here::here("_exercises/05_prompt-engineering/georgia-mortality-plot.png")
   )
 )
 
@@ -13,12 +13,12 @@ chat$chat(
 chat_alt <- chat(
   "anthropic/claude-sonnet-4-6",
   system_prompt = readr::read_file(
-    here::here("_solutions/06_prompt-engineering/prompt.md")
+    here::here("_solutions/05_prompt-engineering/prompt.md")
   )
 )
 chat_alt$chat(
   "Interpret this plot.",
   content_image_file(
-    here::here("_exercises/06_prompt-engineering/georgia-mortality-plot.png")
+    here::here("_exercises/05_prompt-engineering/georgia-mortality-plot.png")
   )
 )

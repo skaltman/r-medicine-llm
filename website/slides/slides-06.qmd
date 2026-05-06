@@ -92,13 +92,13 @@ the LLM takes in a user's questino and writes the appropriate sql query. the dat
 
 ![](assets/querychat-02.excalidraw.svg)
 
-# Your Turn `08_querychat` {.slide-your-turn}
+# Your Turn `07_querychat` {.slide-your-turn}
 
 ::: notes
 Now it's your turn. Open the exercise file, run it, and explore the health expenditure data with natural language. Try asking questions about countries, spending purposes, and trends over time.
 :::
 
-1. Open `08_querychat-app.R` and fill in the `querychat_app()` call.
+1. Open `07_querychat-app.R` and fill in the `querychat_app()` call.
 
 2. Run it and explore the health expenditure dataset with natural language.
 
