@@ -442,7 +442,11 @@ to highlight: does the model have access to the data? what does the model contro
 ## Some questions
 
 ::: notes
-FROM CLAUDE: These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+These are important conceptual questions to reinforce. The model never sees your data directly — it only sees what the tool function returns. And the model only controls when to call and what arguments to pass.
+
+data? no just choosing argument for country and year
+control? arguments 
+could be better.
 :::
 
 ::: {.fragment}
