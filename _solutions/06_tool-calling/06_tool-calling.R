@@ -6,13 +6,13 @@ health_exp <- readr::read_csv(
   show_col_types = FALSE
 )
 
-get_country_spending <- function(country, year) {
+get_country_spending <- function(country, year_) {
   if (!country %in% health_exp$country_name) {
     cli::cli_abort(glue::glue("{country} not found."))
   }
 
   health_exp |>
-    filter(country_name == country, .data$year == .env$year) |>
+    filter(country_name == country, year == year_) |>
     select(spending_purpose, pct_current_health_exp, usd_2023) |>
     arrange(desc(usd_2023))
 }
