@@ -32,7 +32,9 @@ The model doesn't remember you, but the provider's servers might.
 ## {.center style="text-align: center" transition="fade"}
 
 ::: notes
-FROM CLAUDE: These diagrams walk through the trust chain — your code talks to a model provider, which runs the model. Your data flows through the provider's infrastructure. The question is: what does the provider do with it along the way?
+lets walk through the flow of data
+when you have a convo, you really only see this
+it looks liek you send a message to anthropic or whoever, and you get back a response
 :::
 
 ![](assets/trust-01.excalidraw.svg)
@@ -41,17 +43,39 @@ FROM CLAUDE: These diagrams walk through the trust chain — your code talks to 
 
 ![](assets/trust-02.excalidraw.svg)
 
+::: notes
+the model provider is responsible for routing your message to the actual model
+:::
+
 ## {.center style="text-align: center" transition="fade"}
 
 ![](assets/trust-03.excalidraw.svg)
+
+::: notes
+remember, LLMs are stateless. so the llm doesn't store your request or any data. it just takes in your request and gives a response
+the model provider handles giving that response back to you
+:::
 
 ## {.center style="text-align: center" transition="fade"}
 
 ![](assets/trust-04.excalidraw.svg)
 
+::: notes
+the nuance is that the model provider might do something with your data, and this can vary by rpovider and by agreement you have with the provider.
+
+model training, third party, storage
+:::
+
 ## {.center style="text-align: center" transition="fade"}
 
 ![](assets/trust-05.excalidraw.svg)
+
+::: notes
+when you use something like posit assistant, this diagram doesn't change much 
+again, teh llm itself isn't going to retain any of your data. it doesn't automatcaly "learn" or anything. 
+
+and posit doesn't store your data unless two things are true
+:::
 
 ## You* need to trust your model provider
 
@@ -70,10 +94,6 @@ FROM CLAUDE: These diagrams walk through the trust chain — your code talks to 
 :::
 
 ## The good news
-
-::: notes
-FROM CLAUDE: This is the key reassurance for the audience. ZDR and BAA agreements are standard practice — most major providers offer them. The point is that this is a solved organizational problem, not a technical barrier.
-:::
 
 ::: fragment
 Your organization can work out a zero data retention (ZDR), HIPAA-compliant agreement, or other arrangements with model providers. These arrangements are common.
