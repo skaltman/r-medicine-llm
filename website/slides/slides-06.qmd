@@ -29,7 +29,9 @@ querychat is a package from Posit that lets you explore tabular data using natur
 ## How does querychat work?
 
 ::: notes
-Here's the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly. This means results are reliable — no hallucinated numbers.
+Here's the key insight: the LLM writes SQL queries, but a database executes them. The LLM never touches your raw data directly. 
+
+this has a variety of benefits
 :::
 
 ::: incremental
@@ -45,7 +47,7 @@ Here's the key insight: the LLM writes SQL queries, but a database executes them
 ## Benefits
 
 ::: notes
-This architecture gives us several important properties, especially relevant for health data.
+This architecture gives us several important properties,
 :::
 
 ::: incremental
@@ -59,6 +61,7 @@ This architecture gives us several important properties, especially relevant for
 ## The simplest version
 
 ::: notes
+querychat is built on shiny, but you don't really need to know shiny today. i want to give you an overview of querychat becasue it's pretty useful, so we're just going to make a really simple app. 
 You can get started with just two lines of code. querychat_app() launches a full chat interface for exploring any data frame.
 :::
 
@@ -79,7 +82,8 @@ Let me show you what this looks like. This is a full Shiny dashboard with queryc
 ## {.center style="text-align: center" transition="fade"}
 
 ::: notes
-FROM CLAUDE: These diagrams show how querychat works under the hood — the LLM receives the user's question, writes a SQL query, and the database executes it. The model never sees your raw data.
+lets take a closer look at how querychat works. 
+the LLM takes in a user's questino and writes the appropriate sql query. the database executes that query, updating the underlying data used in the app (if you know shiny, it's updating reactives). The model never sees your raw data. it may see the result of the query though 
 :::
 
 ![](assets/querychat-01.excalidraw.svg)
@@ -107,7 +111,9 @@ Now it's your turn. Open the exercise file, run it, and explore the health expen
 ## {.center style="text-align: center"}
 
 ::: notes
-FROM CLAUDE: For those who want to go further — the querychat docs show how to embed it in a full Shiny dashboard with plots, value boxes, and more. That's what you'll do in the next section with Posit Assistant.
+there is a lot more to querychat! the querychat website is very helpful, and you might take a look at this build an app vignette if you want to build a more involved app
+
+querychat_app just gives you the basics.
 :::
 
 ![](assets/querychat-page.png)
@@ -119,7 +125,9 @@ FROM CLAUDE: For those who want to go further — the querychat docs show how to
 ## shinychat {.center style="text-align: center"}
 
 ::: notes
-FROM CLAUDE: shinychat is the lower-level building block that querychat is built on. If you want to build your own custom chat interface in Shiny — not necessarily tied to data querying — shinychat gives you the UI components.
+also useful to know about shinychat, which querychat is built on.
+shinychat lets you build chatbots in shiny
+for r and python
 :::
 
 ::: columns
